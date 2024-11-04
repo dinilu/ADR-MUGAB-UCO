@@ -1,0 +1,11 @@
+---
+title: "Análisis de datos en R"
+subtitle: "Máster Universitario en Gestión Ambiental y Biodiversidad"
+lightbox: auto
+---
+
+Esta es la web con los materiales del curso:
+
+* **Clase 1:** Introducción a R. [Presentación](ADR-1_Intro.qmd){target="_blank"} - [Ejercicios](ADR-1-Ejercicios.qmd){target="_blank"} - [Homeworks](ADR-1-Homeworks.qmd){target="_blank"}
+
+Esta página web se construyó usando el sistema Quarto de RStudio. Para saber más sobre páginas web creadas con Quarto visita <https://quarto.org/docs/websites>.

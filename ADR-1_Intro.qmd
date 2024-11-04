@@ -1,0 +1,227 @@
+---
+title: "Introducción a R"
+subtitle: "Análisis de datos con R"
+author: "Diego Nieto Lugilde"
+institute: "Máster Universitario en Gestión Ambiental y Biodiversidad. Universidad de Córdoba (España)"
+slide-number: true
+format:
+  revealjs:
+    logo: img/R-logo.png
+    footer: "[Análisis de datos con R](index.qmd)"
+    scrollable: true
+    chalkboard: true
+    mermaid:
+      theme: forest
+  gfm: 
+    mermaid-format: svg
+lightbox: auto
+editor: source
+---
+
+# El curso...
+
+## El plan
+
+* Tema 1: Introducción a R y programación
+  + La estructura de R
+  + Funciones, objetos y programación básica
+  + Entorno (sesión de R) y directorio de trabajo
+  + Trabajar con archivos (scripts y datos)
+* Tema 2: 
+  + Instalación de paquetes
+  + CRAN
+  + GitHub
+  + Graficado
+* Tema 4:
+  + Estadística descriptiva
+  + Contraste de hipótesis
+  + Paramétricos vs No paramétricos
+
+# RStudio
+
+Interfaz gráfica
+
+
+# R
+  
+## La estructura de R
+
+* Funciones (¿qué deseas hacer?)
+* Objetos (¿con qué o sobre qué quieres hacerlo?)
+
+```{r}
+#| echo: true
+
+1 + 2
+```
+
+:::{.callout-note}
+Aquí, 1 y 2 son objetos sobre los que aplicamos la función suma.
+:::
+
+## La estructura de R
+
+```{dot}
+digraph {
+
+  Objeto -> Función 
+  Función -> "Nuevo objeto"
+
+  Función [shape=diamond];
+  rankdir="LR";
+}
+```
+
+  
+## Llamar a una función
+
+* *Call*: Una función con un conjunto particular de objetos
+  + función( argumento 1 )
+
+```{r}
+#| echo: true
+
+sqrt(16)
+```
+
+:::{.callout-note}
+El resultado de la función se imprime directamente en pantalla
+:::
+
+
+## Asignación de valores a objetos
+
+* *Assign*: Una función especial para crear/modificar un objeto
+  + Valor específico
+  + El resultado de una llamada a una función
+  
+```{r}
+#| echo: true
+
+x <- 2
+```
+
+:::{.callout-note}
+Fijaros que el resultado no se imprime en pantalla como antes
+:::
+
+
+```{r}
+#| echo: true
+
+x
+```
+
+
+## Múltiples asignaciones para crear objetos
+
+```{r}
+#| echo: true
+
+a = 10
+
+a <- 10
+
+10 -> a
+```
+
+:::{callout-note}
+Estas tres líneas hacen lo mismo
+:::
+
+
+# ¿Qué información puede contener un objeto?
+
+## Números de cualquier tipo
+
+* 0, 0.2, Inf
+
+```{r}
+#| echo: true
+
+numeric_object <- 0.5
+```
+
+
+## Caracteres (texto)
+
+* Texto libre (e.g., "Bromus diandrus",  "Bromus carinatus", o "Bison bison")
+
+```{r}
+#| echo: true
+
+character_object <- "Bromus diandrus"
+```
+
+:::{.callout-warning}
+Las cadenas de texto se ponen entre comillas para poder usar espacios y para distinguirlos de los objetos
+:::
+
+## Valores lógicos
+
+* TRUE (T), FALSE (F)
+
+```{r}
+#| echo: true
+
+logical_object <- TRUE
+```
+
+
+## Factores
+
+* Categorías (e.g., “Masculino” o “Femenino”)
+
+```{r}
+#| echo: true
+
+factor_object <- factor("Male")
+```
+
+
+## No data
+
+* NA
+
+
+```{r}
+#| echo: true
+
+na_object <- NA
+```
+
+
+## ¿Qué hace interesantes a los objetos?
+
+* Entidad con información
+* Se puede reutilizar tantas veces como se quiera
+* Pertenece a una clase, lo que le dota de propiedades propias
+* Cada clase tiene una estructura propia
+
+
+## *class() te dice la clase de un objeto
+
+```{r}
+#| echo: true
+#| eval: false
+
+class(numeric_object)
+class(logical_object)
+class(factor_object)
+class(character_object)
+class(“x”)
+class(x)
+```
+
+
+## ¿Cómo se reutilizan los objetos?
+
+```{r}
+#| echo: true
+
+a <- a + 1
+b <- a * a
+x <- sqrt(b)
+x
+```
+

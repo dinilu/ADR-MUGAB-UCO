@@ -1,0 +1,25 @@
+project:
+  type: website
+
+website:
+  navbar:
+    logo: img/UCO-logo.png
+    logo-alt: "UCO"
+    logo-href: https://www.uco.es
+    left:
+      - href: https://www.uco.es/idep/master-gestion-ambiental-y-biodiversidad
+        text: MUGAB
+      - href: index.qmd
+        text: Inicio
+      - href: https://dnietolugilde.com
+        text: Profesor
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    toc: true
+    lang: es
+    
+execute:
+  freeze: auto
