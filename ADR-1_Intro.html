@@ -616,7 +616,7 @@ Diego Nieto Lugilde
 <section id="caracteres-texto" class="slide level2">
 <h2>Caracteres (texto)</h2>
 <ul>
-<li>Texto libre (e.g., “Bromus diandrus”, “Bromus carinatus”, o “Bison bison”)</li>
+<li>Texto libre</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>character_object <span class="ot">&lt;-</span> <span class="st">"Bromus diandrus"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -647,10 +647,10 @@ Diego Nieto Lugilde
 <section id="factores" class="slide level2">
 <h2>Factores</h2>
 <ul>
-<li>Categorías (e.g., “Masculino” o “Femenino”)</li>
+<li>Categorías (e.g., “Planta”, “Animal”, “Hongo”)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>factor_object <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="st">"Male"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>factor_object <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="st">"Plant"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="no-data" class="slide level2">
@@ -766,6 +766,15 @@ Diego Nieto Lugilde
 </div>
 </div>
 </section>
+<section id="se-pasan-varios-objetos-a-las-funciones-separados-por-comas" class="slide level2">
+<h2>Se pasan varios objetos a las funciones separados por comas</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">sum</span>(<span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">24</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 82</code></pre>
+</div>
+</div>
+</section>
 <section id="algunos-objetos-no-son-datos-si-no-opciones-que-modifican-el-comportamiento-de-las-funciones" class="slide level2">
 <h2>Algunos objetos no son datos, si no opciones que modifican el comportamiento de las funciones</h2>
 <div class="cell" data-layout-align="default">
@@ -851,15 +860,6 @@ Diego Nieto Lugilde
 </div>
 <div class="{callout-note}">
 <p>Las opciones en realidad también son objetos. El número de objetos que requiere una función se conocen como argumentos</p>
-</div>
-</section>
-<section id="se-pasan-varios-objetos-a-las-funciones-separados-por-comas" class="slide level2">
-<h2>Se pasan varios objetos a las funciones separados por comas</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">sum</span>(<span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">24</span>, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 82</code></pre>
-</div>
 </div>
 </section>
 <section id="las-opciones-también-se-separan-por-comas" class="slide level2">
@@ -1040,7 +1040,7 @@ Diego Nieto Lugilde
 <section id="matrices" class="slide level2">
 <h2>Matrices</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span><span class="dv">0</span>, <span class="at">nrow=</span><span class="dv">6</span>, <span class="at">ncol=</span><span class="dv">5</span>)</span>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">6</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
 <span id="cb46-2"><a></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4] [,5]
@@ -1056,7 +1056,7 @@ Diego Nieto Lugilde
 <section id="matrices-1" class="slide level2">
 <h2>Matrices</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>, <span class="at">nrow=</span><span class="dv">6</span>, <span class="at">ncol=</span><span class="dv">5</span>)</span>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>, <span class="at">nrow =</span> <span class="dv">6</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
 <span id="cb48-2"><a></a><span class="co"># ????</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -1075,15 +1075,15 @@ Diego Nieto Lugilde
 <section id="extrayendo-valores-de-matrices-1" class="slide level2">
 <h2>Extrayendo valores de matrices</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>, <span class="at">nrow=</span><span class="dv">6</span>, <span class="at">ncol=</span><span class="dv">5</span>)</span>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">data =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">30</span>, <span class="at">nrow =</span> <span class="dv">6</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
 <span id="cb49-2"><a></a></span>
-<span id="cb49-3"><a></a>A[<span class="dv">3</span>,<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb49-3"><a></a>A[<span class="dv">3</span>, <span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 21</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>A[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>),<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>A[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>), <span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 19 20 21</code></pre>
 </div>
@@ -1130,11 +1130,129 @@ Diego Nieto Lugilde
 </ul></li>
 </ul>
 </section></section>
+<section>
 <section id="probamos-cosas" class="title-slide slide level1 center">
 <h1>¿Probamos cosas?</h1>
 <ul>
 <li>Ejercicios de clase</li>
 <li>Parte 2: Trabajando con matrices y data frames</li>
+</ul>
+</section>
+<section id="archivos-objetos-y-proyectos" class="slide level2">
+<h2>Archivos, objetos y proyectos</h2>
+<blockquote>
+<p>Los tres son cosas diferentes en R…</p>
+</blockquote>
+<div class="columns">
+<ul>
+<li>Los archivos son scripts (e.g., un archivo de texto) o archivos de datos (e.g., Excel) en el disco duro</li>
+<li>Los objetos son datos en la sesión de R. Sólo existen en la memoria temporal del ordenador</li>
+<li>Un proyecto es una carpeta con un montón de archivos y objetos de R
+<ul>
+<li>Es recomendable usar una estructura de carpetas lógica</li>
+</ul></li>
+</ul><div class="column" style="width:65%;">
+
+</div><div class="column" style="width:35%;">
+<ul>
+<li>Carpeta del proyecto
+<ul>
+<li>Datos/</li>
+<li>Figuras/</li>
+<li>Tablas/</li>
+<li>Script_1</li>
+<li>Script_2</li>
+<li>Script_3</li>
+</ul></li>
+</ul>
+</div></div>
+</section>
+<section id="entorno-sesión-o-environment-de-r" class="slide level2">
+<h2>Entorno, sesión o <em>environment</em> de R</h2>
+<ul>
+<li>El espacio temporal en la memoria del equipo donde R guarda objetos mientras ejecuta un análisis</li>
+<li>Está limitado en tamaño por la memoria RAM del ordenador</li>
+</ul>
+</section>
+<section id="funciones-útiles-para-controlar-la-sesión-de-trabajo" class="slide level2">
+<h2>Funciones útiles para controlar la sesión de trabajo</h2>
+<ul>
+<li>Para enumerar objetos en la sesión de R: <code>ls()</code></li>
+<li>Para eliminar objetos de la sesión de R: <code>rm()</code></li>
+<li>Para guardar la sesión de R: <code>save.image()</code></li>
+<li>Para salir de la sesión de R: <code>q()</code></li>
+</ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "a"                "A"                "b"                "character_object"
+ [5] "df"               "factor_object"    "kingdom"          "logical_object"  
+ [9] "na_object"        "numeric_object"   "several_data"     "species"         
+[13] "x"               </code></pre>
+</div>
+</div>
+</section>
+<section id="directorio-de-trabajo-carpeta-del-proyecto" class="slide level2">
+<h2>Directorio de trabajo (= carpeta del proyecto)</h2>
+<ul>
+<li>Es el directorio donde R busca archivos o escribe archivos</li>
+<li>En una sesión de R, las referencias a archivos se hacen desde el directorio de trabajo
+<ul>
+<li>Es conveniente usar rutas relativas a los ficheros</li>
+</ul></li>
+</ul>
+<p><code>getwd()</code> obtener el directorio de trabajo <code>setwd()</code> lo cambia</p>
+</section>
+<section id="trabajar-con-datos" class="slide level2">
+<h2>Trabajar con datos</h2>
+<ul>
+<li>Lectura de datos del disco duro</li>
+<li>R lo almacena como un objeto (guardado en la memoria de su computadora)</li>
+<li>Trata ese objeto como cualquier otro objeto</li>
+<li>Los cambios en el objeto están restringidos al objeto, no afectan a los datos del disco duro</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a>myData <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"some data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="escribir-un-archivo-de-datos" class="slide level2">
+<h2>Escribir un archivo de datos</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a><span class="fu">write.csv</span>(myData, <span class="st">"updated data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="scripts" class="slide level2">
+<h2>Scripts</h2>
+<blockquote>
+<p>No se manejan desde la consola de R, si no desde la interfaz de Rstudio.</p>
+</blockquote>
+<ul>
+<li>Archivos de texto</li>
+<li>Con llamadas a funciones (código)</li>
+<li>Ordenado y secuencial:
+<ul>
+<li>Cargar datos</li>
+<li>Modificar datos</li>
+<li>Análisis de datos</li>
+<li>Guardar/trazar resultados</li>
+</ul></li>
+<li>Puede/debe contener comentarios legibles por humanos
+<ul>
+<li>Usar # antes del comentario</li>
+</ul></li>
+</ul>
+</section>
+<section id="seguimos-practicando" class="slide level2">
+<h2>Seguimos practicando</h2>
+<ul>
+<li>Ejercicios de clase</li>
+<li>Parte 3</li>
+</ul>
+</section>
+<section id="ejercicios-de-casa-homeworks" class="slide level2">
+<h2>Ejercicios de casa (Homeworks)</h2>
+<ul>
+<li>En la web de la asignatura (enlace en Moodle)</li>
+<li>Entregar antes de la siguiente clase</li>
 </ul>
 
 <div class="quarto-auto-generated-content">
@@ -1143,7 +1261,7 @@ Diego Nieto Lugilde
 <p><a href="./index.html">Análisis de datos con R</a></p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -1619,7 +1737,7 @@ Diego Nieto Lugilde
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
+    <script>var lightboxQuarto = GLightbox({"loop":false,"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","closeEffect":"zoom"});
     (function() {
       let previousOnload = window.onload;
       window.onload = () => {

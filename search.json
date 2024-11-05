@@ -67,7 +67,7 @@
     "href": "ADR-1_Intro.html#caracteres-texto",
     "title": "Introducción a R",
     "section": "Caracteres (texto)",
-    "text": "Caracteres (texto)\n\nTexto libre (e.g., “Bromus diandrus”, “Bromus carinatus”, o “Bison bison”)\n\n\ncharacter_object &lt;- \"Bromus diandrus\"\n\n\n\n\n\n\n\nWarning\n\n\nLas cadenas de texto se ponen entre comillas para poder usar espacios y para distinguirlos de los objetos"
+    "text": "Caracteres (texto)\n\nTexto libre\n\n\ncharacter_object &lt;- \"Bromus diandrus\"\n\n\n\n\n\n\n\nWarning\n\n\nLas cadenas de texto se ponen entre comillas para poder usar espacios y para distinguirlos de los objetos"
   },
   {
     "objectID": "ADR-1_Intro.html#valores-lógicos",
@@ -81,7 +81,7 @@
     "href": "ADR-1_Intro.html#factores",
     "title": "Introducción a R",
     "section": "Factores",
-    "text": "Factores\n\nCategorías (e.g., “Masculino” o “Femenino”)\n\n\nfactor_object &lt;- factor(\"Male\")"
+    "text": "Factores\n\nCategorías (e.g., “Planta”, “Animal”, “Hongo”)\n\n\nfactor_object &lt;- factor(\"Plant\")"
   },
   {
     "objectID": "ADR-1_Intro.html#no-data",
@@ -119,18 +119,18 @@
     "text": "Muchas funciones aceptan varios objetos\n\n\n\n\n\n\n\n\n\n\nObjeto1\n\nObjeto1\n\n\n\nFunción\n\nFunción\n\n\n\nObjeto1-&gt;Función\n\n\n\n\n\nNuevo objeto\n\nNuevo objeto\n\n\n\nFunción-&gt;Nuevo objeto\n\n\n\n\n\nObjeto2\n\nObjeto2\n\n\n\nObjeto2-&gt;Función\n\n\n\n\n\nObjeto3\n\nObjeto3\n\n\n\nObjeto3-&gt;Función"
   },
   {
-    "objectID": "ADR-1_Intro.html#algunos-objetos-no-son-datos-si-no-opciones-que-modifican-el-comportamiento-de-las-funciones",
-    "href": "ADR-1_Intro.html#algunos-objetos-no-son-datos-si-no-opciones-que-modifican-el-comportamiento-de-las-funciones",
-    "title": "Introducción a R",
-    "section": "Algunos objetos no son datos, si no opciones que modifican el comportamiento de las funciones",
-    "text": "Algunos objetos no son datos, si no opciones que modifican el comportamiento de las funciones\n\n\n\n\n\n\n\n\n\n\nObjeto1\n\nObjeto1\n\n\n\nFunción\n\nFunción\n\n\n\nObjeto1-&gt;Función\n\n\n\n\n\nNuevo objeto\n\nNuevo objeto\n\n\n\nFunción-&gt;Nuevo objeto\n\n\n\n\n\nObjeto2\n\nObjeto2\n\n\n\nObjeto2-&gt;Función\n\n\n\n\n\nObjeto3\n\nObjeto3\n\n\n\nObjeto3-&gt;Función\n\n\n\n\n\nOpción\n\nOpción\n\n\n\nOpción-&gt;Función\n\n\n\n\n\n\n\n\n\n\n\nLas opciones en realidad también son objetos. El número de objetos que requiere una función se conocen como argumentos"
-  },
-  {
     "objectID": "ADR-1_Intro.html#se-pasan-varios-objetos-a-las-funciones-separados-por-comas",
     "href": "ADR-1_Intro.html#se-pasan-varios-objetos-a-las-funciones-separados-por-comas",
     "title": "Introducción a R",
     "section": "Se pasan varios objetos a las funciones separados por comas",
     "text": "Se pasan varios objetos a las funciones separados por comas\n\nsum(15, 16, 17, 24, 10)\n\n[1] 82"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#algunos-objetos-no-son-datos-si-no-opciones-que-modifican-el-comportamiento-de-las-funciones",
+    "href": "ADR-1_Intro.html#algunos-objetos-no-son-datos-si-no-opciones-que-modifican-el-comportamiento-de-las-funciones",
+    "title": "Introducción a R",
+    "section": "Algunos objetos no son datos, si no opciones que modifican el comportamiento de las funciones",
+    "text": "Algunos objetos no son datos, si no opciones que modifican el comportamiento de las funciones\n\n\n\n\n\n\n\n\n\n\nObjeto1\n\nObjeto1\n\n\n\nFunción\n\nFunción\n\n\n\nObjeto1-&gt;Función\n\n\n\n\n\nNuevo objeto\n\nNuevo objeto\n\n\n\nFunción-&gt;Nuevo objeto\n\n\n\n\n\nObjeto2\n\nObjeto2\n\n\n\nObjeto2-&gt;Función\n\n\n\n\n\nObjeto3\n\nObjeto3\n\n\n\nObjeto3-&gt;Función\n\n\n\n\n\nOpción\n\nOpción\n\n\n\nOpción-&gt;Función\n\n\n\n\n\n\n\n\n\n\n\nLas opciones en realidad también son objetos. El número de objetos que requiere una función se conocen como argumentos"
   },
   {
     "objectID": "ADR-1_Intro.html#las-opciones-también-se-separan-por-comas",
@@ -214,14 +214,14 @@
     "href": "ADR-1_Intro.html#matrices",
     "title": "Introducción a R",
     "section": "Matrices",
-    "text": "Matrices\n\nA &lt;- matrix(data=0, nrow=6, ncol=5)\nA\n\n     [,1] [,2] [,3] [,4] [,5]\n[1,]    0    0    0    0    0\n[2,]    0    0    0    0    0\n[3,]    0    0    0    0    0\n[4,]    0    0    0    0    0\n[5,]    0    0    0    0    0\n[6,]    0    0    0    0    0"
+    "text": "Matrices\n\nA &lt;- matrix(data = 0, nrow = 6, ncol = 5)\nA\n\n     [,1] [,2] [,3] [,4] [,5]\n[1,]    0    0    0    0    0\n[2,]    0    0    0    0    0\n[3,]    0    0    0    0    0\n[4,]    0    0    0    0    0\n[5,]    0    0    0    0    0\n[6,]    0    0    0    0    0"
   },
   {
     "objectID": "ADR-1_Intro.html#matrices-1",
     "href": "ADR-1_Intro.html#matrices-1",
     "title": "Introducción a R",
     "section": "Matrices",
-    "text": "Matrices\n\nA &lt;- matrix(data=1:30, nrow=6, ncol=5)\n# ????"
+    "text": "Matrices\n\nA &lt;- matrix(data = 1:30, nrow = 6, ncol = 5)\n# ????"
   },
   {
     "objectID": "ADR-1_Intro.html#extrayendo-valores-de-matrices",
@@ -235,7 +235,7 @@
     "href": "ADR-1_Intro.html#extrayendo-valores-de-matrices-1",
     "title": "Introducción a R",
     "section": "Extrayendo valores de matrices",
-    "text": "Extrayendo valores de matrices\n\nA &lt;- matrix(data=1:30, nrow=6, ncol=5)\n\nA[3,4]\n\n[1] 21\n\n\n\nA[c(1:3),4]\n\n[1] 19 20 21\n\n# ???"
+    "text": "Extrayendo valores de matrices\n\nA &lt;- matrix(data = 1:30, nrow = 6, ncol = 5)\n\nA[3, 4]\n\n[1] 21\n\n\n\nA[c(1:3), 4]\n\n[1] 19 20 21\n\n# ???"
   },
   {
     "objectID": "ADR-1_Intro.html#pueden-los-objetos-mezclar-tipos-de-datos",
@@ -264,5 +264,68 @@
     "title": "Introducción a R",
     "section": "Extrayendo información de un data frame",
     "text": "Extrayendo información de un data frame\n\nExtracción de columnas\n\nData$columnname\nData[,”columnname”]\nData[,3]\n\nNombre de filas\n\nrownames(Data)\n\nNombre de columnas\n\ncolnames(Data)"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#archivos-objetos-y-proyectos",
+    "href": "ADR-1_Intro.html#archivos-objetos-y-proyectos",
+    "title": "Introducción a R",
+    "section": "Archivos, objetos y proyectos",
+    "text": "Archivos, objetos y proyectos\n\nLos tres son cosas diferentes en R…\n\n\n\nLos archivos son scripts (e.g., un archivo de texto) o archivos de datos (e.g., Excel) en el disco duro\nLos objetos son datos en la sesión de R. Sólo existen en la memoria temporal del ordenador\nUn proyecto es una carpeta con un montón de archivos y objetos de R\n\nEs recomendable usar una estructura de carpetas lógica\n\n\n\n\n\nCarpeta del proyecto\n\nDatos/\nFiguras/\nTablas/\nScript_1\nScript_2\nScript_3"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#entorno-sesión-o-environment-de-r",
+    "href": "ADR-1_Intro.html#entorno-sesión-o-environment-de-r",
+    "title": "Introducción a R",
+    "section": "Entorno, sesión o environment de R",
+    "text": "Entorno, sesión o environment de R\n\nEl espacio temporal en la memoria del equipo donde R guarda objetos mientras ejecuta un análisis\nEstá limitado en tamaño por la memoria RAM del ordenador"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#funciones-útiles-para-controlar-la-sesión-de-trabajo",
+    "href": "ADR-1_Intro.html#funciones-útiles-para-controlar-la-sesión-de-trabajo",
+    "title": "Introducción a R",
+    "section": "Funciones útiles para controlar la sesión de trabajo",
+    "text": "Funciones útiles para controlar la sesión de trabajo\n\nPara enumerar objetos en la sesión de R: ls()\nPara eliminar objetos de la sesión de R: rm()\nPara guardar la sesión de R: save.image()\nPara salir de la sesión de R: q()\n\n\n\n [1] \"a\"                \"A\"                \"b\"                \"character_object\"\n [5] \"df\"               \"factor_object\"    \"kingdom\"          \"logical_object\"  \n [9] \"na_object\"        \"numeric_object\"   \"several_data\"     \"species\"         \n[13] \"x\""
+  },
+  {
+    "objectID": "ADR-1_Intro.html#directorio-de-trabajo-carpeta-del-proyecto",
+    "href": "ADR-1_Intro.html#directorio-de-trabajo-carpeta-del-proyecto",
+    "title": "Introducción a R",
+    "section": "Directorio de trabajo (= carpeta del proyecto)",
+    "text": "Directorio de trabajo (= carpeta del proyecto)\n\nEs el directorio donde R busca archivos o escribe archivos\nEn una sesión de R, las referencias a archivos se hacen desde el directorio de trabajo\n\nEs conveniente usar rutas relativas a los ficheros\n\n\ngetwd() obtener el directorio de trabajo setwd() lo cambia"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#trabajar-con-datos",
+    "href": "ADR-1_Intro.html#trabajar-con-datos",
+    "title": "Introducción a R",
+    "section": "Trabajar con datos",
+    "text": "Trabajar con datos\n\nLectura de datos del disco duro\nR lo almacena como un objeto (guardado en la memoria de su computadora)\nTrata ese objeto como cualquier otro objeto\nLos cambios en el objeto están restringidos al objeto, no afectan a los datos del disco duro\n\n\nmyData &lt;- read.csv(\"some data.csv\")"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#escribir-un-archivo-de-datos",
+    "href": "ADR-1_Intro.html#escribir-un-archivo-de-datos",
+    "title": "Introducción a R",
+    "section": "Escribir un archivo de datos",
+    "text": "Escribir un archivo de datos\n\nwrite.csv(myData, \"updated data.csv\")"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#scripts",
+    "href": "ADR-1_Intro.html#scripts",
+    "title": "Introducción a R",
+    "section": "Scripts",
+    "text": "Scripts\n\nNo se manejan desde la consola de R, si no desde la interfaz de Rstudio.\n\n\nArchivos de texto\nCon llamadas a funciones (código)\nOrdenado y secuencial:\n\nCargar datos\nModificar datos\nAnálisis de datos\nGuardar/trazar resultados\n\nPuede/debe contener comentarios legibles por humanos\n\nUsar # antes del comentario"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#seguimos-practicando",
+    "href": "ADR-1_Intro.html#seguimos-practicando",
+    "title": "Introducción a R",
+    "section": "Seguimos practicando",
+    "text": "Seguimos practicando\n\nEjercicios de clase\nParte 3"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#ejercicios-de-casa-homeworks",
+    "href": "ADR-1_Intro.html#ejercicios-de-casa-homeworks",
+    "title": "Introducción a R",
+    "section": "Ejercicios de casa (Homeworks)",
+    "text": "Ejercicios de casa (Homeworks)\n\nEn la web de la asignatura (enlace en Moodle)\nEntregar antes de la siguiente clase\n\n\n\n\n\nAnálisis de datos con R"
   }
 ]
