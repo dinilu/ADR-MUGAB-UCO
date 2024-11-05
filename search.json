@@ -263,7 +263,7 @@
     "href": "ADR-1_Intro.html#archivos-objetos-y-proyectos",
     "title": "Introducción a R",
     "section": "Archivos, objetos y proyectos",
-    "text": "Archivos, objetos y proyectos\n\nLos tres son cosas diferentes en R…\n\n\n\n\nLos archivos son scripts (e.g., un archivo de texto) o archivos de datos (e.g., Excel) en el disco duro\nLos objetos son datos en la sesión de R. Sólo existen en la memoria temporal del ordenador\nUn proyecto es una carpeta con un montón de archivos y objetos de R\n\nEs recomendable usar una estructura de carpetas lógica\n\n\n\n\nCarpeta del proyecto\n\nDatos/\nFiguras/\nTablas/\nScript_1\nScript_2\nScript_3"
+    "text": "Archivos, objetos y proyectos\n\nLos tres son cosas diferentes en R…\n\n\n\n\nLos archivos son scripts (e.g., un archivo de texto) o archivos de datos (e.g., Excel) en el disco duro\nLos objetos son datos en la sesión de R. Sólo existen en la memoria temporal del ordenador\nUn proyecto es una carpeta con un montón de archivos y objetos de R\n\nEs recomendable usar una estructura de carpetas lógica\n\n\n\n\n\nCarpeta/\n\nDatos/\nFiguras/\nTablas/\nScript_1\nScript_2\nScript_3"
   },
   {
     "objectID": "ADR-1_Intro.html#entorno-sesión-o-environment-de-r",
@@ -299,6 +299,13 @@
     "title": "Introducción a R",
     "section": "Escribir un archivo de datos",
     "text": "Escribir un archivo de datos\n\nwrite.csv(myData, \"updated data.csv\")"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#mucho-más-conveniente-usar-ficheros-excel",
+    "href": "ADR-1_Intro.html#mucho-más-conveniente-usar-ficheros-excel",
+    "title": "Introducción a R",
+    "section": "¿Mucho más conveniente usar ficheros excel?",
+    "text": "¿Mucho más conveniente usar ficheros excel?\n\ninstall.packages(\"openxlsx\")\nlibrary(openxlsx)\ndata &lt;- read.xlsx(\"data\", sheet = 1)"
   },
   {
     "objectID": "ADR-1_Intro.html#scripts",
