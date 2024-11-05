@@ -97,7 +97,7 @@ Consulta la página de ayuda por completo... hasta el final.
 :::
 
 
-# Parte 2: Trabajando con matrices, data.frames y listas
+# Parte 2: Trabajando con matrices y data.frames
 
 **1. Crea una matriz llamada "A" que tenga 12 filas y 8 columnas, donde cada elemento en la matriz sea un número diferente generado aleatoriamente de una distribución normal con una media de 3 y una desviación estándar de 2. Establece una nueva variable "b" que sea igual al elemento en la quinta fila y la sexta columna de "A".**
 
