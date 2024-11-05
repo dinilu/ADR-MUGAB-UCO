@@ -101,14 +101,168 @@
     "objectID": "ADR-1_Intro.html#class-te-dice-la-clase-de-un-objeto",
     "href": "ADR-1_Intro.html#class-te-dice-la-clase-de-un-objeto",
     "title": "Introducción a R",
-    "section": "*class() te dice la clase de un objeto",
-    "text": "*class() te dice la clase de un objeto\n\nclass(numeric_object)\nclass(logical_object)\nclass(factor_object)\nclass(character_object)\nclass(“x”)\nclass(x)"
+    "section": "class() te dice la clase de un objeto",
+    "text": "class() te dice la clase de un objeto\n\nclass(numeric_object)\nclass(logical_object)\nclass(factor_object)\nclass(character_object)\nclass(\"x\")\nclass(x)"
   },
   {
     "objectID": "ADR-1_Intro.html#cómo-se-reutilizan-los-objetos",
     "href": "ADR-1_Intro.html#cómo-se-reutilizan-los-objetos",
     "title": "Introducción a R",
     "section": "¿Cómo se reutilizan los objetos?",
-    "text": "¿Cómo se reutilizan los objetos?\n\na &lt;- a + 1\nb &lt;- a * a\nx &lt;- sqrt(b)\nx\n\n[1] 11\n\n\n\n\n\n\nAnálisis de datos con R"
+    "text": "¿Cómo se reutilizan los objetos?\n\na &lt;- a + 1\nb &lt;- a * a\nx &lt;- sqrt(b)\nx\n\n[1] 11"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#muchas-funciones-aceptan-varios-objetos",
+    "href": "ADR-1_Intro.html#muchas-funciones-aceptan-varios-objetos",
+    "title": "Introducción a R",
+    "section": "Muchas funciones aceptan varios objetos",
+    "text": "Muchas funciones aceptan varios objetos\n\n\n\n\n\n\n\n\n\n\nObjeto1\n\nObjeto1\n\n\n\nFunción\n\nFunción\n\n\n\nObjeto1-&gt;Función\n\n\n\n\n\nNuevo objeto\n\nNuevo objeto\n\n\n\nFunción-&gt;Nuevo objeto\n\n\n\n\n\nObjeto2\n\nObjeto2\n\n\n\nObjeto2-&gt;Función\n\n\n\n\n\nObjeto3\n\nObjeto3\n\n\n\nObjeto3-&gt;Función"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#algunos-objetos-no-son-datos-si-no-opciones-que-modifican-el-comportamiento-de-las-funciones",
+    "href": "ADR-1_Intro.html#algunos-objetos-no-son-datos-si-no-opciones-que-modifican-el-comportamiento-de-las-funciones",
+    "title": "Introducción a R",
+    "section": "Algunos objetos no son datos, si no opciones que modifican el comportamiento de las funciones",
+    "text": "Algunos objetos no son datos, si no opciones que modifican el comportamiento de las funciones\n\n\n\n\n\n\n\n\n\n\nObjeto1\n\nObjeto1\n\n\n\nFunción\n\nFunción\n\n\n\nObjeto1-&gt;Función\n\n\n\n\n\nNuevo objeto\n\nNuevo objeto\n\n\n\nFunción-&gt;Nuevo objeto\n\n\n\n\n\nObjeto2\n\nObjeto2\n\n\n\nObjeto2-&gt;Función\n\n\n\n\n\nObjeto3\n\nObjeto3\n\n\n\nObjeto3-&gt;Función\n\n\n\n\n\nOpción\n\nOpción\n\n\n\nOpción-&gt;Función\n\n\n\n\n\n\n\n\n\n\n\nLas opciones en realidad también son objetos. El número de objetos que requiere una función se conocen como argumentos"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#se-pasan-varios-objetos-a-las-funciones-separados-por-comas",
+    "href": "ADR-1_Intro.html#se-pasan-varios-objetos-a-las-funciones-separados-por-comas",
+    "title": "Introducción a R",
+    "section": "Se pasan varios objetos a las funciones separados por comas",
+    "text": "Se pasan varios objetos a las funciones separados por comas\n\nsum(15, 16, 17, 24, 10)\n\n[1] 82"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#las-opciones-también-se-separan-por-comas",
+    "href": "ADR-1_Intro.html#las-opciones-también-se-separan-por-comas",
+    "title": "Introducción a R",
+    "section": "Las opciones también se separan por comas",
+    "text": "Las opciones también se separan por comas\n\nseveral_data &lt;- c(15, 16, 17, 24, 10, NA)\nmean(several_data)\n\n[1] NA\n\nmean(several_data, na.rm = TRUE)\n\n[1] 16.4"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#cómo-se-cuales-son-los-argumentos-de-una-función",
+    "href": "ADR-1_Intro.html#cómo-se-cuales-son-los-argumentos-de-una-función",
+    "title": "Introducción a R",
+    "section": "¿Cómo se cuales son los argumentos de una función?",
+    "text": "¿Cómo se cuales son los argumentos de una función?\n\nMuchas funciones tendrán valores predeterminados para los argumentos\n\nSi no se especifica, el argumento tomará ese valor\n\nPara encontrar estos valores y una lista de todos los argumentos, puedes usar cualquiera de las siguientes opciones:\n\n?funcion\nhelp(funcion)\nUsar la pestaña Help de Rstudio\n\n\n\nhelp(mean)"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#los-objetos-pueden-tener-muchos-datos-organizados-en-dimensiones",
+    "href": "ADR-1_Intro.html#los-objetos-pueden-tener-muchos-datos-organizados-en-dimensiones",
+    "title": "Introducción a R",
+    "section": "Los objetos pueden tener muchos datos organizados en dimensiones",
+    "text": "Los objetos pueden tener muchos datos organizados en dimensiones"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#vectores-numéricos",
+    "href": "ADR-1_Intro.html#vectores-numéricos",
+    "title": "Introducción a R",
+    "section": "Vectores numéricos",
+    "text": "Vectores numéricos\nSe pueden crear secuencias de números de forma sencilla\n\na &lt;- 1:4\na\n\n[1] 1 2 3 4"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#vectores-numéricos-1",
+    "href": "ADR-1_Intro.html#vectores-numéricos-1",
+    "title": "Introducción a R",
+    "section": "Vectores numéricos",
+    "text": "Vectores numéricos\nSe pueden crear secuencias con la función seq()\n\na &lt;- seq(1, 10)\na\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n\n\n\n\n\n\n\nNote\n\n\nComo veremos más adelante. Esta función es muy flexible y permite crear secuencias más complejas."
+  },
+  {
+    "objectID": "ADR-1_Intro.html#vectores-numéricos-2",
+    "href": "ADR-1_Intro.html#vectores-numéricos-2",
+    "title": "Introducción a R",
+    "section": "Vectores numéricos",
+    "text": "Vectores numéricos\nSe pueden crear secuencias de números no consecutivos con la función c()\n\na &lt;- c(4, 2, 5, 10)\na\n\n[1]  4  2  5 10"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#vectores-de-texto-y-factores",
+    "href": "ADR-1_Intro.html#vectores-de-texto-y-factores",
+    "title": "Introducción a R",
+    "section": "Vectores de texto y factores",
+    "text": "Vectores de texto y factores\n\nspecies &lt;- c(\"Bromus diandrus\", \"Bromus carinatu\", \"Bison biso\")\n\nkingdom &lt;- factor(c(\"Plant\", \"Plant\", \"Animal\"))"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#vectores-lógicos",
+    "href": "ADR-1_Intro.html#vectores-lógicos",
+    "title": "Introducción a R",
+    "section": "Vectores lógicos",
+    "text": "Vectores lógicos\nOperadores condicionales: &lt; &gt; &lt;= &gt;= == != %in%\n\n3 &lt; 5\n\n[1] TRUE\n\n3 &gt; 5\n\n[1] FALSE\n\nx &lt;- 5\nx == 5\n\n[1] TRUE\n\nx != 5\n\n[1] FALSE"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#vectores-lógicos-1",
+    "href": "ADR-1_Intro.html#vectores-lógicos-1",
+    "title": "Introducción a R",
+    "section": "Vectores lógicos",
+    "text": "Vectores lógicos\n\nx &lt;- 1:10\nx &lt; 5\n\n [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE\n\nx == 2\n\n [1] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n\nspecies == (\"Bromus diandrus\")\n\n[1]  TRUE FALSE FALSE"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#extrayendo-valores-de-vectores",
+    "href": "ADR-1_Intro.html#extrayendo-valores-de-vectores",
+    "title": "Introducción a R",
+    "section": "Extrayendo valores de vectores",
+    "text": "Extrayendo valores de vectores\n\nR usa [ ] para referirse a elementos de objetos\n\nV[5] devuelve el 5º elemento de un vector llamado V\n\nEl número entre corchetes se denomina índice (i)\n\n\na &lt;- c(3,2,7,8)\n\na[3]\n# ????\n\na[1:3]\n# ????\n\na[seq(2, 4)]\n# ???"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#los-objetos-pueden-tener-muchos-datos-organizados-en-dimensiones-1",
+    "href": "ADR-1_Intro.html#los-objetos-pueden-tener-muchos-datos-organizados-en-dimensiones-1",
+    "title": "Introducción a R",
+    "section": "Los objetos pueden tener muchos datos organizados en dimensiones",
+    "text": "Los objetos pueden tener muchos datos organizados en dimensiones"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#matrices",
+    "href": "ADR-1_Intro.html#matrices",
+    "title": "Introducción a R",
+    "section": "Matrices",
+    "text": "Matrices\n\nA &lt;- matrix(data=0, nrow=6, ncol=5)\nA\n\n     [,1] [,2] [,3] [,4] [,5]\n[1,]    0    0    0    0    0\n[2,]    0    0    0    0    0\n[3,]    0    0    0    0    0\n[4,]    0    0    0    0    0\n[5,]    0    0    0    0    0\n[6,]    0    0    0    0    0"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#matrices-1",
+    "href": "ADR-1_Intro.html#matrices-1",
+    "title": "Introducción a R",
+    "section": "Matrices",
+    "text": "Matrices\n\nA &lt;- matrix(data=1:30, nrow=6, ncol=5)\n# ????"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#extrayendo-valores-de-matrices",
+    "href": "ADR-1_Intro.html#extrayendo-valores-de-matrices",
+    "title": "Introducción a R",
+    "section": "Extrayendo valores de matrices",
+    "text": "Extrayendo valores de matrices\n\nR usa [ ] para referirse a elementos de objetos\nEl orden es siempre [filas, columnas]\n\nM[2,3] devuelve el elemento de la 2ª fila, 3ª columna de la matriz M\nM[2,] devuelve todos los elementos de la 2ª fila de la matriz M\n\nLos números entre corchetes se denominan índices (i y j)"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#extrayendo-valores-de-matrices-1",
+    "href": "ADR-1_Intro.html#extrayendo-valores-de-matrices-1",
+    "title": "Introducción a R",
+    "section": "Extrayendo valores de matrices",
+    "text": "Extrayendo valores de matrices\n\nA &lt;- matrix(data=1:30, nrow=6, ncol=5)\n\nA[3,4]\n\n[1] 21\n\n\n\nA[c(1:3),4]\n\n[1] 19 20 21\n\n# ???"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#pueden-los-objetos-mezclar-tipos-de-datos",
+    "href": "ADR-1_Intro.html#pueden-los-objetos-mezclar-tipos-de-datos",
+    "title": "Introducción a R",
+    "section": "¿Pueden los objetos mezclar tipos de datos?",
+    "text": "¿Pueden los objetos mezclar tipos de datos?"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#data-frame",
+    "href": "ADR-1_Intro.html#data-frame",
+    "title": "Introducción a R",
+    "section": "Data frame",
+    "text": "Data frame\n\nUn data frame es una lista de vectores de la misma longitud\nSon equivalente a matrices con diferentes tipos de datos en cada columna\nSe usan para almacenar diferentes variables a partir de las mismas mediciones"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#data-frame-1",
+    "href": "ADR-1_Intro.html#data-frame-1",
+    "title": "Introducción a R",
+    "section": "Data frame",
+    "text": "Data frame\n\ndf &lt;- data.frame(\n    name = c(\"Diego\", \"Lucía\", \"Paco\"),\n    age = c(27, 23, 24)\n    )"
+  },
+  {
+    "objectID": "ADR-1_Intro.html#extrayendo-información-de-un-data-frame",
+    "href": "ADR-1_Intro.html#extrayendo-información-de-un-data-frame",
+    "title": "Introducción a R",
+    "section": "Extrayendo información de un data frame",
+    "text": "Extrayendo información de un data frame\n\nExtracción de columnas\n\nData$columnname\nData[,”columnname”]\nData[,3]\n\nNombre de filas\n\nrownames(Data)\n\nNombre de columnas\n\ncolnames(Data)"
   }
 ]
