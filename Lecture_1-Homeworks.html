@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Diego Nieto Lugilde">
 
-<title>Análisis de datos en R</title>
+<title>Análisis de Datos con R: lección 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">MUGAB</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
@@ -111,22 +112,37 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#ejercicios-autónomos-homeworks" id="toc-ejercicios-autónomos-homeworks" class="nav-link active" data-scroll-target="#ejercicios-autónomos-homeworks">Ejercicios autónomos (“Homeworks”)</a>
+  <ul class="collapse">
+  <li><a href="#parte-1---cargando-data-frames" id="toc-parte-1---cargando-data-frames" class="nav-link" data-scroll-target="#parte-1---cargando-data-frames">Parte 1 - Cargando <em>data frames</em></a></li>
+  <li><a href="#parte-2---depuración" id="toc-parte-2---depuración" class="nav-link" data-scroll-target="#parte-2---depuración">Parte 2 - Depuración</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Análisis de datos en R</h1>
-<p class="subtitle lead">Máster Universitario en Gestión Ambiental y Biodiversidad</p>
+<h1 class="title">Análisis de Datos con R: lección 1</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Diego Nieto Lugilde </p>
+          </div>
+  </div>
     
   
     
@@ -137,13 +153,42 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Esta es la web con los materiales del curso:</p>
-<ul>
-<li><strong>Clase 1:</strong> Introducción a R. <a href="./ADR-1_Intro.html" target="_blank">Presentación</a> - <a href="./ADR-1-Ejercicios.html" target="_blank">Ejercicios</a> - <a href="./ADR-1-Homeworks.html" target="_blank">Homeworks</a> - <a href="data/Tema 1.zip" target="_blank">Datos</a></li>
-</ul>
-<p>Esta página web se construyó usando el sistema Quarto de RStudio. Para saber más sobre páginas web creadas con Quarto visita <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
+<section id="ejercicios-autónomos-homeworks" class="level1">
+<h1>Ejercicios autónomos (“Homeworks”)</h1>
+<p>Antes de empezar, crea un script de R nuevo y ponle el siguiente nombre “Homework-1.r”. Escribe en el todos los comandos necesarios para ir resolviendo cada ejercicio. Para separar unos ejercicios de otros usa el siguiente código <code># Parte 1</code> cambiando el nombre según corresponda.</p>
+<blockquote class="blockquote">
+<p>Al incluir <code>#</code> al principio de una nueva línea en el script le estamos diciendo a R que no queremos que ejecute esa línea de código. O lo que es lo mismo, estamos creando un comentario donde podemos escribir cualquier información. Se usa generalmente para separar bloques de código y para introducir comentarios aclaratorios sobre que estamos haciendo en cada línea.</p>
+</blockquote>
+<section id="parte-1---cargando-data-frames" class="level2">
+<h2 class="anchored" data-anchor-id="parte-1---cargando-data-frames">Parte 1 - Cargando <em>data frames</em></h2>
+<ol type="1">
+<li><p>Genera de nuevo el <em>data frame</em> de presencias de especies que realizaste en la parte 3 de los ejercicios de clase (“Presence.csv”), y carga otro <em>data frame</em> complementario que contiene información sobre características de las especies (“Traits.csv”).</p></li>
+<li><p>¿Cuál es la altura promedio de todas las especies que ocurren en el “Site3”?</p></li>
+</ol>
+<blockquote class="blockquote">
+<p>Para ello podrías usar la función <code>which</code> para determinar que especies ocurren en el “Site3” y luego calcular su altura promedio. Cuidado al calcular el promedio, ya que las especies que no están presentes no deben usarse en el cálculo del valor medio.</p>
+</blockquote>
+<ol start="3" type="1">
+<li>¿Qué sitio tiene el “SLA” promedio más alto?</li>
+</ol>
+<blockquote class="blockquote">
+<p>Aquí la función <code>max()</code> será útil, ya que devuelve el elemento máximo en un vector o matriz.</p>
+</blockquote>
+<ol start="4" type="1">
+<li>Realiza la misma consulta usando la función <code>which.max()</code>.</li>
+</ol>
+</section>
+<section id="parte-2---depuración" class="level2">
+<h2 class="anchored" data-anchor-id="parte-2---depuración">Parte 2 - Depuración</h2>
+<p>Escribí un script que analiza “Test Presences.csv” para encontrar el sitio con la riqueza de especies más baja y calcula la masa foliar promedio de las especies en ese sitio. Mi script se llama “Lecture 1 Debugging.r”. Copia el código de ese script en tu script debajo de un nuevo comentario <code># Parte 2</code>. El script tiene varios errores. ¡Arreglalos!</p>
+<p>Guarda la versión completa de tu script (con las partes 1 y 2) y súbelo a Moodle!</p>
+<blockquote class="blockquote">
+<p>Envíame un correo electrónico o habla conmigo en cualquier momento antes de la siguiente clase si tienes problemas.</p>
+</blockquote>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -1,10 +1,52 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Análisis de datos en R",
+    "objectID": "Lecture_1-Homeworks.html",
+    "href": "Lecture_1-Homeworks.html",
+    "title": "Análisis de Datos con R: lección 1",
     "section": "",
-    "text": "Esta es la web con los materiales del curso:\n\nClase 1: Introducción a R. Presentación - Ejercicios - Homeworks\n\nEsta página web se construyó usando el sistema Quarto de RStudio. Para saber más sobre páginas web creadas con Quarto visita https://quarto.org/docs/websites."
+    "text": "Antes de empezar, crea un script de R nuevo y ponle el siguiente nombre “Homework-1.r”. Escribe en el todos los comandos necesarios para ir resolviendo cada ejercicio. Para separar unos ejercicios de otros usa el siguiente código # Parte 1 cambiando el nombre según corresponda.\n\nAl incluir # al principio de una nueva línea en el script le estamos diciendo a R que no queremos que ejecute esa línea de código. O lo que es lo mismo, estamos creando un comentario donde podemos escribir cualquier información. Se usa generalmente para separar bloques de código y para introducir comentarios aclaratorios sobre que estamos haciendo en cada línea.\n\n\n\n\nGenera de nuevo el data frame de presencias de especies que realizaste en la parte 3 de los ejercicios de clase (“Presence.csv”), y carga otro data frame complementario que contiene información sobre características de las especies (“Traits.csv”).\n¿Cuál es la altura promedio de todas las especies que ocurren en el “Site3”?\n\n\nPara ello podrías usar la función which para determinar que especies ocurren en el “Site3” y luego calcular su altura promedio. Cuidado al calcular el promedio, ya que las especies que no están presentes no deben usarse en el cálculo del valor medio.\n\n\n¿Qué sitio tiene el “SLA” promedio más alto?\n\n\nAquí la función max() será útil, ya que devuelve el elemento máximo en un vector o matriz.\n\n\nRealiza la misma consulta usando la función which.max().\n\n\n\n\nEscribí un script que analiza “Test Presences.csv” para encontrar el sitio con la riqueza de especies más baja y calcula la masa foliar promedio de las especies en ese sitio. Mi script se llama “Lecture 1 Debugging.r”. Copia el código de ese script en tu script debajo de un nuevo comentario # Parte 2. El script tiene varios errores. ¡Arreglalos!\nGuarda la versión completa de tu script (con las partes 1 y 2) y súbelo a Moodle!\n\nEnvíame un correo electrónico o habla conmigo en cualquier momento antes de la siguiente clase si tienes problemas."
+  },
+  {
+    "objectID": "Lecture_1-Homeworks.html#parte-1---cargando-data-frames",
+    "href": "Lecture_1-Homeworks.html#parte-1---cargando-data-frames",
+    "title": "Análisis de Datos con R: lección 1",
+    "section": "",
+    "text": "Genera de nuevo el data frame de presencias de especies que realizaste en la parte 3 de los ejercicios de clase (“Presence.csv”), y carga otro data frame complementario que contiene información sobre características de las especies (“Traits.csv”).\n¿Cuál es la altura promedio de todas las especies que ocurren en el “Site3”?\n\n\nPara ello podrías usar la función which para determinar que especies ocurren en el “Site3” y luego calcular su altura promedio. Cuidado al calcular el promedio, ya que las especies que no están presentes no deben usarse en el cálculo del valor medio.\n\n\n¿Qué sitio tiene el “SLA” promedio más alto?\n\n\nAquí la función max() será útil, ya que devuelve el elemento máximo en un vector o matriz.\n\n\nRealiza la misma consulta usando la función which.max()."
+  },
+  {
+    "objectID": "Lecture_1-Homeworks.html#parte-2---depuración",
+    "href": "Lecture_1-Homeworks.html#parte-2---depuración",
+    "title": "Análisis de Datos con R: lección 1",
+    "section": "",
+    "text": "Escribí un script que analiza “Test Presences.csv” para encontrar el sitio con la riqueza de especies más baja y calcula la masa foliar promedio de las especies en ese sitio. Mi script se llama “Lecture 1 Debugging.r”. Copia el código de ese script en tu script debajo de un nuevo comentario # Parte 2. El script tiene varios errores. ¡Arreglalos!\nGuarda la versión completa de tu script (con las partes 1 y 2) y súbelo a Moodle!\n\nEnvíame un correo electrónico o habla conmigo en cualquier momento antes de la siguiente clase si tienes problemas."
+  },
+  {
+    "objectID": "ADR-2-Ejercicios.html",
+    "href": "ADR-2-Ejercicios.html",
+    "title": "Análisis espaciales y multivariantes con R (AEMeR) aplicados a estudios de biodiversidad",
+    "section": "",
+    "text": "Nota\n\n\n\nLos ejercicios tendréis que entregarlos para la evaluación del curso. Para ello, crea un script de R con RStudio. Ponle el nombre ejercicios_t2.R. Dicho script deberá estar organizado con comentarios en castellano (poniendo una almohadilla # delante) y justo detrás el código necesario para realizar el ejercicio (ver ejemplo debajo). Además, si el ejercicio pide reflexionar sobre el resultado use los comentarios (con la #) para indicar sus reflexiones debajo del código. Una vez los tengáis completos deberéis subirlos en la actividad correspondiente de Moodle.\n\n# Ejercicio 1.\n# Parte 1\nseq(1, 40, by = 2)\n\n# Parte 2\nseq(1, 40, by = -2)\n# Este código da error porque especifiqué algo mal :)\n\n\n\n\nParte 1: Gráficas y figuras\n1. Dibuja un histograma del vector “a” que creaste en los Ejercicios de la parte 1. Cambia el color de las barras con la opción col y cambia el color de los cuadros con la opción de border. Usa abline() para dibujar la media de la distribución como una línea vertical punteada.\n\nAquí deberás usar la función mean para calcular la media antes.\n\n\n\n\n\n\n\nPista\n\n\n\n\n\nLa función hist (x) dibuja un histograma de los valores almacenados en x. Se puede personalizar de varias maneras, incluido el uso de puntos de cambio para cambiar la definición de la anchura de las barras. Explora las posibilidades con ?hist\nLa función abline (a, b) dibuja una línea en la gráfica ya existente con la pendiente especificada b e intercepto a. También puede dibujar líneas horizontales o verticales. Para ello, en lugar de especificar los argumentos a y b, deberás especificar un valor concreto usando h = valor o v = valor, dependiendo si quieres dibujar una línea horizontal o vertical.\n\n\n\n2. Crea dos variables correlacionadas “x” e “y”, usando x &lt;- rnorm (200) e y = x + rnorm (200). Dibuja “x” vs. “y” y juega con los parámetros de trazado. Usa la abline para incluir una recta de regresión entre las dos variables.\n\n\n\n\n\n\nPista\n\n\n\n\n\nLa función plot (x, y,...) dibuja los datos de x contra los datos de y. Es personalizable utilizando una amplia gama de opciones. Puedes consultar todas las opciones con ?plot\nRecuerda, además, que la función abline (a, b) dibuja una línea en la gráfica ya existente con la pendiente especificada b e intercepto a. Para calcular los valores de la pendiente, puedes usar la función lm(x, y), que genera un modelo lineal entre las dos variables.\n\n\n\n3. Genera un nuevo conjunto de datos “w” correlacionado con “x”, usando w &lt;- 2*x * rnorm(200). Añade esta nuevo conjunto de datos al gráfico anterior pero cambiando el color para que se distingan bien los datos de “y” y “w”. Además, añade otra recta de regresión entre “w” y “x”.\n\n\n\n\n\n\nPista\n\n\n\n\n\nHay varias funciones (points(x, y), segments(x0, y0, x1, y1), arrows(x0, y0, x1, y1), polygons(x, y), que en lugar de generar gráficos nuevos, dibuja puntos, segmentos de línea, flechas o polígonos en el último gráfico que se haya generado."
+  },
+  {
+    "objectID": "ADR-1-Homeworks.html",
+    "href": "ADR-1-Homeworks.html",
+    "title": "Análisis espaciales y multivariantes con R (AEMeR) aplicados a estudios de biodiversidad",
+    "section": "",
+    "text": "Nota\n\n\n\nLos ejercicios tendréis que entregarlos para la evaluación del curso. Para ello, crea un script de R con RStudio. Ponle el nombre ejercicios_t1_homeworks.R. Dicho script deberá estar organizado con comentarios en castellano (poniendo una almohadilla # delante) y justo detrás el código necesario para realizar el ejercicio (ver ejemplo debajo). Además, si el ejercicio pide reflexionar sobre el resultado use los comentarios (con la #) para indicar sus reflexiones debajo del código. Una vez los tengáis completos deberéis subirlos en la actividad correspondiente de Moodle.\n\n# Ejercicio 1.\n# Parte 1\nseq(1, 40, by = 2)\n\n# Parte 2\nseq(1, 40, by = -2)\n# Este código da error porque especifiqué algo mal :)"
+  },
+  {
+    "objectID": "ADR-1-Homeworks.html#parte-1---cargando-data-frames",
+    "href": "ADR-1-Homeworks.html#parte-1---cargando-data-frames",
+    "title": "Análisis espaciales y multivariantes con R (AEMeR) aplicados a estudios de biodiversidad",
+    "section": "Parte 1 - Cargando data frames",
+    "text": "Parte 1 - Cargando data frames\n1. Genera de nuevo el data frame de presencias de especies que realizaste en la parte 3 de los ejercicios de clase (Presence.csv), y carga otro data frame complementario que contiene información sobre características de las especies (Traits.csv).\n2. ¿Cuál es la altura promedio de todas las especies que ocurren en el “Site3”?\n\n\n\n\n\n\nPista\n\n\n\n\n\nPara ello podrías usar la función which para determinar que especies ocurren en el “Site3” y luego calcular su altura promedio. Cuidado al calcular el promedio, ya que las especies que no están presentes no deben usarse en el cálculo del valor medio.\n\n\n\n3. ¿Qué sitio tiene el “SLA” promedio más alto?\n\n\n\n\n\n\nPista\n\n\n\n\n\nAquí la función max() será útil, ya que devuelve el elemento máximo en un vector o matriz.\n\n\n\n4. Realiza la misma consulta usando la función which.max()."
+  },
+  {
+    "objectID": "ADR-1-Homeworks.html#parte-2---depuración",
+    "href": "ADR-1-Homeworks.html#parte-2---depuración",
+    "title": "Análisis espaciales y multivariantes con R (AEMeR) aplicados a estudios de biodiversidad",
+    "section": "Parte 2 - Depuración",
+    "text": "Parte 2 - Depuración\nEscribí un script que analiza los ficheros Test Presences.csv y Test Traits.csv para encontrar el sitio con la riqueza de especies más baja y calcula la masa foliar promedio de las especies en ese sitio. Mi script se llama “Lecture 1 Debugging.r”. Copia el código de ese script en tu script debajo de un nuevo comentario # Parte 2. El script tiene varios errores. ¡Arreglalos! Lee detenidamente el encabezado del script ya que tiene información vital para saber si estás arreglando bien el script y obteniendo el resultado deseado.\nGuarda la versión completa de tu script (con las partes 1 y 2) y súbelo a Moodle!\n\nEnvíame un correo electrónico o habla conmigo en cualquier momento antes de la siguiente clase si tienes problemas."
   },
   {
     "objectID": "ADR-1-Ejercicios.html",
@@ -327,5 +369,12 @@
     "title": "Introducción a R",
     "section": "Ejercicios de casa (Homeworks)",
     "text": "Ejercicios de casa (Homeworks)\n\nEn la web de la asignatura (enlace en Moodle)\nEntregar antes de la siguiente clase\n\n\n\n\n\nAnálisis de datos con R"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Análisis de datos en R",
+    "section": "",
+    "text": "Esta es la web con los materiales del curso:\n\nClase 1: Introducción a R. Presentación - Ejercicios - Homeworks - Datos\n\nEsta página web se construyó usando el sistema Quarto de RStudio. Para saber más sobre páginas web creadas con Quarto visita https://quarto.org/docs/websites."
   }
 ]

@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dinilu.github.io/ADR-MUGAB-UCO/index.html</loc>
-    <lastmod>2024-11-04T22:06:34.534Z</lastmod>
+    <loc>https://dinilu.github.io/ADR-MUGAB-UCO/Lecture_1-Homeworks.html</loc>
+    <lastmod>2023-11-07T22:30:22.159Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dinilu.github.io/ADR-MUGAB-UCO/ADR-2-Ejercicios.html</loc>
+    <lastmod>2024-11-05T14:37:07.806Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dinilu.github.io/ADR-MUGAB-UCO/ADR-1-Homeworks.html</loc>
+    <lastmod>2024-11-05T14:44:52.744Z</lastmod>
   </url>
   <url>
     <loc>https://dinilu.github.io/ADR-MUGAB-UCO/ADR-1-Ejercicios.html</loc>
@@ -11,5 +19,9 @@
   <url>
     <loc>https://dinilu.github.io/ADR-MUGAB-UCO/ADR-1_Intro.html</loc>
     <lastmod>2024-11-05T01:17:39.180Z</lastmod>
+  </url>
+  <url>
+    <loc>https://dinilu.github.io/ADR-MUGAB-UCO/index.html</loc>
+    <lastmod>2024-11-05T14:43:52.448Z</lastmod>
   </url>
 </urlset>
