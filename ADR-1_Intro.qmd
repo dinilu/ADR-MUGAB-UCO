@@ -14,9 +14,9 @@ lightbox: auto
 editor: source
 ---
 
-# El curso...
+# El plan del curso...
 
-## El plan
+---
 
 * Tema 1: Introducción a R y programación
   + La estructura de R
@@ -39,20 +39,23 @@ Interfaz gráfica
 
 
 # R
+
+La línea de comandos
+  
   
 ## La estructura de R
 
-* Funciones (¿qué deseas hacer?)
-* Objetos (¿con qué o sobre qué quieres hacerlo?)
+* **Funciones:** ¿qué deseas hacer?
+* **Objetos:** ¿con qué o sobre qué quieres hacerlo?
 
 ```{r}
 #| echo: true
 
-1 + 2
+sqrt(16)
 ```
 
 :::{.callout-note}
-Aquí, 1 y 2 son objetos sobre los que aplicamos la función suma.
+Aquí, 16 es el objeto sobre el que aplicamos la función `sqrt()` (raíz cuadrada)
 :::
 
 ## La estructura de R
@@ -519,12 +522,12 @@ df <- data.frame(
 > Los tres son cosas diferentes en R...
 
 :::: {.columns}
+
+::: {.column width="65%"}
 * Los archivos son scripts (e.g., un archivo de texto) o archivos de datos (e.g., Excel) en el disco duro
 * Los objetos son datos en la sesión de R.  Sólo existen en la memoria temporal del ordenador
 * Un proyecto es una carpeta con un montón de archivos y objetos de R
   + Es recomendable usar una estructura de carpetas lógica
-
-::: {.column width="65%"}
 :::
 
 ::: {.column width="35%"}
@@ -535,7 +538,6 @@ df <- data.frame(
   + Script_1
   + Script_2
   + Script_3
-
 :::
 
 ::::
