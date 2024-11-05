@@ -28,7 +28,7 @@ editor: source
   + CRAN
   + GitHub
   + Graficado
-* Tema 4:
+* Tema 3:
   + Estadística descriptiva
   + Contraste de hipótesis
   + Paramétricos vs No paramétricos
@@ -531,13 +531,15 @@ df <- data.frame(
 :::
 
 ::: {.column width="35%"}
-* Carpeta del proyecto
+:::: {style="background-color: #FADA7A"}
+* Carpeta/
   + Datos/
   + Figuras/
   + Tablas/
   + Script_1
   + Script_2
   + Script_3
+::::
 :::
 
 ::::
