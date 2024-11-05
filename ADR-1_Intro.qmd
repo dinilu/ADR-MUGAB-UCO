@@ -605,6 +605,18 @@ write.csv(myData, "updated data.csv")
 ```
 
 
+## ¿Mucho más conveniente usar ficheros excel?
+
+```{r}
+#| echo: true
+#| eval: false
+
+install.packages("openxlsx")
+library(openxlsx)
+data <- read.xlsx("data", sheet = 1)
+```
+
+
 ## Scripts
 
 * Archivos de texto
