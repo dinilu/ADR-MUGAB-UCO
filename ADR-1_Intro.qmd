@@ -560,6 +560,7 @@ df <- data.frame(
 ```{r}
 #| echo: true
 #| eval: false
+
 ls()
 rm(numeric_object, character_object)
 save.image()
@@ -574,6 +575,7 @@ rm(list=ls())
   + Es conveniente usar rutas relativas a los ficheros
 
 `getwd()` obtener el directorio de trabajo
+
 `setwd()` lo cambia
 
 ## Trabajar con datos
@@ -603,8 +605,6 @@ write.csv(myData, "updated data.csv")
 
 ## Scripts
 
-> No se manejan desde la consola de R, si no desde la interfaz de Rstudio.
-
 * Archivos de texto
 * Con llamadas a funciones (código)
 * Ordenado y secuencial:
@@ -614,6 +614,8 @@ write.csv(myData, "updated data.csv")
   + Guardar/trazar resultados
 * Puede/debe contener comentarios legibles por humanos
   + Usar # antes del comentario
+
+> No se manejan desde la consola de R, si no desde la interfaz de Rstudio.
 
 
 ## Seguimos practicando
