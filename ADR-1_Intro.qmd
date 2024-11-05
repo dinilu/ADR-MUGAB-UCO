@@ -558,6 +558,8 @@ df <- data.frame(
 
 
 ```{r}
+#| echo: true
+#| eval: false
 ls()
 rm(numeric_object, character_object)
 save.image()
