@@ -64,7 +64,7 @@ Aquí la función `max()` será útil, ya que devuelve el elemento máximo en un
 
 Escribí un script que analiza los ficheros `Test Presences.csv` y `Test Traits.csv` para encontrar el sitio con la riqueza de especies más baja y calcula la masa foliar promedio de las especies en ese sitio. Mi script se llama "Lecture 1 Debugging.r". Copia el código de ese script en tu script debajo de un nuevo comentario `# Parte 2`.
 
-**El script tiene varios errores. ¡Arreglalos! Lee detenidamente el encabezado del script ya que tiene información vital para saber si estás arreglando bien el script y obteniendo el resultado deseado.**
+**1. El script tiene varios errores. ¡Arreglalos! Lee detenidamente el encabezado del script ya que tiene información vital para saber si estás arreglando bien el script y obteniendo el resultado deseado.**
 
 > Guarda la versión completa de tu script (con las partes 1 y 2) y súbelo a Moodle!
 

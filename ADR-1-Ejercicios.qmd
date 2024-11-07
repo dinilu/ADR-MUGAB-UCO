@@ -156,7 +156,7 @@ La función `which(x)` devuelve los índices de los elementos de `x` que son `TR
 ::: 
 
 
-**4. Crea una nueva matriz llamada "presencia" donde cada elemento de "presencia" es 1, si el valor correspondiente de "abundancia" es mayor que 0, y 0 en el caso contrario.**
+**5. Crea una nueva matriz llamada "presencia" donde cada elemento de "presencia" es 1, si el valor correspondiente de "abundancia" es mayor que 0, y 0 en el caso contrario.**
 
 ::: {.callout-tip collapse="true"}
 ## Pista
@@ -165,13 +165,13 @@ La función `ifelse(test, yes, no)` comprueba una condición (`test`) y si se cu
 :::
 
 
-**5. Usando la matriz "presencia" que creaste y la función `apply()`, calcula la riqueza de especies (i.e. el número de especies) de cada sitio.**
+**6. Usando la matriz "presencia" que creaste y la función `apply()`, calcula la riqueza de especies (i.e. el número de especies) de cada sitio.**
 
 
-**6. Usando la matriz "presencia" que creaste y la función `apply()`, calcula la prevalencia de cada especie (i.e. el número de veces que ocurre con respecto al número total de sitios).**
+**7. Usando la matriz "presencia" que creaste y la función `apply()`, calcula la prevalencia de cada especie (i.e. el número de veces que ocurre con respecto al número total de sitios).**
 
 
-**7. Escribe la matriz "presencia" que creaste en un archivo "Presencia.xlsx".**
+**8. Escribe la matriz "presencia" que creaste en un archivo "Presencia.xlsx".**
 
 ::: {.callout-tip collapse="true"}
 ## Pista
