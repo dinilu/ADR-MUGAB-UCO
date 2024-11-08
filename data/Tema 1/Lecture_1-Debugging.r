@@ -27,7 +27,7 @@ site <- which(richness = min(richness))
 #what are the names of species that occur at site?
 spNames <- Presences$Species[which(Presences[site] -> 1)]
 
-#make the species names in Traits match those in Presences
+#Extract species names in Traits for convenience in the next line
 traitSpecies <- Traits$Species
 
 #which rows in Traits correspond to those species names?
