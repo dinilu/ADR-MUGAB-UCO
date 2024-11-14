@@ -261,7 +261,7 @@ Diego Nieto Lugilde
 <pre><code>package 'openxlsx' successfully unpacked and MD5 sums checked
 
 The downloaded binary packages are in
-    C:\Users\Diego\AppData\Local\Temp\Rtmp2xjm6h\downloaded_packages</code></pre>
+    C:\Users\Diego\AppData\Local\Temp\RtmpuEEIds\downloaded_packages</code></pre>
 </div>
 </div>
 </section>
@@ -295,7 +295,7 @@ The downloaded binary packages are in
 <pre><code>package 'devtools' successfully unpacked and MD5 sums checked
 
 The downloaded binary packages are in
-    C:\Users\Diego\AppData\Local\Temp\Rtmp2xjm6h\downloaded_packages</code></pre>
+    C:\Users\Diego\AppData\Local\Temp\RtmpuEEIds\downloaded_packages</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(devtools)</span>
 <span id="cb6-2"><a></a></span>
@@ -323,10 +323,14 @@ The downloaded binary packages are in
 </div>
 </div>
 </div>
+</section></section>
+<section>
+<section id="también-con-funciones-specíficas-para-gráficos-concretos" class="title-slide slide level1 center">
+<h1>También con funciones specíficas para gráficos concretos…</h1>
+
 </section>
-<section id="también-con-funciones-specíficas-para-gráficos-concretos" class="slide level2">
-<h2>También con funciones specíficas para gráficos concretos</h2>
-<p>Histogramas</p>
+<section id="histogramas" class="slide level2">
+<h2>Histogramas</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">3</span>)</span>
 <span id="cb8-2"><a></a></span>
@@ -340,9 +344,8 @@ The downloaded binary packages are in
 </div>
 </div>
 </section>
-<section id="también-con-funciones-specíficas-para-gráficos-concretos-1" class="slide level2">
-<h2>También con funciones specíficas para gráficos concretos</h2>
-<p>Gráficas de barras</p>
+<section id="gráficas-de-barras" class="slide level2">
+<h2>Gráficas de barras</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">3</span>)</span>
 <span id="cb9-2"><a></a><span class="fu">names</span>(x) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"tr_"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
@@ -357,9 +360,8 @@ The downloaded binary packages are in
 </div>
 </div>
 </section>
-<section id="también-con-funciones-specíficas-para-gráficos-concretos-2" class="slide level2">
-<h2>También con funciones specíficas para gráficos concretos</h2>
-<p>Gráficas de barras apiladas o paralelas</p>
+<section id="gráficas-de-barras-apiladas-o-paralelas" class="slide level2">
+<h2>Gráficas de barras apiladas o paralelas</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="dv">5</span>, <span class="dv">3</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">10</span>)</span>
 <span id="cb10-2"><a></a><span class="fu">colnames</span>(x) <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"tr_"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
@@ -375,9 +377,8 @@ The downloaded binary packages are in
 </div>
 </div>
 </section>
-<section id="también-con-funciones-specíficas-para-gráficos-concretos-3" class="slide level2">
-<h2>También con funciones specíficas para gráficos concretos</h2>
-<p>Boxplots</p>
+<section id="boxplots" class="slide level2">
+<h2>Boxplots</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">30</span>, <span class="dv">5</span>, <span class="dv">3</span>)</span>
 <span id="cb11-2"><a></a>y <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"high"</span>, <span class="st">"med"</span>, <span class="st">"low"</span>), <span class="dv">10</span>)</span>
@@ -398,7 +399,8 @@ The downloaded binary packages are in
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
 <span id="cb12-2"><a></a>y <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span></span>
-<span id="cb12-3"><a></a><span class="fu">plot</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-3"><a></a></span>
+<span id="cb12-4"><a></a><span class="fu">plot</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -413,8 +415,9 @@ The downloaded binary packages are in
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
 <span id="cb13-2"><a></a>y <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span></span>
-<span id="cb13-3"><a></a><span class="fu">plot</span>(x, y, <span class="at">main =</span> <span class="st">"A plot"</span>, <span class="at">xlab =</span> <span class="st">"Temperature"</span>,</span>
-<span id="cb13-4"><a></a>    <span class="at">ylab =</span> <span class="st">"Pirates"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-3"><a></a></span>
+<span id="cb13-4"><a></a><span class="fu">plot</span>(x, y, <span class="at">main =</span> <span class="st">"A plot"</span>, <span class="at">xlab =</span> <span class="st">"Temperature"</span>,</span>
+<span id="cb13-5"><a></a>    <span class="at">ylab =</span> <span class="st">"Pirates"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -430,13 +433,14 @@ The downloaded binary packages are in
 <div class="column">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
 <span id="cb14-2"><a></a>y <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span></span>
-<span id="cb14-3"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>))</span>
-<span id="cb14-4"><a></a><span class="fu">plot</span>(x, y)</span>
-<span id="cb14-5"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"l"</span>)</span>
-<span id="cb14-6"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"b"</span>)</span>
-<span id="cb14-7"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"h"</span>)</span>
-<span id="cb14-8"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"o"</span>)</span>
-<span id="cb14-9"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"s"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-3"><a></a></span>
+<span id="cb14-4"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb14-5"><a></a><span class="fu">plot</span>(x, y)</span>
+<span id="cb14-6"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"l"</span>)</span>
+<span id="cb14-7"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"b"</span>)</span>
+<span id="cb14-8"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"h"</span>)</span>
+<span id="cb14-9"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"o"</span>)</span>
+<span id="cb14-10"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"s"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -551,7 +555,11 @@ The downloaded binary packages are in
 </section>
 <section id="añadiendo-información-a-gráficos-existentes" class="slide level2">
 <h2>Añadiendo información a gráficos existentes</h2>
-<p><code>points(x, y)</code> añade puntos a gráficos (opciones similares a <code>plot()</code>) <code>segments(x0, y0, x1, y1)</code> añade líneas, desde un punto a otro <code>polygon(x, y)</code> añade polígonos</p>
+<ul>
+<li><p><code>points(x, y)</code> añade puntos a gráficos (opciones similares a <code>plot()</code>)</p></li>
+<li><p><code>segments(x0, y0, x1, y1)</code> añade líneas, desde un punto a otro</p></li>
+<li><p><code>polygon(x, y)</code> añade polígonos</p></li>
+</ul>
 </section>
 <section id="guardando-gráficos-en-el-disco-duro" class="slide level2">
 <h2>Guardando gráficos en el disco duro</h2>

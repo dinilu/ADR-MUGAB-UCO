@@ -396,7 +396,7 @@
     "href": "ADR-2_packages_plot.html#cómo-instalo-paquetes-de-cran",
     "title": "Paquetes y graficado en R",
     "section": "¿Cómo instalo paquetes de CRAN?",
-    "text": "¿Cómo instalo paquetes de CRAN?\n\ninstall.packages(\"openxlsx\")\n\npackage 'openxlsx' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\Rtmp2xjm6h\\downloaded_packages"
+    "text": "¿Cómo instalo paquetes de CRAN?\n\ninstall.packages(\"openxlsx\")\n\npackage 'openxlsx' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\RtmpuEEIds\\downloaded_packages"
   },
   {
     "objectID": "ADR-2_packages_plot.html#cómo-uso-las-funciones-de-una-librería",
@@ -417,7 +417,7 @@
     "href": "ADR-2_packages_plot.html#cómo-puedo-instalar-paquetes-de-github",
     "title": "Paquetes y graficado en R",
     "section": "¿Cómo puedo instalar paquetes de GitHub?",
-    "text": "¿Cómo puedo instalar paquetes de GitHub?\n\ninstall.packages(\"devtools\")\n\npackage 'devtools' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\Rtmp2xjm6h\\downloaded_packages\n\nlibrary(devtools)\n\ninstall_github(\"colearendt/xlsx\")\n## o\ndevtools::install_github(\"colearendt/xlsx\")"
+    "text": "¿Cómo puedo instalar paquetes de GitHub?\n\ninstall.packages(\"devtools\")\n\npackage 'devtools' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\RtmpuEEIds\\downloaded_packages\n\nlibrary(devtools)\n\ninstall_github(\"colearendt/xlsx\")\n## o\ndevtools::install_github(\"colearendt/xlsx\")"
   },
   {
     "objectID": "ADR-2_packages_plot.html#generación-de-gráficos-nuevos",
@@ -427,53 +427,53 @@
     "text": "Generación de gráficos nuevos\nplot() es una función genérica que funciona con muchos objetos diferentes\n\n# plot(x, y)\nplot(5, 1)"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#también-con-funciones-specíficas-para-gráficos-concretos",
-    "href": "ADR-2_packages_plot.html#también-con-funciones-specíficas-para-gráficos-concretos",
+    "objectID": "ADR-2_packages_plot.html#histogramas",
+    "href": "ADR-2_packages_plot.html#histogramas",
     "title": "Paquetes y graficado en R",
-    "section": "También con funciones specíficas para gráficos concretos",
-    "text": "También con funciones specíficas para gráficos concretos\nHistogramas\n\nx &lt;- rnorm(10, 5, 3)\n\nhist(x)"
+    "section": "Histogramas",
+    "text": "Histogramas\n\nx &lt;- rnorm(10, 5, 3)\n\nhist(x)"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#también-con-funciones-specíficas-para-gráficos-concretos-1",
-    "href": "ADR-2_packages_plot.html#también-con-funciones-specíficas-para-gráficos-concretos-1",
+    "objectID": "ADR-2_packages_plot.html#gráficas-de-barras",
+    "href": "ADR-2_packages_plot.html#gráficas-de-barras",
     "title": "Paquetes y graficado en R",
-    "section": "También con funciones specíficas para gráficos concretos",
-    "text": "También con funciones specíficas para gráficos concretos\nGráficas de barras\n\nx &lt;- rnorm(10, 5, 3)\nnames(x) &lt;- paste0(\"tr_\", 1:10)\n\nbarplot(x)"
+    "section": "Gráficas de barras",
+    "text": "Gráficas de barras\n\nx &lt;- rnorm(10, 5, 3)\nnames(x) &lt;- paste0(\"tr_\", 1:10)\n\nbarplot(x)"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#también-con-funciones-specíficas-para-gráficos-concretos-2",
-    "href": "ADR-2_packages_plot.html#también-con-funciones-specíficas-para-gráficos-concretos-2",
+    "objectID": "ADR-2_packages_plot.html#gráficas-de-barras-apiladas-o-paralelas",
+    "href": "ADR-2_packages_plot.html#gráficas-de-barras-apiladas-o-paralelas",
     "title": "Paquetes y graficado en R",
-    "section": "También con funciones specíficas para gráficos concretos",
-    "text": "También con funciones specíficas para gráficos concretos\nGráficas de barras apiladas o paralelas\n\nx &lt;- matrix(rnorm(30, 5, 3), nrow = 3, ncol = 10)\ncolnames(x) &lt;- paste0(\"tr_\", 1:10)\nrownames(x) &lt;- c(\"high\", \"med\", \"low\")\n\nbarplot(x, legend = TRUE)"
+    "section": "Gráficas de barras apiladas o paralelas",
+    "text": "Gráficas de barras apiladas o paralelas\n\nx &lt;- matrix(rnorm(30, 5, 3), nrow = 3, ncol = 10)\ncolnames(x) &lt;- paste0(\"tr_\", 1:10)\nrownames(x) &lt;- c(\"high\", \"med\", \"low\")\n\nbarplot(x, legend = TRUE)"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#también-con-funciones-specíficas-para-gráficos-concretos-3",
-    "href": "ADR-2_packages_plot.html#también-con-funciones-specíficas-para-gráficos-concretos-3",
+    "objectID": "ADR-2_packages_plot.html#boxplots",
+    "href": "ADR-2_packages_plot.html#boxplots",
     "title": "Paquetes y graficado en R",
-    "section": "También con funciones specíficas para gráficos concretos",
-    "text": "También con funciones specíficas para gráficos concretos\nBoxplots\n\nx &lt;- rnorm(30, 5, 3)\ny &lt;- rep(c(\"high\", \"med\", \"low\"), 10)\ndat &lt;- data.frame(size = x, group = y)\n\nboxplot(x ~ y, dat)"
+    "section": "Boxplots",
+    "text": "Boxplots\n\nx &lt;- rnorm(30, 5, 3)\ny &lt;- rep(c(\"high\", \"med\", \"low\"), 10)\ndat &lt;- data.frame(size = x, group = y)\n\nboxplot(x ~ y, dat)"
   },
   {
     "objectID": "ADR-2_packages_plot.html#puedo-pasarle-múltiples-valores",
     "href": "ADR-2_packages_plot.html#puedo-pasarle-múltiples-valores",
     "title": "Paquetes y graficado en R",
     "section": "Puedo pasarle múltiples valores",
-    "text": "Puedo pasarle múltiples valores\n\nx &lt;- 1:10\ny &lt;- 10:1\nplot(x, y)"
+    "text": "Puedo pasarle múltiples valores\n\nx &lt;- 1:10\ny &lt;- 10:1\n\nplot(x, y)"
   },
   {
     "objectID": "ADR-2_packages_plot.html#puedo-pasarle-múltiples-valores-1",
     "href": "ADR-2_packages_plot.html#puedo-pasarle-múltiples-valores-1",
     "title": "Paquetes y graficado en R",
     "section": "Puedo pasarle múltiples valores",
-    "text": "Puedo pasarle múltiples valores\n\nx &lt;- 1:10\ny &lt;- 10:1\nplot(x, y, main = \"A plot\", xlab = \"Temperature\",\n    ylab = \"Pirates\")"
+    "text": "Puedo pasarle múltiples valores\n\nx &lt;- 1:10\ny &lt;- 10:1\n\nplot(x, y, main = \"A plot\", xlab = \"Temperature\",\n    ylab = \"Pirates\")"
   },
   {
     "objectID": "ADR-2_packages_plot.html#puedo-cambiar-la-conexión-entre-puntos",
     "href": "ADR-2_packages_plot.html#puedo-cambiar-la-conexión-entre-puntos",
     "title": "Paquetes y graficado en R",
     "section": "Puedo cambiar la conexión entre puntos…",
-    "text": "Puedo cambiar la conexión entre puntos…\n\n\nx &lt;- 1:10\ny &lt;- 10:1\npar(mfrow = c(2, 3))\nplot(x, y)\nplot(x, y, type = \"l\")\nplot(x, y, type = \"b\")\nplot(x, y, type = \"h\")\nplot(x, y, type = \"o\")\nplot(x, y, type = \"s\")"
+    "text": "Puedo cambiar la conexión entre puntos…\n\n\nx &lt;- 1:10\ny &lt;- 10:1\n\npar(mfrow = c(2, 3))\nplot(x, y)\nplot(x, y, type = \"l\")\nplot(x, y, type = \"b\")\nplot(x, y, type = \"h\")\nplot(x, y, type = \"o\")\nplot(x, y, type = \"s\")"
   },
   {
     "objectID": "ADR-2_packages_plot.html#pero-cuidado-con-el-orden-de-los-datos",
@@ -515,7 +515,7 @@
     "href": "ADR-2_packages_plot.html#añadiendo-información-a-gráficos-existentes",
     "title": "Paquetes y graficado en R",
     "section": "Añadiendo información a gráficos existentes",
-    "text": "Añadiendo información a gráficos existentes\npoints(x, y) añade puntos a gráficos (opciones similares a plot()) segments(x0, y0, x1, y1) añade líneas, desde un punto a otro polygon(x, y) añade polígonos"
+    "text": "Añadiendo información a gráficos existentes\n\npoints(x, y) añade puntos a gráficos (opciones similares a plot())\nsegments(x0, y0, x1, y1) añade líneas, desde un punto a otro\npolygon(x, y) añade polígonos"
   },
   {
     "objectID": "ADR-2_packages_plot.html#guardando-gráficos-en-el-disco-duro",
