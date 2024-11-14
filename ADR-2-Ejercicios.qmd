@@ -38,7 +38,7 @@ seq(1, 40, by = -2)
 
 # Parte 1: Gráficas y figuras
 
-**1. Dibuja un histograma del vector `a` que creaste en los Ejercicios de la parte 1.**
+**1. Dibuja un histograma del vector `a` que creaste en los Ejercicios de la Clase anterior.**
 
 ::: {.callout-tip collapse="true"}
 ## Pista
@@ -46,9 +46,9 @@ seq(1, 40, by = -2)
 La función `hist (x)` dibuja un histograma de los valores almacenados en `x`. Se puede personalizar de varias maneras, incluido el uso de puntos de cambio para cambiar la definición de la anchura de las barras. Explora las posibilidades con `?hist`
 :::
 
-**2. Cambia el color de las barras con la opción `col` y cambia el color de los cuadros con la opción de `border`.**
+**2. Cambia el color de las barras del histograma con la opción `col` y cambia el color de los bordes con la opción de `border`.**
 
-**3. Usa `abline()` para dibujar la media de la distribución como una línea vertical punteada.**
+**3. Usa `abline()` para representar el valor de la media de la distribución como una línea vertical punteada.**
 
 ::: {.callout-tip collapse="true"}
 ## Pista
@@ -69,7 +69,7 @@ La función `plot (x, y,...)` dibuja los datos de `x` contra los datos de `y`. E
 ::: {.callout-tip collapse="true"}
 ## Pista
 
-Recuerda, además, que la función `abline (a, b)` dibuja una línea en la gráfica ya existente con la pendiente especificada `b` e intercepto `a`. Para calcular los valores de la pendiente, puedes usar la función `lm(x, y)`, que genera un modelo lineal entre las dos variables.
+Recuerda, además, que la función `abline (a, b)` dibuja una línea en la gráfica ya existente con la pendiente especificada `b` e intercepto `a`. Para calcular los valores de la pendiente, puedes usar la función `lm(x ~ y)`, que genera un modelo lineal entre las dos variables.
 :::
 
 **6. Genera un nuevo conjunto de datos `w` correlacionado con `x`, usando `w <- 0.5 * x * rnorm(200)`. Añade este nuevo conjunto de datos al gráfico anterior pero cambiando el color para que se distingan bien los datos de `y` y `w`. Además, añade otra recta de regresión entre `w` y `x`.**
@@ -77,7 +77,7 @@ Recuerda, además, que la función `abline (a, b)` dibuja una línea en la gráf
 ::: {.callout-tip collapse="true"}
 ## Pista
 
-Hay varias funciones (`points(x, y)`, `segments(x0, y0, x1, y1)`, `arrows(x0, y0, x1, y1)`, `polygons(x, y)`, que en lugar de generar gráficos nuevos, dibuja puntos, segmentos de línea, flechas o polígonos en el último gráfico que se haya generado.
+Hay varias funciones (`points(x, y)`, `segments(x0, y0, x1, y1)`, `arrows(x0, y0, x1, y1)`, `polygons(x, y)`), que en lugar de generar gráficos nuevos, dibuja puntos, segmentos de línea, flechas o polígonos en el último gráfico que se haya generado.
 :::
 
 **7. Guarda el gráfico resultante del ejercicio 6 en un archivo de tipo `.png`.**

@@ -38,7 +38,7 @@ seq(1, 40, by = -2)
 
 ## Parte 1 - Realizando gráficas
 
-**1. Carga de nuevo la tabla de datos almacenada en el fichero "Test Traits.csv". Dibuja tres histogramas en los que se observe la distribución de frecuencias de los valores de altura de las especies (Height), masa foliar (Leaf.Mass) y superficie foliar específica (SLA). Asegurate que los tres histogramas tienen todos el mísmo número de barras y su presentación es aceptable para su publicación en un documento formal en español.**
+**1. Carga de nuevo la tabla de datos almacenada en el fichero "Test Traits.csv". Dibuja tres histogramas en los que se observe la distribución de frecuencias de los valores de altura de las especies (Height), masa foliar (Leaf.Mass) y superficie foliar específica (SLA). Asegurate que los tres histogramas tienen todos el mismo número de barras y su presentación es aceptable para su publicación en un documento formal en español.**
 
 **2. Realiza un gráfico de puntos en el que se vean la altura de las distintas especies en el eje x y la superficie específica de la hoja (SLA) en el eje y. Cada punto representará las medidas de altura y SLA de cada especie. Viendo el gráfico ¿crées que hay alguna relación entre la altura de las especies y la superficie específica de sus hojas? Argumenta tu respuesta.**
 
