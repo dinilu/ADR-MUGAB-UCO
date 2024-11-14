@@ -1,1 +1,1 @@
-Sitemap: https://dinilu.github.io/ADR-MUGAB-UCO/sitemap.xml
+Sitemap: https://github.com/dinilu/ADR-MUGAB-UCO/sitemap.xml
