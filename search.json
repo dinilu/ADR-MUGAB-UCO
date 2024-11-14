@@ -371,190 +371,190 @@
     "text": "Nota\n\n\n\nLos ejercicios tendréis que entregarlos para la evaluación del curso. Para ello, crea un script de R con RStudio. Ponle el nombre ejercicios_t2.R. Dicho script deberá estar organizado con comentarios en castellano (poniendo una almohadilla # delante) y justo detrás el código necesario para realizar el ejercicio (ver ejemplo debajo). Además, si el ejercicio pide reflexionar sobre el resultado use los comentarios (con la #) para indicar sus reflexiones debajo del código. Una vez los tengáis completos deberéis subirlos en la actividad correspondiente de Moodle.\n\n# Ejercicio 1.\n# Parte 1\nseq(1, 40, by = 2)\n\n# Parte 2\nseq(1, 40, by = -2)\n# Este código da error porque especifiqué algo mal :)\n\n\n\n\nParte 1: Gráficas y figuras\n1. Dibuja un histograma del vector a que creaste en los Ejercicios de la Clase anterior.\n\n\n\n\n\n\nPista\n\n\n\n\n\nLa función hist (x) dibuja un histograma de los valores almacenados en x. Se puede personalizar de varias maneras, incluido el uso de puntos de cambio para cambiar la definición de la anchura de las barras. Explora las posibilidades con ?hist\n\n\n\n2. Cambia el color de las barras del histograma con la opción col y cambia el color de los bordes con la opción de border.\n3. Usa abline() para representar el valor de la media de la distribución como una línea vertical punteada.\n\n\n\n\n\n\nPista\n\n\n\n\n\nLa función abline (a, b) dibuja una línea en la gráfica ya existente con la pendiente especificada b e intercepto a. También puede dibujar líneas horizontales o verticales. Para ello, en lugar de especificar los argumentos a y b, deberás especificar un valor concreto usando h = valor o v = valor, dependiendo si quieres dibujar una línea horizontal o vertical.\n\n\n\n4. Crea dos variables correlacionadas x e y, usando x &lt;- rnorm (200) e y &lt;- x + rnorm (200) y dibuja x vs. y y juega con los parámetros de trazado.\n\n\n\n\n\n\nPista\n\n\n\n\n\nLa función plot (x, y,...) dibuja los datos de x contra los datos de y. Es personalizable utilizando una amplia gama de opciones. Puedes consultar todas las opciones con ?plot\n\n\n\n5. Usa la función abline() para incluir una recta de regresión entre las dos variables.\n\n\n\n\n\n\nPista\n\n\n\n\n\nRecuerda, además, que la función abline (a, b) dibuja una línea en la gráfica ya existente con la pendiente especificada b e intercepto a. Para calcular los valores de la pendiente, puedes usar la función lm(x ~ y), que genera un modelo lineal entre las dos variables.\n\n\n\n6. Genera un nuevo conjunto de datos w correlacionado con x, usando w &lt;- 0.5 * x * rnorm(200). Añade este nuevo conjunto de datos al gráfico anterior pero cambiando el color para que se distingan bien los datos de y y w. Además, añade otra recta de regresión entre w y x.\n\n\n\n\n\n\nPista\n\n\n\n\n\nHay varias funciones (points(x, y), segments(x0, y0, x1, y1), arrows(x0, y0, x1, y1), polygons(x, y)), que en lugar de generar gráficos nuevos, dibuja puntos, segmentos de línea, flechas o polígonos en el último gráfico que se haya generado.\n\n\n\n7. Guarda el gráfico resultante del ejercicio 6 en un archivo de tipo .png."
   },
   {
-    "objectID": "ADR-2_packages_plot.html#section",
-    "href": "ADR-2_packages_plot.html#section",
+    "objectID": "ADR-2_Packages_plot.html#section",
+    "href": "ADR-2_Packages_plot.html#section",
     "title": "Paquetes y graficado en R",
     "section": "",
     "text": "Tema 1: Introducción a R y programación\n\nLa estructura de R\nFunciones, objetos y programación básica\nEntorno (sesión de R) y directorio de trabajo\nTrabajar con archivos (scripts y datos)\n\nTema 2:\n\nInstalación de paquetes\nCRAN\nGitHub\nGraficado\n\nTema 3:\n\nEstadística descriptiva\nContraste de hipótesis\nParamétricos vs No paramétricos"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#qué-son-los-paquetes-en-r",
-    "href": "ADR-2_packages_plot.html#qué-son-los-paquetes-en-r",
+    "objectID": "ADR-2_Packages_plot.html#qué-son-los-paquetes-en-r",
+    "href": "ADR-2_Packages_plot.html#qué-son-los-paquetes-en-r",
     "title": "Paquetes y graficado en R",
     "section": "¿Qué son los paquetes en R?",
     "text": "¿Qué son los paquetes en R?\nConjuntos de funciones para un objetivo concreto"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#donde-se-encuentran-esos-paquetes",
-    "href": "ADR-2_packages_plot.html#donde-se-encuentran-esos-paquetes",
+    "objectID": "ADR-2_Packages_plot.html#donde-se-encuentran-esos-paquetes",
+    "href": "ADR-2_Packages_plot.html#donde-se-encuentran-esos-paquetes",
     "title": "Paquetes y graficado en R",
     "section": "¿Donde se encuentran esos paquetes?",
     "text": "¿Donde se encuentran esos paquetes?\nSe encuentran recopilados en un repositorio llamado CRAN (Comprehensive R Archive Network)"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#cómo-instalo-paquetes-de-cran",
-    "href": "ADR-2_packages_plot.html#cómo-instalo-paquetes-de-cran",
+    "objectID": "ADR-2_Packages_plot.html#cómo-instalo-paquetes-de-cran",
+    "href": "ADR-2_Packages_plot.html#cómo-instalo-paquetes-de-cran",
     "title": "Paquetes y graficado en R",
     "section": "¿Cómo instalo paquetes de CRAN?",
     "text": "¿Cómo instalo paquetes de CRAN?\n\ninstall.packages(\"openxlsx\")\n\npackage 'openxlsx' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\RtmpCg0tpi\\downloaded_packages"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#cómo-uso-las-funciones-de-una-librería",
-    "href": "ADR-2_packages_plot.html#cómo-uso-las-funciones-de-una-librería",
+    "objectID": "ADR-2_Packages_plot.html#cómo-uso-las-funciones-de-una-librería",
+    "href": "ADR-2_Packages_plot.html#cómo-uso-las-funciones-de-una-librería",
     "title": "Paquetes y graficado en R",
     "section": "¿Cómo uso las funciones de una librería?",
     "text": "¿Cómo uso las funciones de una librería?\nTienes dos opciones, dependiendo de si…\n\nVas usar sus funciones de forma continuada\nSólo quieres usar una función de forma puntual\n\n\n# Uso intensivo de sus funciones\nlibrary(openxlsx)\nread.xlsx()\nwrite.xlsx()\n\n# Uso puntual de una función\nopenxlsx::read.xlsx()"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#puedo-encontrar-paquetes-en-algún-otro-sitio",
-    "href": "ADR-2_packages_plot.html#puedo-encontrar-paquetes-en-algún-otro-sitio",
+    "objectID": "ADR-2_Packages_plot.html#puedo-encontrar-paquetes-en-algún-otro-sitio",
+    "href": "ADR-2_Packages_plot.html#puedo-encontrar-paquetes-en-algún-otro-sitio",
     "title": "Paquetes y graficado en R",
     "section": "¿Puedo encontrar paquetes en algún otro sitio?",
     "text": "¿Puedo encontrar paquetes en algún otro sitio?\nSi. Puedes encontrar paquetes sin organizar en internet. Algunos sitios frecuentes son GitHub, GitLab, o similares."
   },
   {
-    "objectID": "ADR-2_packages_plot.html#cómo-puedo-instalar-paquetes-de-github",
-    "href": "ADR-2_packages_plot.html#cómo-puedo-instalar-paquetes-de-github",
+    "objectID": "ADR-2_Packages_plot.html#cómo-puedo-instalar-paquetes-de-github",
+    "href": "ADR-2_Packages_plot.html#cómo-puedo-instalar-paquetes-de-github",
     "title": "Paquetes y graficado en R",
     "section": "¿Cómo puedo instalar paquetes de GitHub?",
     "text": "¿Cómo puedo instalar paquetes de GitHub?\n\ninstall.packages(\"devtools\")\n\npackage 'devtools' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\RtmpCg0tpi\\downloaded_packages\n\nlibrary(devtools)\n\ninstall_github(\"colearendt/xlsx\")\n## o\ndevtools::install_github(\"colearendt/xlsx\")"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#generación-de-gráficos-nuevos",
-    "href": "ADR-2_packages_plot.html#generación-de-gráficos-nuevos",
+    "objectID": "ADR-2_Packages_plot.html#generación-de-gráficos-nuevos",
+    "href": "ADR-2_Packages_plot.html#generación-de-gráficos-nuevos",
     "title": "Paquetes y graficado en R",
     "section": "Generación de gráficos nuevos",
     "text": "Generación de gráficos nuevos\nplot() es una función genérica que funciona con muchos objetos diferentes\n\n# plot(x, y)\nplot(5, 1)"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#histogramas",
-    "href": "ADR-2_packages_plot.html#histogramas",
+    "objectID": "ADR-2_Packages_plot.html#histogramas",
+    "href": "ADR-2_Packages_plot.html#histogramas",
     "title": "Paquetes y graficado en R",
     "section": "Histogramas",
     "text": "Histogramas\n\nx &lt;- rnorm(10, 5, 3)\n\nhist(x)"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#gráficas-de-barras",
-    "href": "ADR-2_packages_plot.html#gráficas-de-barras",
+    "objectID": "ADR-2_Packages_plot.html#gráficas-de-barras",
+    "href": "ADR-2_Packages_plot.html#gráficas-de-barras",
     "title": "Paquetes y graficado en R",
     "section": "Gráficas de barras",
     "text": "Gráficas de barras\n\nx &lt;- rnorm(10, 5, 3)\nnames(x) &lt;- paste0(\"tr_\", 1:10)\n\nbarplot(x)"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#gráficas-de-barras-apiladas-o-paralelas",
-    "href": "ADR-2_packages_plot.html#gráficas-de-barras-apiladas-o-paralelas",
+    "objectID": "ADR-2_Packages_plot.html#gráficas-de-barras-apiladas-o-paralelas",
+    "href": "ADR-2_Packages_plot.html#gráficas-de-barras-apiladas-o-paralelas",
     "title": "Paquetes y graficado en R",
     "section": "Gráficas de barras apiladas o paralelas",
     "text": "Gráficas de barras apiladas o paralelas\n\nx &lt;- matrix(rnorm(30, 5, 3), nrow = 3, ncol = 10)\ncolnames(x) &lt;- paste0(\"tr_\", 1:10)\nrownames(x) &lt;- c(\"high\", \"med\", \"low\")\n\nbarplot(x, legend = TRUE)"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#boxplots",
-    "href": "ADR-2_packages_plot.html#boxplots",
+    "objectID": "ADR-2_Packages_plot.html#boxplots",
+    "href": "ADR-2_Packages_plot.html#boxplots",
     "title": "Paquetes y graficado en R",
     "section": "Boxplots",
     "text": "Boxplots\n\nx &lt;- rnorm(30, 5, 3)\ny &lt;- rep(c(\"high\", \"med\", \"low\"), 10)\ndat &lt;- data.frame(size = x, group = y)\n\nboxplot(size ~ group, dat)"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#puedo-pasarle-múltiples-valores",
-    "href": "ADR-2_packages_plot.html#puedo-pasarle-múltiples-valores",
+    "objectID": "ADR-2_Packages_plot.html#puedo-pasarle-múltiples-valores",
+    "href": "ADR-2_Packages_plot.html#puedo-pasarle-múltiples-valores",
     "title": "Paquetes y graficado en R",
     "section": "Puedo pasarle múltiples valores",
     "text": "Puedo pasarle múltiples valores\n\nx &lt;- 1:10\ny &lt;- 10:1\n\nplot(x, y)"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#puedo-pasarle-múltiples-valores-1",
-    "href": "ADR-2_packages_plot.html#puedo-pasarle-múltiples-valores-1",
+    "objectID": "ADR-2_Packages_plot.html#puedo-pasarle-múltiples-valores-1",
+    "href": "ADR-2_Packages_plot.html#puedo-pasarle-múltiples-valores-1",
     "title": "Paquetes y graficado en R",
     "section": "Puedo pasarle múltiples valores",
     "text": "Puedo pasarle múltiples valores\n\nx &lt;- 1:10\ny &lt;- 10:1\n\nplot(x, y, main = \"A plot\", xlab = \"Temperature\",\n    ylab = \"Pirates\")"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#puedo-cambiar-la-conexión-entre-puntos",
-    "href": "ADR-2_packages_plot.html#puedo-cambiar-la-conexión-entre-puntos",
+    "objectID": "ADR-2_Packages_plot.html#puedo-cambiar-la-conexión-entre-puntos",
+    "href": "ADR-2_Packages_plot.html#puedo-cambiar-la-conexión-entre-puntos",
     "title": "Paquetes y graficado en R",
     "section": "Puedo cambiar la conexión entre puntos…",
     "text": "Puedo cambiar la conexión entre puntos…\n\n\nx &lt;- 1:10\ny &lt;- 10:1\n\npar(mfrow = c(2, 3))\nplot(x, y)\nplot(x, y, type = \"l\")\nplot(x, y, type = \"b\")\nplot(x, y, type = \"h\")\nplot(x, y, type = \"o\")\nplot(x, y, type = \"s\")"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#pero-cuidado-con-el-orden-de-los-datos",
-    "href": "ADR-2_packages_plot.html#pero-cuidado-con-el-orden-de-los-datos",
+    "objectID": "ADR-2_Packages_plot.html#pero-cuidado-con-el-orden-de-los-datos",
+    "href": "ADR-2_Packages_plot.html#pero-cuidado-con-el-orden-de-los-datos",
     "title": "Paquetes y graficado en R",
     "section": "… pero cuidado con el orden de los datos",
     "text": "… pero cuidado con el orden de los datos\n\n\nx &lt;- sample(1:10, 10)\ny &lt;- sample(1:10, 10)\n\npar(mfrow = c(2, 3))\nplot(x, y)\nplot(x, y, type = \"l\")\nplot(x, y, type = \"b\")\nplot(x, y, type = \"h\")\nplot(x, y, type = \"o\")\nplot(x, y, type = \"s\")"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#puedo-cambiar-el-tipo-de-puntos",
-    "href": "ADR-2_packages_plot.html#puedo-cambiar-el-tipo-de-puntos",
+    "objectID": "ADR-2_Packages_plot.html#puedo-cambiar-el-tipo-de-puntos",
+    "href": "ADR-2_Packages_plot.html#puedo-cambiar-el-tipo-de-puntos",
     "title": "Paquetes y graficado en R",
     "section": "Puedo cambiar el tipo de puntos",
     "text": "Puedo cambiar el tipo de puntos\n\n\nx &lt;- 1:10\n\npar(mfrow = c(3, 1))\nplot(x, rep(1, 10))\nplot(x, rep(1, 10), pch = 2)\nplot(x, rep(1, 10), pch = 1:10)"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#puedo-cambiar-el-tamaño-de-puntos",
-    "href": "ADR-2_packages_plot.html#puedo-cambiar-el-tamaño-de-puntos",
+    "objectID": "ADR-2_Packages_plot.html#puedo-cambiar-el-tamaño-de-puntos",
+    "href": "ADR-2_Packages_plot.html#puedo-cambiar-el-tamaño-de-puntos",
     "title": "Paquetes y graficado en R",
     "section": "Puedo cambiar el tamaño de puntos",
     "text": "Puedo cambiar el tamaño de puntos\n\n\nx &lt;- 1:10\ny &lt;- 1:10\n\npar(mfrow = c(3, 1))\nplot(x, y)\nplot(x, y, cex = 2)\nplot(x, y, \n     cex = seq(1, 3, \n               length.out = 10))"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#puedo-cambiar-los-colores",
-    "href": "ADR-2_packages_plot.html#puedo-cambiar-los-colores",
+    "objectID": "ADR-2_Packages_plot.html#puedo-cambiar-los-colores",
+    "href": "ADR-2_Packages_plot.html#puedo-cambiar-los-colores",
     "title": "Paquetes y graficado en R",
     "section": "Puedo cambiar los colores",
     "text": "Puedo cambiar los colores\n\nUsando el nombre\nUsando funciones para generar colores\n\n\n\nx &lt;- rep(1:10, 10)\ny &lt;- rep(1:10, each = 10)\n\npar(mfrow = c(2, 2))\nplot(x, y, pch = 15)\nplot(x, y, pch = 15,\n     col = \"dark green\")\nplot(x, y, pch = 15,\n     col = \"#352575\")\nplot(x, y, pch = 15,\n     col = rgb(0.8,0.1,0.2))"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#muchas-más-opciones-en-la-función-par",
-    "href": "ADR-2_packages_plot.html#muchas-más-opciones-en-la-función-par",
+    "objectID": "ADR-2_Packages_plot.html#muchas-más-opciones-en-la-función-par",
+    "href": "ADR-2_Packages_plot.html#muchas-más-opciones-en-la-función-par",
     "title": "Paquetes y graficado en R",
     "section": "Muchas más opciones en la función par()",
     "text": "Muchas más opciones en la función par()\n70 opciones diferentes para controlar los gráficos!\n\n?par"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#añadiendo-información-a-gráficos-existentes",
-    "href": "ADR-2_packages_plot.html#añadiendo-información-a-gráficos-existentes",
+    "objectID": "ADR-2_Packages_plot.html#añadiendo-información-a-gráficos-existentes",
+    "href": "ADR-2_Packages_plot.html#añadiendo-información-a-gráficos-existentes",
     "title": "Paquetes y graficado en R",
     "section": "Añadiendo información a gráficos existentes",
     "text": "Añadiendo información a gráficos existentes\n\npoints(x, y) añade puntos a gráficos (opciones similares a plot())\nsegments(x0, y0, x1, y1) añade líneas, desde un punto a otro\npolygon(x, y) añade polígonos"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#guardando-gráficos-en-el-disco-duro",
-    "href": "ADR-2_packages_plot.html#guardando-gráficos-en-el-disco-duro",
+    "objectID": "ADR-2_Packages_plot.html#guardando-gráficos-en-el-disco-duro",
+    "href": "ADR-2_Packages_plot.html#guardando-gráficos-en-el-disco-duro",
     "title": "Paquetes y graficado en R",
     "section": "Guardando gráficos en el disco duro",
     "text": "Guardando gráficos en el disco duro\n\nx &lt;- rep(1:10, 10)\ny &lt;- rep(1:10, each = 10)\n\npdf(\"figures/Figure_1.pdf\") \n\nplot(x, y, pch = 15, cex = 2, col = rgb(0.8, 0.1, 0.2))\n\ndev.off()\n\npng \n  2"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#algunos-ejemplos-de-figuras",
-    "href": "ADR-2_packages_plot.html#algunos-ejemplos-de-figuras",
+    "objectID": "ADR-2_Packages_plot.html#algunos-ejemplos-de-figuras",
+    "href": "ADR-2_Packages_plot.html#algunos-ejemplos-de-figuras",
     "title": "Paquetes y graficado en R",
     "section": "Algunos ejemplos de figuras",
     "text": "Algunos ejemplos de figuras"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#como-visualizo-cuando-tengo-grandes-cantidades-de-datos",
-    "href": "ADR-2_packages_plot.html#como-visualizo-cuando-tengo-grandes-cantidades-de-datos",
+    "objectID": "ADR-2_Packages_plot.html#como-visualizo-cuando-tengo-grandes-cantidades-de-datos",
+    "href": "ADR-2_Packages_plot.html#como-visualizo-cuando-tengo-grandes-cantidades-de-datos",
     "title": "Paquetes y graficado en R",
     "section": "¿Como visualizo cuando tengo grandes cantidades de datos?",
     "text": "¿Como visualizo cuando tengo grandes cantidades de datos?\n\n\nx &lt;- rnorm(20000)\ny &lt;- rnorm(20000)\n\nplot(x, y)"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#como-visualizo-cuando-tengo-grandes-cantidades-de-datos-1",
-    "href": "ADR-2_packages_plot.html#como-visualizo-cuando-tengo-grandes-cantidades-de-datos-1",
+    "objectID": "ADR-2_Packages_plot.html#como-visualizo-cuando-tengo-grandes-cantidades-de-datos-1",
+    "href": "ADR-2_Packages_plot.html#como-visualizo-cuando-tengo-grandes-cantidades-de-datos-1",
     "title": "Paquetes y graficado en R",
     "section": "¿Como visualizo cuando tengo grandes cantidades de datos?",
     "text": "¿Como visualizo cuando tengo grandes cantidades de datos?\n\n\ninstall.packages(\"hexbin\") \nlibrary(hexbin)\n\nhbin &lt;- hexbin(x, y, xbins = 40)\n\nplot(hbin)\n\n\n\n\n\n\n\n\n\n\n  There is a binary version available but the source version is later:\n       binary source needs_compilation\nhexbin 1.28.4 1.28.5              TRUE"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#vamos-a-practicar",
-    "href": "ADR-2_packages_plot.html#vamos-a-practicar",
+    "objectID": "ADR-2_Packages_plot.html#vamos-a-practicar",
+    "href": "ADR-2_Packages_plot.html#vamos-a-practicar",
     "title": "Paquetes y graficado en R",
     "section": "Vamos a practicar",
     "text": "Vamos a practicar\n\nEjercicios de clase"
   },
   {
-    "objectID": "ADR-2_packages_plot.html#ejercicios-de-casa-homeworks",
-    "href": "ADR-2_packages_plot.html#ejercicios-de-casa-homeworks",
+    "objectID": "ADR-2_Packages_plot.html#ejercicios-de-casa-homeworks",
+    "href": "ADR-2_Packages_plot.html#ejercicios-de-casa-homeworks",
     "title": "Paquetes y graficado en R",
     "section": "Ejercicios de casa (Homeworks)",
     "text": "Ejercicios de casa (Homeworks)\n\nEn la web de la asignatura (enlace en Moodle)\nEntregar antes de la siguiente clase"

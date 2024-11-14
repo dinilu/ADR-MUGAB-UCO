@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dinilu.github.io/ADR-MUGAB-UCO/index.html</loc>
-    <lastmod>2024-11-14T11:20:41.607Z</lastmod>
+    <lastmod>2024-11-14T18:39:26.641Z</lastmod>
   </url>
   <url>
     <loc>https://dinilu.github.io/ADR-MUGAB-UCO/ADR-2-Homeworks.html</loc>
@@ -25,7 +25,7 @@
     <lastmod>2024-11-14T18:26:25.059Z</lastmod>
   </url>
   <url>
-    <loc>https://dinilu.github.io/ADR-MUGAB-UCO/ADR-2_packages_plot.html</loc>
+    <loc>https://dinilu.github.io/ADR-MUGAB-UCO/ADR-2_Packages_plot.html</loc>
     <lastmod>2024-11-14T18:37:41.959Z</lastmod>
   </url>
 </urlset>
