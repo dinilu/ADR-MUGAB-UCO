@@ -7,7 +7,7 @@ slide-number: true
 format:
   revealjs:
     logo: img/R-logo.png
-    footer: "[Análisis de datos con R](index.qmd)"
+    footer: "[Análisis de datos con R](https://dnietolugilde.com/ADR-MUGAB-UCO)"
     scrollable: true
     chalkboard: true
 lightbox: auto

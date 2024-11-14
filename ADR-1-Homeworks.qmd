@@ -2,8 +2,10 @@
 title: 'Análisis espaciales y multivariantes con R (AEMeR) aplicados a estudios de biodiversidad'
 subtitle: 'Homeworks de introducción a R'
 author: 'Diego Nieto Lugilde'
-date: 10/14/2024
-format: html
+format:
+  html:
+    logo: img/R-logo.png
+    footer: "[Análisis de datos con R]((https://dnietolugilde.com/ADR-MUGAB-UCO)"
 toc: true
 toc-depth: 2
 lightbox: auto
@@ -68,4 +70,4 @@ Escribí un script que analiza los ficheros `Test Presences.csv` y `Test Traits.
 
 > Guarda la versión completa de tu script (con las partes 1 y 2) y súbelo a Moodle!
 
-> Envíame un correo electrónico o habla conmigo en cualquier momento antes de la siguiente clase si tienes problemas.
+> Usa el foro de dudas de Moodle, envíame un correo electrónico o habla conmigo en cualquier momento antes de la siguiente clase si tienes problemas.
