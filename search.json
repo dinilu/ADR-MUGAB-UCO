@@ -371,6 +371,13 @@
     "text": "Nota\n\n\n\nLos ejercicios tendréis que entregarlos para la evaluación del curso. Para ello, crea un script de R con RStudio. Ponle el nombre ejercicios_t2.R. Dicho script deberá estar organizado con comentarios en castellano (poniendo una almohadilla # delante) y justo detrás el código necesario para realizar el ejercicio (ver ejemplo debajo). Además, si el ejercicio pide reflexionar sobre el resultado use los comentarios (con la #) para indicar sus reflexiones debajo del código. Una vez los tengáis completos deberéis subirlos en la actividad correspondiente de Moodle.\n\n# Ejercicio 1.\n# Parte 1\nseq(1, 40, by = 2)\n\n# Parte 2\nseq(1, 40, by = -2)\n# Este código da error porque especifiqué algo mal :)\n\n\n\n\nParte 1: Gráficas y figuras\n1. Dibuja un histograma del vector a que creaste en los Ejercicios de la parte 1.\n\n\n\n\n\n\nPista\n\n\n\n\n\nLa función hist (x) dibuja un histograma de los valores almacenados en x. Se puede personalizar de varias maneras, incluido el uso de puntos de cambio para cambiar la definición de la anchura de las barras. Explora las posibilidades con ?hist\n\n\n\n2. Cambia el color de las barras con la opción col y cambia el color de los cuadros con la opción de border.\n3. Usa abline() para dibujar la media de la distribución como una línea vertical punteada.\n\n\n\n\n\n\nPista\n\n\n\n\n\nLa función abline (a, b) dibuja una línea en la gráfica ya existente con la pendiente especificada b e intercepto a. También puede dibujar líneas horizontales o verticales. Para ello, en lugar de especificar los argumentos a y b, deberás especificar un valor concreto usando h = valor o v = valor, dependiendo si quieres dibujar una línea horizontal o vertical.\n\n\n\n4. Crea dos variables correlacionadas x e y, usando x &lt;- rnorm (200) e y &lt;- x + rnorm (200) y dibuja x vs. y y juega con los parámetros de trazado.\n\n\n\n\n\n\nPista\n\n\n\n\n\nLa función plot (x, y,...) dibuja los datos de x contra los datos de y. Es personalizable utilizando una amplia gama de opciones. Puedes consultar todas las opciones con ?plot\n\n\n\n5. Usa la función abline() para incluir una recta de regresión entre las dos variables.\n\n\n\n\n\n\nPista\n\n\n\n\n\nRecuerda, además, que la función abline (a, b) dibuja una línea en la gráfica ya existente con la pendiente especificada b e intercepto a. Para calcular los valores de la pendiente, puedes usar la función lm(x, y), que genera un modelo lineal entre las dos variables.\n\n\n\n6. Genera un nuevo conjunto de datos w correlacionado con x, usando w &lt;- 0.5 * x * rnorm(200). Añade este nuevo conjunto de datos al gráfico anterior pero cambiando el color para que se distingan bien los datos de y y w. Además, añade otra recta de regresión entre w y x.\n\n\n\n\n\n\nPista\n\n\n\n\n\nHay varias funciones (points(x, y), segments(x0, y0, x1, y1), arrows(x0, y0, x1, y1), polygons(x, y), que en lugar de generar gráficos nuevos, dibuja puntos, segmentos de línea, flechas o polígonos en el último gráfico que se haya generado.\n\n\n\n7. Guarda el gráfico resultante del ejercicio 6 en un archivo de tipo .png."
   },
   {
+    "objectID": "ADR-2_packages_plot.html#section",
+    "href": "ADR-2_packages_plot.html#section",
+    "title": "Paquetes y graficado en R",
+    "section": "",
+    "text": "Tema 1: Introducción a R y programación\n\nLa estructura de R\nFunciones, objetos y programación básica\nEntorno (sesión de R) y directorio de trabajo\nTrabajar con archivos (scripts y datos)\n\nTema 2:\n\nInstalación de paquetes\nCRAN\nGitHub\nGraficado\n\nTema 3:\n\nEstadística descriptiva\nContraste de hipótesis\nParamétricos vs No paramétricos"
+  },
+  {
     "objectID": "ADR-2_packages_plot.html#qué-son-los-paquetes-en-r",
     "href": "ADR-2_packages_plot.html#qué-son-los-paquetes-en-r",
     "title": "Paquetes y graficado en R",
@@ -389,7 +396,7 @@
     "href": "ADR-2_packages_plot.html#cómo-instalo-paquetes-de-cran",
     "title": "Paquetes y graficado en R",
     "section": "¿Cómo instalo paquetes de CRAN?",
-    "text": "¿Cómo instalo paquetes de CRAN?\n\ninstall.packages(\"openxlsx\")\n\npackage 'openxlsx' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\RtmpOmgZct\\downloaded_packages"
+    "text": "¿Cómo instalo paquetes de CRAN?\n\ninstall.packages(\"openxlsx\")\n\npackage 'openxlsx' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\Rtmpug7Jbg\\downloaded_packages"
   },
   {
     "objectID": "ADR-2_packages_plot.html#cómo-uso-las-funciones-de-una-librería",
@@ -410,7 +417,7 @@
     "href": "ADR-2_packages_plot.html#cómo-puedo-instalar-paquetes-de-github",
     "title": "Paquetes y graficado en R",
     "section": "¿Cómo puedo instalar paquetes de GitHub?",
-    "text": "¿Cómo puedo instalar paquetes de GitHub?\n\ninstall.packages(\"devtools\")\n\npackage 'devtools' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\RtmpOmgZct\\downloaded_packages\n\nlibrary(devtools)\n\ninstall_github(\"colearendt/xlsx\")\n## o\ndevtools::install_github(\"colearendt/xlsx\")"
+    "text": "¿Cómo puedo instalar paquetes de GitHub?\n\ninstall.packages(\"devtools\")\n\npackage 'devtools' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\Rtmpug7Jbg\\downloaded_packages\n\nlibrary(devtools)\n\ninstall_github(\"colearendt/xlsx\")\n## o\ndevtools::install_github(\"colearendt/xlsx\")"
   },
   {
     "objectID": "ADR-2_packages_plot.html#generación-de-gráficos-nuevos",
