@@ -261,11 +261,11 @@ Diego Nieto Lugilde
 <pre><code>package 'openxlsx' successfully unpacked and MD5 sums checked
 
 The downloaded binary packages are in
-    C:\Users\Diego\AppData\Local\Temp\Rtmpug7Jbg\downloaded_packages</code></pre>
+    C:\Users\Diego\AppData\Local\Temp\Rtmp2xjm6h\downloaded_packages</code></pre>
 </div>
 </div>
 </section>
-<section id="cómo-uso-las-funciones-de-una-librería" class="slide level2">
+<section id="cómo-uso-las-funciones-de-una-librería" class="slide level2 smaller">
 <h2>¿Cómo uso las funciones de una librería?</h2>
 <p>Tienes dos opciones, dependiendo de si…</p>
 <ul>
@@ -282,7 +282,7 @@ The downloaded binary packages are in
 <span id="cb3-7"><a></a>openxlsx<span class="sc">::</span><span class="fu">read.xlsx</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="puedo-encontrar-paquetes-en-algún-otro-sitio" class="slide level2">
+<section id="puedo-encontrar-paquetes-en-algún-otro-sitio" class="slide level2 smaller">
 <h2>¿Puedo encontrar paquetes en algún otro sitio?</h2>
 <p>Si. Puedes encontrar paquetes sin organizar en internet. Algunos sitios frecuentes son GitHub, GitLab, o similares.</p>
 <p><a href="img/Tema2/GitHub.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="img/Tema2/GitHub.png"></a></p>
@@ -295,7 +295,7 @@ The downloaded binary packages are in
 <pre><code>package 'devtools' successfully unpacked and MD5 sums checked
 
 The downloaded binary packages are in
-    C:\Users\Diego\AppData\Local\Temp\Rtmpug7Jbg\downloaded_packages</code></pre>
+    C:\Users\Diego\AppData\Local\Temp\Rtmp2xjm6h\downloaded_packages</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(devtools)</span>
 <span id="cb6-2"><a></a></span>
@@ -309,7 +309,7 @@ The downloaded binary packages are in
 <h1>Graficado</h1>
 
 </section>
-<section id="generación-de-gráficos-nuevos" class="slide level2">
+<section id="generación-de-gráficos-nuevos" class="slide level2 smaller">
 <h2>Generación de gráficos nuevos</h2>
 <p><code>plot()</code> es una función genérica que funciona con muchos objetos diferentes</p>
 <div class="cell">
@@ -396,6 +396,9 @@ The downloaded binary packages are in
 <section id="puedo-pasarle-múltiples-valores" class="slide level2">
 <h2>Puedo pasarle múltiples valores</h2>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb12-2"><a></a>y <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span></span>
+<span id="cb12-3"><a></a><span class="fu">plot</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -408,6 +411,10 @@ The downloaded binary packages are in
 <section id="puedo-pasarle-múltiples-valores-1" class="slide level2">
 <h2>Puedo pasarle múltiples valores</h2>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb13-2"><a></a>y <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span></span>
+<span id="cb13-3"><a></a><span class="fu">plot</span>(x, y, <span class="at">main =</span> <span class="st">"A plot"</span>, <span class="at">xlab =</span> <span class="st">"Temperature"</span>,</span>
+<span id="cb13-4"><a></a>    <span class="at">ylab =</span> <span class="st">"Pirates"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -421,15 +428,15 @@ The downloaded binary packages are in
 <h2>Puedo cambiar la conexión entre puntos…</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb12-2"><a></a>y <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span></span>
-<span id="cb12-3"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>))</span>
-<span id="cb12-4"><a></a><span class="fu">plot</span>(x, y)</span>
-<span id="cb12-5"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"l"</span>)</span>
-<span id="cb12-6"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"b"</span>)</span>
-<span id="cb12-7"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"h"</span>)</span>
-<span id="cb12-8"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"o"</span>)</span>
-<span id="cb12-9"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"s"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb14-2"><a></a>y <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span></span>
+<span id="cb14-3"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb14-4"><a></a><span class="fu">plot</span>(x, y)</span>
+<span id="cb14-5"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"l"</span>)</span>
+<span id="cb14-6"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"b"</span>)</span>
+<span id="cb14-7"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"h"</span>)</span>
+<span id="cb14-8"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"o"</span>)</span>
+<span id="cb14-9"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"s"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -444,16 +451,16 @@ The downloaded binary packages are in
 <h2>… pero cuidado con el orden de los datos</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">10</span>)</span>
-<span id="cb13-2"><a></a>y <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">10</span>)</span>
-<span id="cb13-3"><a></a></span>
-<span id="cb13-4"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>))</span>
-<span id="cb13-5"><a></a><span class="fu">plot</span>(x, y)</span>
-<span id="cb13-6"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"l"</span>)</span>
-<span id="cb13-7"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"b"</span>)</span>
-<span id="cb13-8"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"h"</span>)</span>
-<span id="cb13-9"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"o"</span>)</span>
-<span id="cb13-10"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"s"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">10</span>)</span>
+<span id="cb15-2"><a></a>y <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">10</span>)</span>
+<span id="cb15-3"><a></a></span>
+<span id="cb15-4"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb15-5"><a></a><span class="fu">plot</span>(x, y)</span>
+<span id="cb15-6"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"l"</span>)</span>
+<span id="cb15-7"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"b"</span>)</span>
+<span id="cb15-8"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"h"</span>)</span>
+<span id="cb15-9"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"o"</span>)</span>
+<span id="cb15-10"><a></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">"s"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -468,12 +475,12 @@ The downloaded binary packages are in
 <h2>Puedo cambiar el tipo de puntos</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb14-2"><a></a></span>
-<span id="cb14-3"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>))</span>
-<span id="cb14-4"><a></a><span class="fu">plot</span>(x, <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">10</span>))</span>
-<span id="cb14-5"><a></a><span class="fu">plot</span>(x, <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="at">pch =</span> <span class="dv">2</span>)</span>
-<span id="cb14-6"><a></a><span class="fu">plot</span>(x, <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="at">pch =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb16-2"><a></a></span>
+<span id="cb16-3"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb16-4"><a></a><span class="fu">plot</span>(x, <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">10</span>))</span>
+<span id="cb16-5"><a></a><span class="fu">plot</span>(x, <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="at">pch =</span> <span class="dv">2</span>)</span>
+<span id="cb16-6"><a></a><span class="fu">plot</span>(x, <span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">10</span>), <span class="at">pch =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -488,13 +495,13 @@ The downloaded binary packages are in
 <h2>Puedo cambiar el tamaño de puntos</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb15-2"><a></a>y <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb15-3"><a></a></span>
-<span id="cb15-4"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>))</span>
-<span id="cb15-5"><a></a><span class="fu">plot</span>(x, y)</span>
-<span id="cb15-6"><a></a><span class="fu">plot</span>(x, y, <span class="at">cex =</span> <span class="dv">2</span>)</span>
-<span id="cb15-7"><a></a><span class="fu">plot</span>(x, y, <span class="at">cex =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="at">length.out =</span> <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb17-2"><a></a>y <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb17-3"><a></a></span>
+<span id="cb17-4"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb17-5"><a></a><span class="fu">plot</span>(x, y)</span>
+<span id="cb17-6"><a></a><span class="fu">plot</span>(x, y, <span class="at">cex =</span> <span class="dv">2</span>)</span>
+<span id="cb17-7"><a></a><span class="fu">plot</span>(x, y, <span class="at">cex =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="at">length.out =</span> <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -513,20 +520,20 @@ The downloaded binary packages are in
 </ul>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">10</span>)</span>
-<span id="cb16-2"><a></a>y <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">each =</span> <span class="dv">10</span>)</span>
-<span id="cb16-3"><a></a></span>
-<span id="cb16-4"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>))</span>
-<span id="cb16-5"><a></a><span class="fu">plot</span>(x, y, <span class="at">pch =</span> <span class="dv">15</span>, <span class="at">cex =</span> <span class="dv">2</span>)</span>
-<span id="cb16-6"><a></a><span class="fu">plot</span>(x, y, <span class="at">pch =</span> <span class="dv">15</span>, <span class="at">cex =</span> <span class="dv">2</span>,</span>
-<span id="cb16-7"><a></a>     <span class="at">col =</span> <span class="st">"dark green"</span>)</span>
-<span id="cb16-8"><a></a><span class="fu">plot</span>(x, y, <span class="at">pch =</span> <span class="dv">15</span>, <span class="at">cex =</span> <span class="dv">2</span>,</span>
-<span id="cb16-9"><a></a>     <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fl">0.8</span>,<span class="fl">0.1</span>,<span class="fl">0.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">10</span>)</span>
+<span id="cb18-2"><a></a>y <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">each =</span> <span class="dv">10</span>)</span>
+<span id="cb18-3"><a></a></span>
+<span id="cb18-4"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>))</span>
+<span id="cb18-5"><a></a><span class="fu">plot</span>(x, y, <span class="at">pch =</span> <span class="dv">15</span>, <span class="at">cex =</span> <span class="dv">2</span>)</span>
+<span id="cb18-6"><a></a><span class="fu">plot</span>(x, y, <span class="at">pch =</span> <span class="dv">15</span>, <span class="at">cex =</span> <span class="dv">2</span>,</span>
+<span id="cb18-7"><a></a>     <span class="at">col =</span> <span class="st">"dark green"</span>)</span>
+<span id="cb18-8"><a></a><span class="fu">plot</span>(x, y, <span class="at">pch =</span> <span class="dv">15</span>, <span class="at">cex =</span> <span class="dv">2</span>,</span>
+<span id="cb18-9"><a></a>     <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fl">0.8</span>,<span class="fl">0.1</span>,<span class="fl">0.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="ADR-2_packages_plot_files/figure-revealjs/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img data-src="ADR-2_packages_plot_files/figure-revealjs/unnamed-chunk-16-1.png" width="384"></a></p>
+<p><a href="ADR-2_packages_plot_files/figure-revealjs/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img data-src="ADR-2_packages_plot_files/figure-revealjs/unnamed-chunk-16-1.png" width="288"></a></p>
 </figure>
 </div>
 </div>
@@ -535,6 +542,12 @@ The downloaded binary packages are in
 <section id="muchas-más-opciones-en-la-función-par" class="slide level2">
 <h2>Muchas más opciones en la función <code>par()</code></h2>
 <p>70 opciones diferentes para controlar los gráficos!</p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>?par</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+
+</div></div>
 </section>
 <section id="añadiendo-información-a-gráficos-existentes" class="slide level2">
 <h2>Añadiendo información a gráficos existentes</h2>
@@ -543,14 +556,14 @@ The downloaded binary packages are in
 <section id="guardando-gráficos-en-el-disco-duro" class="slide level2">
 <h2>Guardando gráficos en el disco duro</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">10</span>)</span>
-<span id="cb17-2"><a></a>y <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">each =</span> <span class="dv">10</span>)</span>
-<span id="cb17-3"><a></a></span>
-<span id="cb17-4"><a></a><span class="fu">pdf</span>(<span class="st">"figures/Figure_1.pdf"</span>) </span>
-<span id="cb17-5"><a></a></span>
-<span id="cb17-6"><a></a><span class="fu">plot</span>(x, y, <span class="at">pch =</span> <span class="dv">15</span>, <span class="at">cex =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fl">0.8</span>,<span class="fl">0.1</span>,<span class="fl">0.2</span>))</span>
-<span id="cb17-7"><a></a></span>
-<span id="cb17-8"><a></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">10</span>)</span>
+<span id="cb20-2"><a></a>y <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">each =</span> <span class="dv">10</span>)</span>
+<span id="cb20-3"><a></a></span>
+<span id="cb20-4"><a></a><span class="fu">pdf</span>(<span class="st">"figures/Figure_1.pdf"</span>) </span>
+<span id="cb20-5"><a></a></span>
+<span id="cb20-6"><a></a><span class="fu">plot</span>(x, y, <span class="at">pch =</span> <span class="dv">15</span>, <span class="at">cex =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fl">0.8</span>,<span class="fl">0.1</span>,<span class="fl">0.2</span>))</span>
+<span id="cb20-7"><a></a></span>
+<span id="cb20-8"><a></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>png 
   2 </code></pre>
@@ -565,15 +578,15 @@ The downloaded binary packages are in
 <h2>¿Como visualizo cuando tengo grandes cantidades de datos?</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20000</span>)</span>
-<span id="cb19-2"><a></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20000</span>)</span>
-<span id="cb19-3"><a></a></span>
-<span id="cb19-4"><a></a><span class="fu">plot</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20000</span>)</span>
+<span id="cb22-2"><a></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20000</span>)</span>
+<span id="cb22-3"><a></a></span>
+<span id="cb22-4"><a></a><span class="fu">plot</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="ADR-2_packages_plot_files/figure-revealjs/unnamed-chunk-18-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img data-src="ADR-2_packages_plot_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></a></p>
+<p><a href="ADR-2_packages_plot_files/figure-revealjs/unnamed-chunk-19-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img data-src="ADR-2_packages_plot_files/figure-revealjs/unnamed-chunk-19-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>
@@ -583,17 +596,17 @@ The downloaded binary packages are in
 <h2>¿Como visualizo cuando tengo grandes cantidades de datos?</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">install.packages</span>(<span class="st">"hexbin"</span>) </span>
-<span id="cb20-2"><a></a><span class="fu">library</span>(hexbin)</span>
-<span id="cb20-3"><a></a></span>
-<span id="cb20-4"><a></a>hbin <span class="ot">&lt;-</span> <span class="fu">hexbin</span>(x, y, <span class="at">xbins =</span> <span class="dv">40</span>)</span>
-<span id="cb20-5"><a></a></span>
-<span id="cb20-6"><a></a><span class="fu">plot</span>(hbin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">install.packages</span>(<span class="st">"hexbin"</span>) </span>
+<span id="cb23-2"><a></a><span class="fu">library</span>(hexbin)</span>
+<span id="cb23-3"><a></a></span>
+<span id="cb23-4"><a></a>hbin <span class="ot">&lt;-</span> <span class="fu">hexbin</span>(x, y, <span class="at">xbins =</span> <span class="dv">40</span>)</span>
+<span id="cb23-5"><a></a></span>
+<span id="cb23-6"><a></a><span class="fu">plot</span>(hbin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><a href="ADR-2_packages_plot_files/figure-revealjs/unnamed-chunk-19-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img data-src="ADR-2_packages_plot_files/figure-revealjs/unnamed-chunk-19-1.png" width="960"></a></p>
+<p><a href="ADR-2_packages_plot_files/figure-revealjs/unnamed-chunk-20-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img data-src="ADR-2_packages_plot_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></a></p>
 </figure>
 </div>
 </div>

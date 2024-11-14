@@ -396,7 +396,7 @@
     "href": "ADR-2_packages_plot.html#cómo-instalo-paquetes-de-cran",
     "title": "Paquetes y graficado en R",
     "section": "¿Cómo instalo paquetes de CRAN?",
-    "text": "¿Cómo instalo paquetes de CRAN?\n\ninstall.packages(\"openxlsx\")\n\npackage 'openxlsx' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\Rtmpug7Jbg\\downloaded_packages"
+    "text": "¿Cómo instalo paquetes de CRAN?\n\ninstall.packages(\"openxlsx\")\n\npackage 'openxlsx' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\Rtmp2xjm6h\\downloaded_packages"
   },
   {
     "objectID": "ADR-2_packages_plot.html#cómo-uso-las-funciones-de-una-librería",
@@ -417,7 +417,7 @@
     "href": "ADR-2_packages_plot.html#cómo-puedo-instalar-paquetes-de-github",
     "title": "Paquetes y graficado en R",
     "section": "¿Cómo puedo instalar paquetes de GitHub?",
-    "text": "¿Cómo puedo instalar paquetes de GitHub?\n\ninstall.packages(\"devtools\")\n\npackage 'devtools' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\Rtmpug7Jbg\\downloaded_packages\n\nlibrary(devtools)\n\ninstall_github(\"colearendt/xlsx\")\n## o\ndevtools::install_github(\"colearendt/xlsx\")"
+    "text": "¿Cómo puedo instalar paquetes de GitHub?\n\ninstall.packages(\"devtools\")\n\npackage 'devtools' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\Rtmp2xjm6h\\downloaded_packages\n\nlibrary(devtools)\n\ninstall_github(\"colearendt/xlsx\")\n## o\ndevtools::install_github(\"colearendt/xlsx\")"
   },
   {
     "objectID": "ADR-2_packages_plot.html#generación-de-gráficos-nuevos",
@@ -459,14 +459,14 @@
     "href": "ADR-2_packages_plot.html#puedo-pasarle-múltiples-valores",
     "title": "Paquetes y graficado en R",
     "section": "Puedo pasarle múltiples valores",
-    "text": "Puedo pasarle múltiples valores"
+    "text": "Puedo pasarle múltiples valores\n\nx &lt;- 1:10\ny &lt;- 10:1\nplot(x, y)"
   },
   {
     "objectID": "ADR-2_packages_plot.html#puedo-pasarle-múltiples-valores-1",
     "href": "ADR-2_packages_plot.html#puedo-pasarle-múltiples-valores-1",
     "title": "Paquetes y graficado en R",
     "section": "Puedo pasarle múltiples valores",
-    "text": "Puedo pasarle múltiples valores"
+    "text": "Puedo pasarle múltiples valores\n\nx &lt;- 1:10\ny &lt;- 10:1\nplot(x, y, main = \"A plot\", xlab = \"Temperature\",\n    ylab = \"Pirates\")"
   },
   {
     "objectID": "ADR-2_packages_plot.html#puedo-cambiar-la-conexión-entre-puntos",
@@ -508,7 +508,7 @@
     "href": "ADR-2_packages_plot.html#muchas-más-opciones-en-la-función-par",
     "title": "Paquetes y graficado en R",
     "section": "Muchas más opciones en la función par()",
-    "text": "Muchas más opciones en la función par()\n70 opciones diferentes para controlar los gráficos!"
+    "text": "Muchas más opciones en la función par()\n70 opciones diferentes para controlar los gráficos!\n\n\n?par"
   },
   {
     "objectID": "ADR-2_packages_plot.html#añadiendo-información-a-gráficos-existentes",
