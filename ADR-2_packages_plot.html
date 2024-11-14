@@ -213,6 +213,33 @@ Diego Nieto Lugilde
 </div>
 
 </section>
+<section id="el-plan-del-curso" class="title-slide slide level1 smaller center">
+<h1>El plan del curso…</h1>
+<p>— {.smaller}</p>
+<ul>
+<li>Tema 1: Introducción a R y programación
+<ul>
+<li>La estructura de R</li>
+<li>Funciones, objetos y programación básica</li>
+<li>Entorno (sesión de R) y directorio de trabajo</li>
+<li>Trabajar con archivos (scripts y datos)</li>
+</ul></li>
+<li>Tema 2:
+<ul>
+<li>Instalación de paquetes</li>
+<li>CRAN</li>
+<li>GitHub</li>
+<li>Graficado</li>
+</ul></li>
+<li>Tema 3:
+<ul>
+<li>Estadística descriptiva</li>
+<li>Contraste de hipótesis</li>
+<li>Paramétricos vs No paramétricos</li>
+</ul></li>
+</ul>
+</section>
+
 <section>
 <section id="paquetes-en-r" class="title-slide slide level1 center">
 <h1>Paquetes en R</h1>
@@ -236,7 +263,7 @@ Diego Nieto Lugilde
 <pre><code>package 'openxlsx' successfully unpacked and MD5 sums checked
 
 The downloaded binary packages are in
-    C:\Users\Diego\AppData\Local\Temp\Rtmp4yFvsL\downloaded_packages</code></pre>
+    C:\Users\Diego\AppData\Local\Temp\RtmpOmgZct\downloaded_packages</code></pre>
 </div>
 </div>
 </section>
@@ -270,7 +297,7 @@ The downloaded binary packages are in
 <pre><code>package 'devtools' successfully unpacked and MD5 sums checked
 
 The downloaded binary packages are in
-    C:\Users\Diego\AppData\Local\Temp\Rtmp4yFvsL\downloaded_packages</code></pre>
+    C:\Users\Diego\AppData\Local\Temp\RtmpOmgZct\downloaded_packages</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">library</span>(devtools)</span>
 <span id="cb6-2"><a></a></span>
@@ -493,8 +520,10 @@ The downloaded binary packages are in
 <span id="cb16-3"><a></a></span>
 <span id="cb16-4"><a></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>))</span>
 <span id="cb16-5"><a></a><span class="fu">plot</span>(x, y, <span class="at">pch =</span> <span class="dv">15</span>, <span class="at">cex =</span> <span class="dv">2</span>)</span>
-<span id="cb16-6"><a></a><span class="fu">plot</span>(x, y, <span class="at">pch =</span> <span class="dv">15</span>, <span class="at">cex =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"dark green"</span>)</span>
-<span id="cb16-7"><a></a><span class="fu">plot</span>(x, y, <span class="at">pch =</span> <span class="dv">15</span>, <span class="at">cex =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fl">0.8</span>,<span class="fl">0.1</span>,<span class="fl">0.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-6"><a></a><span class="fu">plot</span>(x, y, <span class="at">pch =</span> <span class="dv">15</span>, <span class="at">cex =</span> <span class="dv">2</span>,</span>
+<span id="cb16-7"><a></a>     <span class="at">col =</span> <span class="st">"dark green"</span>)</span>
+<span id="cb16-8"><a></a><span class="fu">plot</span>(x, y, <span class="at">pch =</span> <span class="dv">15</span>, <span class="at">cex =</span> <span class="dv">2</span>,</span>
+<span id="cb16-9"><a></a>     <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fl">0.8</span>,<span class="fl">0.1</span>,<span class="fl">0.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
