@@ -361,7 +361,7 @@
     "href": "ADR-2-Homeworks.html#parte-1---realizando-gráficas",
     "title": "Análisis espaciales y multivariantes con R (AEMeR) aplicados a estudios de biodiversidad",
     "section": "Parte 1 - Realizando gráficas",
-    "text": "Parte 1 - Realizando gráficas\n1. Carga de nuevo la tabla de datos almacenada en el fichero “Test Traits.csv”. Dibuja tres histogramas en los que se observe la distribución de frecuencias de los valores de altura de las especies (Height), masa foliar (Leaf.Mass) y superficie foliar específica (SLA). Asegurate que los tres histogramas tienen todos el mísmo número de barras y su presentación es aceptable para su publicación en un documento formal en español.\n2. Realiza un gráfico de puntos en el que se vean la altura de las distintas especies en el eje x y la superficie específica de la hoja (SLA) en el eje y. Cada punto representará las medidas de altura y SLA de cada especie. Viendo el gráfico ¿crées que hay alguna relación entre la altura de las especies y la superficie específica de sus hojas? Argumenta tu respuesta.\n3. Usa la función par() para mejorar la presentación gráfica de la figura. Puedes usar los parámetros que consideres oportunos y generar la gráfica como a ti más te guste. Eso si, debes modificar al menos 2-3 argumentos.\n4. Repite los ejercicios 2 y 3 dos veces más. Una para comparar la altura de las plantas (Height) con la masa foliar (Leaf.Mass) y otra para comparar la masa foliar (Leaf.Mass) con su superficie foliar específica (SLA).\n\nGuarda la versión completa de tu script (con las partes 1 y 2) y súbelo a Moodle!\n\n\nUsa el foro de dudas de Moodle, envíame un correo electrónico o habla conmigo en cualquier momento antes de la siguiente clase si tienes problemas."
+    "text": "Parte 1 - Realizando gráficas\n1. Carga de nuevo la tabla de datos almacenada en el fichero “Test Traits.csv”. Dibuja tres histogramas en los que se observe la distribución de frecuencias de los valores de altura de las especies (Height), masa foliar (Leaf.Mass) y superficie foliar específica (SLA). Asegurate que los tres histogramas tienen todos el mísmo número de barras y su presentación es aceptable para su publicación en un documento formal en español.\n2. Realiza un gráfico de puntos en el que se vean la altura de las distintas especies en el eje x y la superficie específica de la hoja (SLA) en el eje y. Cada punto representará las medidas de altura y SLA de cada especie. Viendo el gráfico ¿crées que hay alguna relación entre la altura de las especies y la superficie específica de sus hojas? Argumenta tu respuesta.\n3. Usa la función par() para mejorar la presentación gráfica de la figura. Puedes usar los parámetros que consideres oportunos y generar la gráfica como a ti más te guste. Eso si, debes modificar al menos 2-3 argumentos.\n4. Repite los ejercicios 2 y 3 dos veces más. Una para comparar la altura de las plantas (Height) con la masa foliar (Leaf.Mass) y otra para comparar la masa foliar (Leaf.Mass) con su superficie foliar específica (SLA).\n\nGuarda la versión completa de tu script, limpialo y asegúrate de que se ejecuta correctamente de principio a fin. Cuando lo tengas listo, súbelo a Moodle!\n\n\nUsa el foro de dudas de Moodle, envíame un correo electrónico o habla conmigo en cualquier momento antes de la siguiente clase si tienes problemas."
   },
   {
     "objectID": "ADR-2_packages_plot.html#qué-son-los-paquetes-en-r",
@@ -382,7 +382,7 @@
     "href": "ADR-2_packages_plot.html#cómo-instalo-paquetes-de-cran",
     "title": "Paquetes y graficado en R",
     "section": "¿Cómo instalo paquetes de CRAN?",
-    "text": "¿Cómo instalo paquetes de CRAN?\n\ninstall.packages(\"openxlsx\")\n\npackage 'openxlsx' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\RtmpkvPzuN\\downloaded_packages"
+    "text": "¿Cómo instalo paquetes de CRAN?\n\ninstall.packages(\"openxlsx\")\n\npackage 'openxlsx' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\Rtmp6pHu3a\\downloaded_packages"
   },
   {
     "objectID": "ADR-2_packages_plot.html#cómo-uso-las-funciones-de-una-librería",
@@ -403,7 +403,7 @@
     "href": "ADR-2_packages_plot.html#cómo-puedo-instalar-paquetes-de-github",
     "title": "Paquetes y graficado en R",
     "section": "¿Cómo puedo instalar paquetes de GitHub?",
-    "text": "¿Cómo puedo instalar paquetes de GitHub?\n\ninstall.packages(\"devtools\")\n\npackage 'devtools' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\RtmpkvPzuN\\downloaded_packages\n\nlibrary(devtools)\n\ninstall_github(\"colearendt/xlsx\")\n## o\ndevtools::install_github(\"colearendt/xlsx\")"
+    "text": "¿Cómo puedo instalar paquetes de GitHub?\n\ninstall.packages(\"devtools\")\n\npackage 'devtools' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\Rtmp6pHu3a\\downloaded_packages\n\nlibrary(devtools)\n\ninstall_github(\"colearendt/xlsx\")\n## o\ndevtools::install_github(\"colearendt/xlsx\")"
   },
   {
     "objectID": "ADR-2_packages_plot.html#generación-de-gráficos-nuevos",
@@ -550,6 +550,6 @@
     "href": "index.html",
     "title": "Análisis de datos en R",
     "section": "",
-    "text": "Esta es la web con los materiales del curso:\n\nClase 1: Introducción a R. Presentación - Ejercicios - Homeworks - Datos\nClase 2: Paquetes y graficado en R. Presentación - Ejercicios - Homeworks - Datos\n\nEsta página web se construyó usando el sistema Quarto de RStudio. Para saber más sobre páginas web creadas con Quarto visita https://quarto.org/docs/websites."
+    "text": "Esta es la web con los materiales del curso:\n\nClase 1: Introducción a R. Presentación - Ejercicios - Homeworks - Datos\nClase 2: Paquetes y graficado en R. Presentación - Ejercicios - Homeworks\n\nEsta página web se construyó usando el sistema Quarto de RStudio. Para saber más sobre páginas web creadas con Quarto visita https://quarto.org/docs/websites."
   }
 ]
