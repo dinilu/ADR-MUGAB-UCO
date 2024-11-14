@@ -396,7 +396,7 @@
     "href": "ADR-2_packages_plot.html#cómo-instalo-paquetes-de-cran",
     "title": "Paquetes y graficado en R",
     "section": "¿Cómo instalo paquetes de CRAN?",
-    "text": "¿Cómo instalo paquetes de CRAN?\n\ninstall.packages(\"openxlsx\")\n\npackage 'openxlsx' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\Rtmp2Btp8i\\downloaded_packages"
+    "text": "¿Cómo instalo paquetes de CRAN?\n\ninstall.packages(\"openxlsx\")\n\npackage 'openxlsx' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\Rtmpa6zktD\\downloaded_packages"
   },
   {
     "objectID": "ADR-2_packages_plot.html#cómo-uso-las-funciones-de-una-librería",
@@ -417,7 +417,7 @@
     "href": "ADR-2_packages_plot.html#cómo-puedo-instalar-paquetes-de-github",
     "title": "Paquetes y graficado en R",
     "section": "¿Cómo puedo instalar paquetes de GitHub?",
-    "text": "¿Cómo puedo instalar paquetes de GitHub?\n\ninstall.packages(\"devtools\")\n\npackage 'devtools' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\Rtmp2Btp8i\\downloaded_packages\n\nlibrary(devtools)\n\ninstall_github(\"colearendt/xlsx\")\n## o\ndevtools::install_github(\"colearendt/xlsx\")"
+    "text": "¿Cómo puedo instalar paquetes de GitHub?\n\ninstall.packages(\"devtools\")\n\npackage 'devtools' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\Rtmpa6zktD\\downloaded_packages\n\nlibrary(devtools)\n\ninstall_github(\"colearendt/xlsx\")\n## o\ndevtools::install_github(\"colearendt/xlsx\")"
   },
   {
     "objectID": "ADR-2_packages_plot.html#generación-de-gráficos-nuevos",
