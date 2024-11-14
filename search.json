@@ -396,7 +396,7 @@
     "href": "ADR-2_packages_plot.html#cómo-instalo-paquetes-de-cran",
     "title": "Paquetes y graficado en R",
     "section": "¿Cómo instalo paquetes de CRAN?",
-    "text": "¿Cómo instalo paquetes de CRAN?\n\ninstall.packages(\"openxlsx\")\n\npackage 'openxlsx' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\RtmpA5spHU\\downloaded_packages"
+    "text": "¿Cómo instalo paquetes de CRAN?\n\ninstall.packages(\"openxlsx\")\n\npackage 'openxlsx' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\RtmpCg0tpi\\downloaded_packages"
   },
   {
     "objectID": "ADR-2_packages_plot.html#cómo-uso-las-funciones-de-una-librería",
@@ -417,7 +417,7 @@
     "href": "ADR-2_packages_plot.html#cómo-puedo-instalar-paquetes-de-github",
     "title": "Paquetes y graficado en R",
     "section": "¿Cómo puedo instalar paquetes de GitHub?",
-    "text": "¿Cómo puedo instalar paquetes de GitHub?\n\ninstall.packages(\"devtools\")\n\npackage 'devtools' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\RtmpA5spHU\\downloaded_packages\n\nlibrary(devtools)\n\ninstall_github(\"colearendt/xlsx\")\n## o\ndevtools::install_github(\"colearendt/xlsx\")"
+    "text": "¿Cómo puedo instalar paquetes de GitHub?\n\ninstall.packages(\"devtools\")\n\npackage 'devtools' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\RtmpCg0tpi\\downloaded_packages\n\nlibrary(devtools)\n\ninstall_github(\"colearendt/xlsx\")\n## o\ndevtools::install_github(\"colearendt/xlsx\")"
   },
   {
     "objectID": "ADR-2_packages_plot.html#generación-de-gráficos-nuevos",
@@ -501,7 +501,7 @@
     "href": "ADR-2_packages_plot.html#puedo-cambiar-los-colores",
     "title": "Paquetes y graficado en R",
     "section": "Puedo cambiar los colores",
-    "text": "Puedo cambiar los colores\n\nUsando el nombre\nUsando funciones para generar colores\n\n\n\nx &lt;- rep(1:10, 10)\ny &lt;- rep(1:10, each = 10)\n\npar(mfrow = c(2, 2))\nplot(x, y, pch = 15, cex = 0.8)\nplot(x, y, pch = 15, cex = 0.8,\n     col = \"dark green\")\nplot(x, y, pch = 15, cex = 0.8,\n     col = \"#352575\")\nplot(x, y, pch = 15, cex = 0.8,\n     col = rgb(0.8,0.1,0.2))"
+    "text": "Puedo cambiar los colores\n\nUsando el nombre\nUsando funciones para generar colores\n\n\n\nx &lt;- rep(1:10, 10)\ny &lt;- rep(1:10, each = 10)\n\npar(mfrow = c(2, 2))\nplot(x, y, pch = 15)\nplot(x, y, pch = 15,\n     col = \"dark green\")\nplot(x, y, pch = 15,\n     col = \"#352575\")\nplot(x, y, pch = 15,\n     col = rgb(0.8,0.1,0.2))"
   },
   {
     "objectID": "ADR-2_packages_plot.html#muchas-más-opciones-en-la-función-par",
