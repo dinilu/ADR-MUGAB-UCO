@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Diego Nieto Lugilde">
 
-<title>Análisis de datos en R</title>
+<title>Análisis espaciales y multivariantes con R (AEMeR) aplicados a estudios de biodiversidad</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -93,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">MUGAB</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
@@ -119,14 +154,20 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Análisis de datos en R</h1>
-<p class="subtitle lead">Máster Universitario en Gestión Ambiental y Biodiversidad</p>
+<h1 class="title">Análisis espaciales y multivariantes con R (AEMeR) aplicados a estudios de biodiversidad</h1>
+<p class="subtitle lead">Homeworks de estadística descriptiva y contraste de hipótesis en R</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>Diego Nieto Lugilde </p>
+          </div>
+  </div>
     
   
     
@@ -137,13 +178,28 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Esta es la web con los materiales del curso:</p>
-<ul>
-<li><p><strong>Clase 1:</strong> Introducción a R. <a href="./ADR-1_Intro.html" target="_blank">Presentación</a> - <a href="./ADR-1-Ejercicios.html" target="_blank">Ejercicios</a> - <a href="./ADR-1-Homeworks.html" target="_blank">Homeworks</a> - <a href="data/Tema 1.zip" target="_blank">Datos</a></p></li>
-<li><p><strong>Clase 2:</strong> Paquetes y graficado en R. <a href="./ADR-2-Packages_plot.html" target="_blank">Presentación</a> - <a href="./ADR-2-Ejercicios.html" target="_blank">Ejercicios</a> - <a href="./ADR-2-Homeworks.html" target="_blank">Homeworks</a></p></li>
-<li><p><strong>Clase 3:</strong> Estadística descriptiva y contraste de hipótesis en R. <a href="./ADR-3-Descriptive_hypothesis.html" target="_blank">Presentación</a> - <a href="./ADR-3-Ejercicios.html" target="_blank">Ejercicios</a> - <a href="./ADR-3-Homeworks.html" target="_blank">Homeworks</a></p></li>
-</ul>
-<p>Esta página web se construyó usando el sistema Quarto de RStudio. Para saber más sobre páginas web creadas con Quarto visita <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Los ejercicios tendréis que entregarlos para la evaluación del curso. Para ello, crea un script de R con RStudio. Ponle el nombre <code>homeworks_t2.R</code>. Dicho script deberá estar organizado con comentarios en castellano (poniendo una almohadilla <code>#</code> delante) y justo detrás el código necesario para realizar el ejercicio (ver ejemplo debajo). Además, si el ejercicio pide reflexionar sobre el resultado use los comentarios (con la <code>#</code>) para indicar sus reflexiones debajo del código. Una vez los tengáis completos deberéis subirlos en la actividad correspondiente de Moodle.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejercicio 1.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Parte 1</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">40</span>, <span class="at">by =</span> <span class="dv">2</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Parte 2</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">40</span>, <span class="at">by =</span> <span class="sc">-</span><span class="dv">2</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Este código da error porque especifiqué algo mal :)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 
 
 
