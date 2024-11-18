@@ -1,0 +1,322 @@
+---
+title: "Estadística descriptiva y contraste de hipótesis en R"
+subtitle: "Análisis de datos con R"
+author: "Diego Nieto Lugilde"
+institute: "Máster Universitario en Gestión Ambiental y Biodiversidad. Universidad de Córdoba (España)"
+slide-number: true
+format:
+  revealjs:
+    logo: img/R-logo.png
+    footer: "[Análisis de datos con R](https://dnietolugilde.com/ADR-MUGAB-UCO)"
+    scrollable: true
+    chalkboard: true
+lightbox: auto
+editor: source
+---
+
+## {.smaller}
+
+* Tema 1: Introducción a R y programación
+  + La estructura de R
+  + Funciones, objetos y programación básica
+  + Entorno (sesión de R) y directorio de trabajo
+  + Trabajar con archivos (scripts y datos)
+* Tema 2: 
+  + Instalación de paquetes
+  + CRAN
+  + GitHub
+  + Graficado
+* Tema 3:
+  + Estadística descriptiva
+  + Contraste de hipótesis
+  + Paramétricos vs No paramétricos
+
+# Estadística descriptiva
+
+## Ya hemos visto algunas funciones en los ejercicios de días anteriores
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+x <- rnorm(50, 0, 1)
+
+min(x); mean(x); median(x); max(x)
+quantile(x)
+sd(x)
+```
+
+
+## Algunas de ellas para hacerlo de forma gráfica
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+#| fig-width: 3
+#| fig-height: 5
+
+par(mfrow = c(2, 1))
+hist(x)
+boxplot(x, x + rnorm(50))
+```
+
+
+# Contraste de hipótesis
+
+
+## Test estadísticos en R
+
+* Los usamos para realizar el contraste de hipótesis
+
+* Este es el motivo principal por el que usamos R (y no C++)!
+
+> *¿Qué test estadísticos de contraste de hipótesis conocéis?*
+
+
+## T de Student: Comparación de medias de 2 muestras
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+x <- rnorm(30, 5, 1)
+y <- rnorm(30, 5, 3)
+
+t.test(x, y)
+```
+
+
+## T de Student de una muestra
+
+Se usa para comparar una muestra con una distribución teórica. Por defecto, con media 0.
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+x <- rnorm(30, 5, 1)
+
+t.test(x)
+
+t.test(x, mu = 5)
+```
+
+
+## T de Student: Hipótesis nula
+
+Se puede especificar para realizar un análisis de una cola.
+
+![](img/Tema3/Test_una_dos_colas.jpg)
+
+
+## T de Student: Hipótesis nula
+
+Se especifica con el argumento `alternative`
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+x <- rnorm(30, 5, 1)
+y <- rnorm(30, 6, 1)
+
+# ¿x es más grande que y?
+t.test(x, y, alternative = "greater")
+
+# ¿x es más pequeño que y?
+t.test(x, y, alternative = "less")
+```
+  
+
+## T de Student: Pruebas pareadas
+
+Se usa cuando las muestras no son independientes, están interrelacionadas 
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+x <- rnorm(30, 5, 1)
+y <- rnorm(30, 6, 1)
+
+t.test(x, y, paired = TRUE)
+```
+  
+
+## T de Student: devuelve un objeto
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+x <- rnorm(30, 5, 1)
+y <- rnorm(30, 6, 1)
+
+# ¿x es más grande que y?
+test <- t.test(x, y) 
+
+str(test)
+test$p.value
+test$conf.int[2]
+test[[3]]
+```
+
+
+# Test paramétricos *versus* no paramétricos
+
+
+## Los test parámetricos 
+
+* Asumen distribuciones estadísticas subyacentes a los datos. 
+* Deben cumplirse algunas condiciones para que el resultado de la prueba sea fiable.
+* Tienen más potencia estadística y deberían ser la aproximación usada si se puede.
+
+
+## Los test no paramétricos
+
+* Las pruebas no paramétricas no dehen ajustarse a ninguna distribución. 
+* Pueden aplicarse aunque no se cumplan las condiciones de validez paramétricas.
+* Son más robustas, en el sentido de que pueden usarse sin cumplir requisitos, pero tienen menos potencia estadística:
+  + Necesitan más tamaño de muestra
+  + Necesitan más diferencias para poder detectarlas
+
+
+## Equivalencias {.smaller}
+
+|          Test          |	Pruebas paramétricas | Pruebas no paramétricas |
+|------------------------|-----------------------|-------------------------|
+| 1 muestra              | t Student (1 muestra) | Wilcoxon (1 muestra)    |
+| 2 muestras dependientes | t Student (pareado)  | Wilcoxon (pareado)      |
+| 2 muestras independientes |	t Student (no pareado) | U Mann-Whitney |
+| > 2 muestras dependientes |	ANOVA de una vía   | Friedman                |
+| > 2 muestras independientes | ANOVA factorial  | Kruskal-Wallis          |
+| Correlación entre dos variables | Pearson      | Spearman                |
+
+
+## ¿Cómo se si puedo usar un test paramétrico?
+
+* Normalidad
+  + `shapiro.test(x)`
+  + `ks.test(x, y = c("pnorm", "pgamma", "pbinom"))`
+* Homocedasticidad
+  + `var.test(x, y)`
+
+
+## ¿Cómo realizo el test no paramétrico?
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+x <- rnorm(30, 5, 1)
+
+wilcox.test(x)
+```
+
+
+## Acepta todos los argumentos de la T de Student
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+x <- rnorm(30, 5, 1)
+y <- rnorm(30, 6, 1)
+
+wilcox.test(x, y, 
+            alternative = "greater",
+            paired = TRUE)
+```
+
+
+## ANOVA (Analisys of Variance)
+
+* Se usa para comparar medidas entre grupos
+
+* Es un test paramétrico (normalidad, homocedasticidad)
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+x <- c(1:10, 
+       rnorm(10, 1, 1), 
+       rnorm(10, 3, 1))
+y <- factor(c(rep("first", 10), 
+              rep("second", 10), 
+              rep("third", 10)))
+data <- data.frame(medidas = x, 
+                   grupos = y)
+
+aov(medidas ~ grupos, data)
+```
+
+::: {.callout-warning appearance="simple"}
+El resultado de aov no nos da muchos detalles
+:::
+
+
+## Analizar el resultado
+
+Para saber si las diferencias son significativas usamos la función `summary()`
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+aov.test <- aov(medidas ~ grupos, data)
+
+summary(aov.test)
+```
+
+::: {.callout-warning appearance="simple"}
+Aún así, no nos dice que grupos son los que difieren entre sí.
+:::
+
+
+## ANOVA + Test de Tukey
+
+Se usa el test de Tukey para ver las diferencias entre los grupos
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+aov.test <- aov(medidas ~ grupos, data)
+
+TukeyHSD(aov.test)
+```
+
+::: {.callout-warning appearance="simple"}
+El resultado de aov no nos da muchos detalles
+:::
+
+
+## ANOVA: leed la documentación `?aov`
+
+* Con las pruebas estadísticas, es particularmente importante leer y comprender la documentación de cada función que se utiliza
+* Es posible que hagan algunas cosas complicadas con las opciones, y deberíais estar seguros de que hacen lo que queréis
+* Los comportamientos predeterminados pueden cambiar (con, por ejemplo, el tamaño de la muestra)
+
+
+## Vamos a practicar
+
+* Ejercicios de clase
+
+
+## Ejercicios de casa (Homeworks)	
+
+* En la web de la asignatura (enlace en Moodle)
+* Entregar antes de la siguiente clase
