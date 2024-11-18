@@ -13,6 +13,7 @@ website:
         text: Inicio
       - href: https://dnietolugilde.com
         text: Profesor
+  page-footer: "[Análisis de datos con R](https://dnietolugilde.com/ADR-MUGAB-UCO)"
 
 format:
   html:

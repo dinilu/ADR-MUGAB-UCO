@@ -1,0 +1,34 @@
+---
+title: 'Análisis espaciales y multivariantes con R (AEMeR) aplicados a estudios de biodiversidad'
+subtitle: 'Ejercicios de estadística descriptiva y contraste de hipótesis en R'
+author: 'Diego Nieto Lugilde'
+format: html
+toc: true
+toc-depth: 2
+lightbox: auto
+editor: source
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      eval = FALSE)
+```
+
+::: callout-note
+Los ejercicios tendréis que entregarlos para la evaluación del curso. Para ello, crea un script de R con RStudio. Ponle el nombre `ejercicios_t3.R`. Dicho script deberá estar organizado con comentarios en castellano (poniendo una almohadilla `#` delante) y justo detrás el código necesario para realizar el ejercicio (ver ejemplo debajo). Además, si el ejercicio pide reflexionar sobre el resultado use los comentarios (con la `#`) para indicar sus reflexiones debajo del código. Una vez los tengáis completos deberéis subirlos en la actividad correspondiente de Moodle.
+
+```{r}
+#| echo: true
+#| eval: false
+
+# Parte 1
+# Ejercicio 1
+seq(1, 40, by = 2)
+
+# Ejercicio 2
+seq(1, 40, by = -2)
+# Este código da error porque especifiqué algo mal :)
+
+```
+:::
+

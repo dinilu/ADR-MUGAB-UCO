@@ -2,10 +2,7 @@
 title: 'Análisis espaciales y multivariantes con R (AEMeR) aplicados a estudios de biodiversidad'
 subtitle: 'Ejercicios de gráficos en R'
 author: 'Diego Nieto Lugilde'
-format: 
-  html:
-    logo: img/R-logo.png
-    footer: "[Análisis de datos con R]((https://dnietolugilde.com/ADR-MUGAB-UCO)"
+format: html
 toc: true
 toc-depth: 2
 lightbox: auto
@@ -24,11 +21,11 @@ Los ejercicios tendréis que entregarlos para la evaluación del curso. Para ell
 #| echo: true
 #| eval: false
 
-# Ejercicio 1.
 # Parte 1
+# Ejercicio 1
 seq(1, 40, by = 2)
 
-# Parte 2
+# Ejercicio 2
 seq(1, 40, by = -2)
 # Este código da error porque especifiqué algo mal :)
 
