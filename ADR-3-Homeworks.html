@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.33">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,10 +70,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d5c296a9e60ed6c9f30b3dc68ebc3f1a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -212,7 +212,7 @@ Nota
 </div>
 <section id="parte-1-gráficos-descriptivos" class="level1">
 <h1>Parte 1: Gráficos descriptivos</h1>
-<p><strong>El resto de ejercicios de esta semana, están relacionados con los datos almacenados en el fichero <code>Maple data.csv</code>. Este conjunto de datos contiene información sobre la localización (Longitud -X-, Latitud -Y- y Elevación) de un conjunto de parcelas donde se han medido varias características abióticas (Temperaturas, Precipitación, pH del suelo, y relación C:N del suelo), así como la presencia/ausencia de la especie <em>Acer campestre</em>.</strong></p>
+<p><strong>El conjunto de datos <code>Maple data.csv</code> contiene información sobre la localización (Longitud -X-, Latitud -Y- y Elevación) de un conjunto de parcelas donde se han medido varias características abióticas (Temperaturas, Precipitación, pH del suelo, y relación C:N del suelo), así como la presencia/ausencia de la especie <em>Acer campestre</em>.</strong></p>
 <p><strong>1. Carga estos datos en la sesión de R y explora los datos.</strong> a. ¿Cuantas parcelas de muestreo hay? b. ¿Que porcentaje de parcelas incluyen la especie <em>Acer campestre</em>? c.&nbsp;¿Hay datos ausentes (NAs) en alguna de las variables? d.&nbsp;¿Cuantos datos faltan para cada variable?. e. ¿Cuales son los valores mínimos, medios y máximos de cada variable predictora?</p>
 <div class="callout callout-style-simple callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -241,6 +241,20 @@ Pista
 <h1>Parte 2: Contraste de hipótesis</h1>
 <p><strong>1. Utiliza la función <code>shapiro.test</code> para comprobar si las distintas variables abióticas realmente cumplen el supuesto de normalidad. Escribe un comentario en el script indicando para cada variable el valor de “p” y como interpretas dicho resultado (i.e.&nbsp;¿consideras que tiene distribución normal la variable?).</strong></p>
 <p><strong>2. Utiliza una función de contraste de hipótesis (i.e.&nbsp;t.test o wilcox.test, dependiendo de la normalidad de las variables) para comprobar si alguna de las variables analizadas podría explicar la presencia/ausencia de <em>Acer campestre</em>. Para ello deberéis indicarle al test los valores de la variable en las parcelas con <em>Acer campestre</em> y sin <em>Acer campestre</em>. Escribe un comentario en el código indicando si aprecias diferencias significativas entre los valores de la variable en los sitios donde está la especie y los que no.</strong></p>
+<p><strong>3. Carga el fichero <code>beetles.xslx</code>. Este conjunto de datos lo he extraído del paquete <code>KnowBR</code> y tiene información de observaciones de diferentes especies de escarabajos en la Península Ibérica y Baleares. Además, le he incorporado los valores de 19 variables bioclimáticas en cada una de las observaciones.</strong></p>
+<ol type="a">
+<li><p>Selecciona las 3 especies de escarabajos más frecuentes en la Península Ibérica y filtra el data.frame para quedarte sólo con las filas correspondientes a las observaciones de esas tres especies</p></li>
+<li><p>Utiliza una ANOVA para comparar los valores de la variables <code>bio_1</code> (temperatura média anual) en los sitios en los que se encuentran las tres especies.</p></li>
+</ol>
+<blockquote class="blockquote">
+<p>¿Hay diferencias en los valores de temperatura media anual en los que viven las tres especies? ¿Son signficativas esas diferencias? ¿Qué especies viven sitios con temperaturas similares y cuales en sitios con temperaturas diferentes?</p>
+</blockquote>
+<ol start="3" type="a">
+<li>Repite el ejercicio con las variables <code>bio_7</code> (rango de temperaturas anual) y <code>bio_12</code> (precipitación anual)</li>
+</ol>
+<blockquote class="blockquote">
+<p>No olvides escribir el código y los comentarios con la explicación de tu interpretación de los resultados.</p>
+</blockquote>
 
 
 </section>
