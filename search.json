@@ -4,14 +4,14 @@
     "href": "index.html",
     "title": "Análisis de datos en R",
     "section": "",
-    "text": "Esta es la web con los materiales del curso:\n\nClase 1: Introducción a R. Presentación - Ejercicios - Homeworks - Datos\nClase 2: Paquetes y graficado en R. Presentación - Ejercicios - Homeworks\nClase 3: Estadística descriptiva y contraste de hipótesis en R. Presentación - Ejercicios - Homeworks\n\nEsta página web se construyó usando el sistema Quarto de RStudio. Para saber más sobre páginas web creadas con Quarto visita https://quarto.org/docs/websites."
+    "text": "Esta es la web con los materiales del curso:\n\nClase 1: Introducción a R. Presentación - Ejercicios - Homeworks - Datos\nClase 2: Paquetes y graficado en R. Presentación - Ejercicios - Homeworks\nClase 3: Estadística descriptiva y contraste de hipótesis en R. Presentación - Ejercicios - Homeworks - Datos\n\nEsta página web se construyó usando el sistema Quarto de RStudio. Para saber más sobre páginas web creadas con Quarto visita https://quarto.org/docs/websites."
   },
   {
     "objectID": "ADR-3-Ejercicios.html",
     "href": "ADR-3-Ejercicios.html",
     "title": "Análisis espaciales y multivariantes con R (AEMeR) aplicados a estudios de biodiversidad",
     "section": "",
-    "text": "Nota\n\n\n\nLos ejercicios tendréis que entregarlos para la evaluación del curso. Para ello, crea un script de R con RStudio. Ponle el nombre ejercicios_t3.R. Dicho script deberá estar organizado con comentarios en castellano (poniendo una almohadilla # delante) y justo detrás el código necesario para realizar el ejercicio (ver ejemplo debajo). Además, si el ejercicio pide reflexionar sobre el resultado use los comentarios (con la #) para indicar sus reflexiones debajo del código. Una vez los tengáis completos deberéis subirlos en la actividad correspondiente de Moodle.\n\n# Parte 1\n# Ejercicio 1\nseq(1, 40, by = 2)\n\n# Ejercicio 2\nseq(1, 40, by = -2)\n# Este código da error porque especifiqué algo mal :)"
+    "text": "Nota\n\n\n\nLos ejercicios tendréis que entregarlos para la evaluación del curso. Para ello, crea un script de R con RStudio. Ponle el nombre ejercicios_t3.R. Dicho script deberá estar organizado con comentarios en castellano (poniendo una almohadilla # delante) y justo detrás el código necesario para realizar el ejercicio (ver ejemplo debajo). Además, si el ejercicio pide reflexionar sobre el resultado use los comentarios (con la #) para indicar sus reflexiones debajo del código. Una vez los tengáis completos deberéis subirlos en la actividad correspondiente de Moodle.\n\n# Parte 1\n# Ejercicio 1\nseq(1, 40, by = 2)\n\n# Ejercicio 2\nseq(1, 40, by = -2)\n# Este código da error porque especifiqué algo mal :)\n\n\n\n\nParte 1: Estadística descriptiva\n1. Carga en R, el fichero de datos Mammal data.csv. En ese fichero tenemos un tabla con las coordenadas geográficas de ciertos puntos (Longitud y Latitud), los datos de riqueza de especies de mamíferos que hay en cada uno de esos puntos, así como los valores de 19 variables bioclimáticas (bio_1 a bio_19) y la elevación media y su desviación estandar.\n\nDibuja las coordenadas geográficas de la tabla de riqueza de mamíferos.\nCambia el tipo de puntos del gráfico para representar cuadrados, en lugar de círculos.\nModifica el comando para que cada cuadrado se represente de un tamaño diferente, en función del número de especies de mamíferos que viven en cada localidad. Cuadrados más pequeños en los sitios con menos especies y cuadrados más grandes en los sitios con más especies.\nGuarda el gráfico anterior como un fichero .pdf.\n\n2. Calcula el valor medio, mínimo y máximo de la variable “bio_1”\n3. Usa la función apply() combinada con las funciones min, max y mean para calcular los valores mínimos, maximos y medios de las 19 variables bioclimáticas (bio_1 a bio_19).\n4. Ciertas funciones pueden operar sobre distintos tipos de objetos. Por ejemplo, summary si se usa sobre un vector te devuelve los valores correspondientes al mínimo, primer cuartil, mediana (segundo cuartil), media, tercer cuartil y valor máximo.\n\nEjecuta la función summary() sobre la variable bio_1 del data.frame de datos.\nPrueba a ejecutar la función summary() directamente sobre el data.frame de datos sin especificar la columna de datos bio_1.\n\n\n¿Concuerdan los datos calculados con los valores calculados en el ejercicio 2? ¿Tiene sentido el resultado del comando 4.b?\n\n\n\nParte 2: Contraste de hipótesis\n1. Carga el fichero de datos mouse_weight.xlsx. Esta tabla de datos tiene los pesos de 50 ratones, antes y después de aplicarles un tratamiento farmacológico.\n\nUsa la función shapiro.test() para comprobar si las dos variables (v.gr. pesos antes y después) cumplen el requisito de normalidad.\nUsa la función t.test() para comparar los pesos (before e after). Guarda el resultados del test estadístico en un objeto llamada myT.\nRepite la tarea anterior, pero usando un test de una sola cola (“one-side” test) para comprobar la hipótesis de que after es mayor que before.\nAhora asegúrate que el análisis que has realizado sea de tipo pareado.\n\n\nProporciona un texto explicativo con tu interpretación de los resultados.\n\n2. Repite el ejercicio 1 pero en esta ocasión utiliza el conjunto de datos mouse_weight2.xlsx. Esta tabla tiene resultados similares pero utilizando un segundo fármaco.\n\nNo olvides realizar todos los pasos y proporcionar el texto explicando las distintas decisiones que tomas, así como la interpretación de los resultados.\n\n3. En R hay paquetes que proporcionan conjuntos de datos ya disponibles. Ejecuta el siguiente código para instalar el paquete palmerpenguins y cargar el conjunto de datos penguins.\n\ninstall.packages(\"palmerpenguins\")\nlibrary(palmerpenguins)\npenguins &lt;- penguins\n\n\nUsa la función aov() para ajustar una anova para encontrar is la media de las cuatro variables (v.gr. bill_length_mm, bill_depth_mm, flipper_length_mm y body_mass_g) son significativamente diferentes en las tres especies de pinguinos (v.gr. Adelie, Chinstrap y Gentoo).\nUsa la función summary() para analizar los resultados del análisis de varianza y decidir si las medias son diferentes entre los tres grupos.\nA continuación, usa la función TukeyHSD() para realizar un análisis post-hoc de Tukey sobre las diferencias por parejas de especies.\n\n\n¿Qué especies presentan diferencias significativas en cada variable? ¿Qué especies no?\n\n4. Usando el conjunto de datos de los pingüinos:\n\nUsa la función cor() para medir la correlación entre las cuatro variables (v.gr. bill_length_mm, bill_depth_mm, flipper_length_mm y body_mass_g).\nDibuja un gráfico de dispersión (puntos) de cada pareja de variables.\nEn cada gráfico, añade texto indicando el coeficiente de correlación entre las dos variables."
   },
   {
     "objectID": "ADR-2-Packages_plot.html#section",
@@ -39,7 +39,7 @@
     "href": "ADR-2-Packages_plot.html#cómo-instalo-paquetes-de-cran",
     "title": "Paquetes y graficado en R",
     "section": "¿Cómo instalo paquetes de CRAN?",
-    "text": "¿Cómo instalo paquetes de CRAN?\n\ninstall.packages(\"openxlsx\")\n\npackage 'openxlsx' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego Nieto Lugilde\\AppData\\Local\\Temp\\Rtmpsd6wGc\\downloaded_packages"
+    "text": "¿Cómo instalo paquetes de CRAN?\n\ninstall.packages(\"openxlsx\")\n\nInstalling package into 'C:/Users/Diego/AppData/Local/R/win-library/4.3'\n(as 'lib' is unspecified)\n\n\npackage 'openxlsx' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\RtmpIHDJpQ\\downloaded_packages"
   },
   {
     "objectID": "ADR-2-Packages_plot.html#cómo-uso-las-funciones-de-una-librería",
@@ -60,7 +60,7 @@
     "href": "ADR-2-Packages_plot.html#cómo-puedo-instalar-paquetes-de-github",
     "title": "Paquetes y graficado en R",
     "section": "¿Cómo puedo instalar paquetes de GitHub?",
-    "text": "¿Cómo puedo instalar paquetes de GitHub?\n\ninstall.packages(\"devtools\")\n\npackage 'devtools' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego Nieto Lugilde\\AppData\\Local\\Temp\\Rtmpsd6wGc\\downloaded_packages\n\nlibrary(devtools)\n\ninstall_github(\"colearendt/xlsx\")\n## o\ndevtools::install_github(\"colearendt/xlsx\")"
+    "text": "¿Cómo puedo instalar paquetes de GitHub?\n\ninstall.packages(\"devtools\")\n\nInstalling package into 'C:/Users/Diego/AppData/Local/R/win-library/4.3'\n(as 'lib' is unspecified)\n\n\npackage 'devtools' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\RtmpIHDJpQ\\downloaded_packages\n\nlibrary(devtools)\n\nWarning: package 'devtools' was built under R version 4.3.3\n\n\nLoading required package: usethis\n\n\nWarning: package 'usethis' was built under R version 4.3.3\n\ninstall_github(\"colearendt/xlsx\")\n\nUsing GitHub PAT from the git credential store.\n\n\nSkipping install of 'xlsx' from a github remote, the SHA1 (4ed1d012) has not changed since last install.\n  Use `force = TRUE` to force installation\n\n## o\ndevtools::install_github(\"colearendt/xlsx\")\n\nUsing GitHub PAT from the git credential store.\nSkipping install of 'xlsx' from a github remote, the SHA1 (4ed1d012) has not changed since last install.\n  Use `force = TRUE` to force installation"
   },
   {
     "objectID": "ADR-2-Packages_plot.html#generación-de-gráficos-nuevos",
@@ -186,7 +186,7 @@
     "href": "ADR-2-Packages_plot.html#como-visualizo-cuando-tengo-grandes-cantidades-de-datos-1",
     "title": "Paquetes y graficado en R",
     "section": "¿Como visualizo cuando tengo grandes cantidades de datos?",
-    "text": "¿Como visualizo cuando tengo grandes cantidades de datos?\n\n\ninstall.packages(\"hexbin\") \nlibrary(hexbin)\n\nhbin &lt;- hexbin(x, y, xbins = 40)\n\nplot(hbin)\n\n\n\n\n\n\n\n\n\npackage 'hexbin' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego Nieto Lugilde\\AppData\\Local\\Temp\\Rtmpsd6wGc\\downloaded_packages"
+    "text": "¿Como visualizo cuando tengo grandes cantidades de datos?\n\n\ninstall.packages(\"hexbin\") \n\n\nInstalling package into 'C:/Users/Diego/AppData/Local/R/win-library/4.3'\n(as 'lib' is unspecified)\n\nlibrary(hexbin)\n\nWarning: package 'hexbin' was built under R version 4.3.3\n\nhbin &lt;- hexbin(x, y, xbins = 40)\n\nplot(hbin)\n\n\n\n\n\n\n\n\npackage 'hexbin' successfully unpacked and MD5 sums checked\n\nThe downloaded binary packages are in\n    C:\\Users\\Diego\\AppData\\Local\\Temp\\RtmpIHDJpQ\\downloaded_packages"
   },
   {
     "objectID": "ADR-2-Packages_plot.html#vamos-a-practicar",
@@ -200,7 +200,7 @@
     "href": "ADR-2-Packages_plot.html#ejercicios-de-casa-homeworks",
     "title": "Paquetes y graficado en R",
     "section": "Ejercicios de casa (Homeworks)",
-    "text": "Ejercicios de casa (Homeworks)\n\nEn la web de la asignatura (enlace en Moodle)\nEntregar antes de la siguiente clase\n\n\n\n\n\nAnálisis de datos con R"
+    "text": "Ejercicios de casa (Homeworks)\n\nEn la web de la asignatura (enlace en Moodle)\nEntregar antes de la siguiente clase"
   },
   {
     "objectID": "ADR-2-Ejercicios.html",
@@ -550,7 +550,7 @@
     "href": "ADR-1_Intro.html#ejercicios-de-casa-homeworks",
     "title": "Introducción a R",
     "section": "Ejercicios de casa (Homeworks)",
-    "text": "Ejercicios de casa (Homeworks)\n\nEn la web de la asignatura (enlace en Moodle)\nEntregar antes de la siguiente clase\n\n\n\n\n\nAnálisis de datos con R"
+    "text": "Ejercicios de casa (Homeworks)\n\nEn la web de la asignatura (enlace en Moodle)\nEntregar antes de la siguiente clase"
   },
   {
     "objectID": "ADR-2-Homeworks.html",
@@ -578,7 +578,7 @@
     "href": "ADR-3-Descriptive_hypothesis.html#ya-hemos-visto-algunas-funciones-en-los-ejercicios-de-días-anteriores",
     "title": "Estadística descriptiva y contraste de hipótesis en R",
     "section": "Ya hemos visto algunas funciones en los ejercicios de días anteriores",
-    "text": "Ya hemos visto algunas funciones en los ejercicios de días anteriores\n\n\nx &lt;- rnorm(50, 0, 1)\n\nmin(x); mean(x); median(x); max(x)\nquantile(x)\nsd(x)\n\n\n[1] -1.897715\n[1] 0.1428956\n[1] 0.2176416\n[1] 2.465024\n        0%        25%        50%        75%       100% \n-1.8977145 -0.4711605  0.2176416  0.8113752  2.4650243 \n[1] 0.9544043"
+    "text": "Ya hemos visto algunas funciones en los ejercicios de días anteriores\n\n\nx &lt;- rnorm(50, 0, 1)\n\nmin(x); mean(x); median(x); max(x)\nquantile(x)\nsd(x)\n\n\n[1] -3.292653\n[1] 0.1417309\n[1] 0.3305704\n[1] 2.420661\n        0%        25%        50%        75%       100% \n-3.2926526 -0.7004267  0.3305704  0.9355280  2.4206615 \n[1] 1.072289"
   },
   {
     "objectID": "ADR-3-Descriptive_hypothesis.html#algunas-de-ellas-para-hacerlo-de-forma-gráfica",
@@ -599,14 +599,14 @@
     "href": "ADR-3-Descriptive_hypothesis.html#t-de-student-comparación-de-medias-de-2-muestras",
     "title": "Estadística descriptiva y contraste de hipótesis en R",
     "section": "T de Student: Comparación de medias de 2 muestras",
-    "text": "T de Student: Comparación de medias de 2 muestras\n\n\nx &lt;- rnorm(30, 5, 1)\ny &lt;- rnorm(30, 5, 3)\n\nt.test(x, y)\n\n\n\n    Welch Two Sample t-test\n\ndata:  x and y\nt = -1.228, df = 34.714, p-value = 0.2277\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n -1.7813884  0.4387967\nsample estimates:\nmean of x mean of y \n 5.051179  5.722475"
+    "text": "T de Student: Comparación de medias de 2 muestras\n\n\nx &lt;- rnorm(30, 5, 1)\ny &lt;- rnorm(30, 5, 3)\n\nt.test(x, y)\n\n\n\n    Welch Two Sample t-test\n\ndata:  x and y\nt = 0.87007, df = 31.382, p-value = 0.3909\nalternative hypothesis: true difference in means is not equal to 0\n95 percent confidence interval:\n -0.7282908  1.8129164\nsample estimates:\nmean of x mean of y \n 5.270351  4.728039"
   },
   {
     "objectID": "ADR-3-Descriptive_hypothesis.html#t-de-student-de-una-muestra",
     "href": "ADR-3-Descriptive_hypothesis.html#t-de-student-de-una-muestra",
     "title": "Estadística descriptiva y contraste de hipótesis en R",
     "section": "T de Student de una muestra",
-    "text": "T de Student de una muestra\nSe usa para comparar una muestra con una distribución teórica. Por defecto, con media 0.\n\n\nx &lt;- rnorm(30, 5, 1)\n\nt.test(x)\n\nt.test(x, mu = 5)\n\n\n\n    One Sample t-test\n\ndata:  x\nt = 39.165, df = 29, p-value &lt; 2.2e-16\nalternative hypothesis: true mean is not equal to 0\n95 percent confidence interval:\n 5.044553 5.600447\nsample estimates:\nmean of x \n   5.3225 \n\n\n    One Sample t-test\n\ndata:  x\nt = 2.3731, df = 29, p-value = 0.02449\nalternative hypothesis: true mean is not equal to 5\n95 percent confidence interval:\n 5.044553 5.600447\nsample estimates:\nmean of x \n   5.3225"
+    "text": "T de Student de una muestra\nSe usa para comparar una muestra con una distribución teórica. Por defecto, con media 0.\n\n\nx &lt;- rnorm(30, 5, 1)\n\nt.test(x)\n\nt.test(x, mu = 5)\n\n\n\n    One Sample t-test\n\ndata:  x\nt = 21.769, df = 29, p-value &lt; 2.2e-16\nalternative hypothesis: true mean is not equal to 0\n95 percent confidence interval:\n 4.153551 5.014937\nsample estimates:\nmean of x \n 4.584244 \n\n\n    One Sample t-test\n\ndata:  x\nt = -1.9743, df = 29, p-value = 0.05794\nalternative hypothesis: true mean is not equal to 5\n95 percent confidence interval:\n 4.153551 5.014937\nsample estimates:\nmean of x \n 4.584244"
   },
   {
     "objectID": "ADR-3-Descriptive_hypothesis.html#t-de-student-hipótesis-nula",
@@ -620,21 +620,21 @@
     "href": "ADR-3-Descriptive_hypothesis.html#t-de-student-hipótesis-nula-1",
     "title": "Estadística descriptiva y contraste de hipótesis en R",
     "section": "T de Student: Hipótesis nula",
-    "text": "T de Student: Hipótesis nula\nSe especifica con el argumento alternative\n\n\nx &lt;- rnorm(30, 5, 1)\ny &lt;- rnorm(30, 6, 1)\n\n# ¿x es más grande que y?\nt.test(x, y, alternative = \"greater\")\n\n# ¿x es más pequeño que y?\nt.test(x, y, alternative = \"less\")\n\n\n\n    Welch Two Sample t-test\n\ndata:  x and y\nt = -2.5673, df = 57.49, p-value = 0.9936\nalternative hypothesis: true difference in means is greater than 0\n95 percent confidence interval:\n -1.088161       Inf\nsample estimates:\nmean of x mean of y \n 5.229092  5.888111 \n\n\n    Welch Two Sample t-test\n\ndata:  x and y\nt = -2.5673, df = 57.49, p-value = 0.006437\nalternative hypothesis: true difference in means is less than 0\n95 percent confidence interval:\n      -Inf -0.229878\nsample estimates:\nmean of x mean of y \n 5.229092  5.888111"
+    "text": "T de Student: Hipótesis nula\nSe especifica con el argumento alternative\n\n\nx &lt;- rnorm(30, 5, 1)\ny &lt;- rnorm(30, 6, 1)\n\n# ¿x es más grande que y?\nt.test(x, y, alternative = \"greater\")\n\n# ¿x es más pequeño que y?\nt.test(x, y, alternative = \"less\")\n\n\n\n    Welch Two Sample t-test\n\ndata:  x and y\nt = -3.3819, df = 54.959, p-value = 0.9993\nalternative hypothesis: true difference in means is greater than 0\n95 percent confidence interval:\n -1.462238       Inf\nsample estimates:\nmean of x mean of y \n 4.776745  5.755020 \n\n\n    Welch Two Sample t-test\n\ndata:  x and y\nt = -3.3819, df = 54.959, p-value = 0.000666\nalternative hypothesis: true difference in means is less than 0\n95 percent confidence interval:\n       -Inf -0.4943129\nsample estimates:\nmean of x mean of y \n 4.776745  5.755020"
   },
   {
     "objectID": "ADR-3-Descriptive_hypothesis.html#t-de-student-pruebas-pareadas",
     "href": "ADR-3-Descriptive_hypothesis.html#t-de-student-pruebas-pareadas",
     "title": "Estadística descriptiva y contraste de hipótesis en R",
     "section": "T de Student: Pruebas pareadas",
-    "text": "T de Student: Pruebas pareadas\nSe usa cuando las muestras no son independientes, están interrelacionadas\n\n\nx &lt;- rnorm(30, 5, 1)\ny &lt;- rnorm(30, 6, 1)\n\nt.test(x, y, paired = TRUE)\n\n\n\n    Paired t-test\n\ndata:  x and y\nt = -7.7791, df = 29, p-value = 1.406e-08\nalternative hypothesis: true mean difference is not equal to 0\n95 percent confidence interval:\n -1.796316 -1.048399\nsample estimates:\nmean difference \n      -1.422358"
+    "text": "T de Student: Pruebas pareadas\nSe usa cuando las muestras no son independientes, están interrelacionadas\n\n\nx &lt;- rnorm(30, 5, 1)\ny &lt;- rnorm(30, 6, 1)\n\nt.test(x, y, paired = TRUE)\n\n\n\n    Paired t-test\n\ndata:  x and y\nt = -1.9393, df = 29, p-value = 0.06225\nalternative hypothesis: true mean difference is not equal to 0\n95 percent confidence interval:\n -0.91113102  0.02422196\nsample estimates:\nmean difference \n     -0.4434545"
   },
   {
     "objectID": "ADR-3-Descriptive_hypothesis.html#t-de-student-devuelve-un-objeto",
     "href": "ADR-3-Descriptive_hypothesis.html#t-de-student-devuelve-un-objeto",
     "title": "Estadística descriptiva y contraste de hipótesis en R",
     "section": "T de Student: devuelve un objeto",
-    "text": "T de Student: devuelve un objeto\n\n\nx &lt;- rnorm(30, 5, 1)\ny &lt;- rnorm(30, 6, 1)\n\n# ¿x es más grande que y?\ntest &lt;- t.test(x, y) \n\nstr(test)\ntest$p.value\ntest$conf.int[2]\ntest[[3]]\n\n\nList of 10\n $ statistic  : Named num -3.25\n  ..- attr(*, \"names\")= chr \"t\"\n $ parameter  : Named num 57.1\n  ..- attr(*, \"names\")= chr \"df\"\n $ p.value    : num 0.00193\n $ conf.int   : num [1:2] -1.495 -0.356\n  ..- attr(*, \"conf.level\")= num 0.95\n $ estimate   : Named num [1:2] 5.06 5.99\n  ..- attr(*, \"names\")= chr [1:2] \"mean of x\" \"mean of y\"\n $ null.value : Named num 0\n  ..- attr(*, \"names\")= chr \"difference in means\"\n $ stderr     : num 0.285\n $ alternative: chr \"two.sided\"\n $ method     : chr \"Welch Two Sample t-test\"\n $ data.name  : chr \"x and y\"\n - attr(*, \"class\")= chr \"htest\"\n[1] 0.001926017\n[1] -0.3555973\n[1] 0.001926017"
+    "text": "T de Student: devuelve un objeto\n\n\nx &lt;- rnorm(30, 5, 1)\ny &lt;- rnorm(30, 6, 1)\n\n# ¿x es más grande que y?\ntest &lt;- t.test(x, y) \n\nstr(test)\ntest$p.value\ntest$conf.int[2]\ntest[[3]]\n\n\nList of 10\n $ statistic  : Named num -4.3\n  ..- attr(*, \"names\")= chr \"t\"\n $ parameter  : Named num 57.8\n  ..- attr(*, \"names\")= chr \"df\"\n $ p.value    : num 6.75e-05\n $ conf.int   : num [1:2] -1.739 -0.633\n  ..- attr(*, \"conf.level\")= num 0.95\n $ estimate   : Named num [1:2] 4.78 5.97\n  ..- attr(*, \"names\")= chr [1:2] \"mean of x\" \"mean of y\"\n $ null.value : Named num 0\n  ..- attr(*, \"names\")= chr \"difference in means\"\n $ stderr     : num 0.276\n $ alternative: chr \"two.sided\"\n $ method     : chr \"Welch Two Sample t-test\"\n $ data.name  : chr \"x and y\"\n - attr(*, \"class\")= chr \"htest\"\n[1] 6.750649e-05\n[1] -0.6334078\n[1] 6.750649e-05"
   },
   {
     "objectID": "ADR-3-Descriptive_hypothesis.html#los-test-parámetricos",
@@ -676,28 +676,28 @@
     "href": "ADR-3-Descriptive_hypothesis.html#acepta-todos-los-argumentos-de-la-t-de-student",
     "title": "Estadística descriptiva y contraste de hipótesis en R",
     "section": "Acepta todos los argumentos de la T de Student",
-    "text": "Acepta todos los argumentos de la T de Student\n\n\nx &lt;- rnorm(30, 5, 1)\ny &lt;- rnorm(30, 6, 1)\n\nwilcox.test(x, y, \n            alternative = \"greater\",\n            paired = TRUE)\n\n\n\n    Wilcoxon signed rank exact test\n\ndata:  x and y\nV = 131, p-value = 0.9827\nalternative hypothesis: true location shift is greater than 0"
+    "text": "Acepta todos los argumentos de la T de Student\n\n\nx &lt;- rnorm(30, 5, 1)\ny &lt;- rnorm(30, 6, 1)\n\nwilcox.test(x, y, \n            alternative = \"greater\",\n            paired = TRUE)\n\n\n\n    Wilcoxon signed rank exact test\n\ndata:  x and y\nV = 59, p-value = 0.9999\nalternative hypothesis: true location shift is greater than 0"
   },
   {
     "objectID": "ADR-3-Descriptive_hypothesis.html#anova-analisys-of-variance",
     "href": "ADR-3-Descriptive_hypothesis.html#anova-analisys-of-variance",
     "title": "Estadística descriptiva y contraste de hipótesis en R",
     "section": "ANOVA (Analisys of Variance)",
-    "text": "ANOVA (Analisys of Variance)\n\nSe usa para comparar medidas entre grupos\nEs un test paramétrico (normalidad, homocedasticidad)\n\n\n\nx &lt;- c(1:10, \n       rnorm(10, 1, 1), \n       rnorm(10, 3, 1))\ny &lt;- factor(c(rep(\"first\", 10), \n              rep(\"second\", 10), \n              rep(\"third\", 10)))\ndata &lt;- data.frame(medidas = x, \n                   grupos = y)\n\naov(medidas ~ grupos, data)\n\n\nCall:\n   aov(formula = medidas ~ grupos, data = data)\n\nTerms:\n                   grupos Residuals\nSum of Squares   87.84791 101.19468\nDeg. of Freedom         2        27\n\nResidual standard error: 1.935963\nEstimated effects may be unbalanced\n\n\n\n\n\n\n\n\nEl resultado de aov no nos da muchos detalles"
+    "text": "ANOVA (Analisys of Variance)\n\nSe usa para comparar medidas entre grupos\nEs un test paramétrico (normalidad, homocedasticidad)\n\n\n\nx &lt;- c(1:10, \n       rnorm(10, 1, 1), \n       rnorm(10, 3, 1))\ny &lt;- factor(c(rep(\"first\", 10), \n              rep(\"second\", 10), \n              rep(\"third\", 10)))\ndata &lt;- data.frame(medidas = x, \n                   grupos = y)\n\naov(medidas ~ grupos, data)\n\n\nCall:\n   aov(formula = medidas ~ grupos, data = data)\n\nTerms:\n                  grupos Residuals\nSum of Squares  91.95371  95.64582\nDeg. of Freedom        2        27\n\nResidual standard error: 1.882136\nEstimated effects may be unbalanced\n\n\n\n\n\n\n\n\nEl resultado de aov no nos da muchos detalles"
   },
   {
     "objectID": "ADR-3-Descriptive_hypothesis.html#analizar-el-resultado",
     "href": "ADR-3-Descriptive_hypothesis.html#analizar-el-resultado",
     "title": "Estadística descriptiva y contraste de hipótesis en R",
     "section": "Analizar el resultado",
-    "text": "Analizar el resultado\nPara saber si las diferencias son significativas usamos la función summary()\n\n\naov.test &lt;- aov(medidas ~ grupos, data)\n\nsummary(aov.test)\n\n\n            Df Sum Sq Mean Sq F value   Pr(&gt;F)    \ngrupos       2  87.85   43.92   11.72 0.000217 ***\nResiduals   27 101.19    3.75                     \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\n\n\n\n\n\nAún así, no nos dice que grupos son los que difieren entre sí."
+    "text": "Analizar el resultado\nPara saber si las diferencias son significativas usamos la función summary()\n\n\naov.test &lt;- aov(medidas ~ grupos, data)\n\nsummary(aov.test)\n\n\n            Df Sum Sq Mean Sq F value   Pr(&gt;F)    \ngrupos       2  91.95   45.98   12.98 0.000112 ***\nResiduals   27  95.65    3.54                     \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\n\n\n\n\n\nAún así, no nos dice que grupos son los que difieren entre sí."
   },
   {
     "objectID": "ADR-3-Descriptive_hypothesis.html#anova-test-de-tukey",
     "href": "ADR-3-Descriptive_hypothesis.html#anova-test-de-tukey",
     "title": "Estadística descriptiva y contraste de hipótesis en R",
     "section": "ANOVA + Test de Tukey",
-    "text": "ANOVA + Test de Tukey\nSe usa el test de Tukey para ver las diferencias entre los grupos\n\n\naov.test &lt;- aov(medidas ~ grupos, data)\n\nTukeyHSD(aov.test)\n\n\n  Tukey multiple comparisons of means\n    95% family-wise confidence level\n\nFit: aov(formula = medidas ~ grupos, data = data)\n\n$grupos\n                  diff        lwr        upr     p adj\nsecond-first -4.172256 -6.3189079 -2.0256039 0.0001426\nthird-first  -2.434549 -4.5812012 -0.2878973 0.0238295\nthird-second  1.737707 -0.4089453  3.8843586 0.1297860\n\n\n\n\n\n\n\n\nEl resultado de aov no nos da muchos detalles"
+    "text": "ANOVA + Test de Tukey\nSe usa el test de Tukey para ver las diferencias entre los grupos\n\n\naov.test &lt;- aov(medidas ~ grupos, data)\n\nTukeyHSD(aov.test)\n\n\n  Tukey multiple comparisons of means\n    95% family-wise confidence level\n\nFit: aov(formula = medidas ~ grupos, data = data)\n\n$grupos\n                  diff        lwr        upr     p adj\nsecond-first -4.260538 -6.3475057 -2.1735696 0.0000746\nthird-first  -2.553259 -4.6402266 -0.4662905 0.0141790\nthird-second  1.707279 -0.3796889  3.7942472 0.1246936\n\n\n\n\n\n\n\n\nEl resultado de aov no nos da muchos detalles"
   },
   {
     "objectID": "ADR-3-Descriptive_hypothesis.html#anova-leed-la-documentación-aov",
@@ -718,13 +718,13 @@
     "href": "ADR-3-Descriptive_hypothesis.html#ejercicios-de-casa-homeworks",
     "title": "Estadística descriptiva y contraste de hipótesis en R",
     "section": "Ejercicios de casa (Homeworks)",
-    "text": "Ejercicios de casa (Homeworks)\n\nEn la web de la asignatura (enlace en Moodle)\nEntregar antes de la siguiente clase\n\n\n\n\n\nAnálisis de datos con R"
+    "text": "Ejercicios de casa (Homeworks)\n\nEn la web de la asignatura (enlace en Moodle)\nEntregar antes de la siguiente clase"
   },
   {
     "objectID": "ADR-3-Homeworks.html",
     "href": "ADR-3-Homeworks.html",
     "title": "Análisis espaciales y multivariantes con R (AEMeR) aplicados a estudios de biodiversidad",
     "section": "",
-    "text": "Nota\n\n\n\nLos ejercicios tendréis que entregarlos para la evaluación del curso. Para ello, crea un script de R con RStudio. Ponle el nombre homeworks_t2.R. Dicho script deberá estar organizado con comentarios en castellano (poniendo una almohadilla # delante) y justo detrás el código necesario para realizar el ejercicio (ver ejemplo debajo). Además, si el ejercicio pide reflexionar sobre el resultado use los comentarios (con la #) para indicar sus reflexiones debajo del código. Una vez los tengáis completos deberéis subirlos en la actividad correspondiente de Moodle.\n\n# Ejercicio 1.\n# Parte 1\nseq(1, 40, by = 2)\n\n# Parte 2\nseq(1, 40, by = -2)\n# Este código da error porque especifiqué algo mal :)"
+    "text": "Nota\n\n\n\nLos ejercicios tendréis que entregarlos para la evaluación del curso. Para ello, crea un script de R con RStudio. Ponle el nombre homeworks_t2.R. Dicho script deberá estar organizado con comentarios en castellano (poniendo una almohadilla # delante) y justo detrás el código necesario para realizar el ejercicio (ver ejemplo debajo). Además, si el ejercicio pide reflexionar sobre el resultado use los comentarios (con la #) para indicar sus reflexiones debajo del código. Una vez los tengáis completos deberéis subirlos en la actividad correspondiente de Moodle.\n\n# Ejercicio 1.\n# Parte 1\nseq(1, 40, by = 2)\n\n# Parte 2\nseq(1, 40, by = -2)\n# Este código da error porque especifiqué algo mal :)\n\n\n\n\nParte 1: Gráficos descriptivos\nEl resto de ejercicios de esta semana, están relacionados con los datos almacenados en el fichero Maple data.csv. Este conjunto de datos contiene información sobre la localización (Longitud -X-, Latitud -Y- y Elevación) de un conjunto de parcelas donde se han medido varias características abióticas (Temperaturas, Precipitación, pH del suelo, y relación C:N del suelo), así como la presencia/ausencia de la especie Acer campestre.\n1. Carga estos datos en la sesión de R y explora los datos. a. ¿Cuantas parcelas de muestreo hay? b. ¿Que porcentaje de parcelas incluyen la especie Acer campestre? c. ¿Hay datos ausentes (NAs) en alguna de las variables? d. ¿Cuantos datos faltan para cada variable?. e. ¿Cuales son los valores mínimos, medios y máximos de cada variable predictora?\n\n\n\n\n\n\nPista\n\n\n\nLa función is.na() os será de gran ayuda.\n\n\n2. Dibuja la localización (Coordinadas X e Y) de cada parcela de muestreo. Las parcelas que tienen presente a la especie Acer campestre dibújalas de color rojo y el resto de parcelas de color gris.\n3. Utiliza la siguiente línea de código para dividir el área de gráficos en 6 partes par(mfrow=c(2, 3)). A continuación dibuja un histograma para cada una de las variables abióticas (temperaturas, precipitaciones, pH y C:N del suelo).\n4. Analizando los gráficos ¿Cuales de las variables presentarían una distribución normal?\n5. Ejecuta el código par(mfrow=c(1,1)) para representar un sólo gráfico en el área de dibujo. A continuación, dibuja el histograma de los valores de la variable Temp_jan en los sitios donde no aparece la especie Acer campestre poniendo las barras de color gris. Después, dibuja un nuevo histograma para la misma variable pero en los sitios en los que si aparece Acer campestre, en esta ocasión pon las barras de color rojo y usa el argumento add=T para que dibuje el histograma encima del histograma anterior.\n6. Viendo el gráfico ¿Crees que hay diferencias significativas en las condiciones de temperatura de enero entre las parcelas donde vive Acer campestre de las que no?\n7. Repite los ejercicios 5 y 6, pero con la variable pH.\n\n\nParte 2: Contraste de hipótesis\n1. Utiliza la función shapiro.test para comprobar si las distintas variables abióticas realmente cumplen el supuesto de normalidad. Escribe un comentario en el script indicando para cada variable el valor de “p” y como interpretas dicho resultado (i.e. ¿consideras que tiene distribución normal la variable?).\n2. Utiliza una función de contraste de hipótesis (i.e. t.test o wilcox.test, dependiendo de la normalidad de las variables) para comprobar si alguna de las variables analizadas podría explicar la presencia/ausencia de Acer campestre. Para ello deberéis indicarle al test los valores de la variable en las parcelas con Acer campestre y sin Acer campestre. Escribe un comentario en el código indicando si aprecias diferencias significativas entre los valores de la variable en los sitios donde está la especie y los que no."
   }
 ]

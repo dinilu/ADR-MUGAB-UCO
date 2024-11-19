@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,10 +70,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d5c296a9e60ed6c9f30b3dc68ebc3f1a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -146,8 +146,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul class="collapse">
+  <li><a href="#parte-1-estadística-descriptiva" id="toc-parte-1-estadística-descriptiva" class="nav-link active" data-scroll-target="#parte-1-estadística-descriptiva">Parte 1: Estadística descriptiva</a></li>
+  <li><a href="#parte-2-contraste-de-hipótesis" id="toc-parte-2-contraste-de-hipótesis" class="nav-link" data-scroll-target="#parte-2-contraste-de-hipótesis">Parte 2: Contraste de hipótesis</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -200,8 +207,65 @@ Nota
 </div>
 </div>
 </div>
+<section id="parte-1-estadística-descriptiva" class="level1">
+<h1>Parte 1: Estadística descriptiva</h1>
+<p><strong>1. Carga en R, el fichero de datos <code>Mammal data.csv</code>. En ese fichero tenemos un tabla con las coordenadas geográficas de ciertos puntos (Longitud y Latitud), los datos de riqueza de especies de mamíferos que hay en cada uno de esos puntos, así como los valores de 19 variables bioclimáticas (bio_1 a bio_19) y la elevación media y su desviación estandar.</strong></p>
+<ol type="a">
+<li>Dibuja las coordenadas geográficas de la tabla de riqueza de mamíferos.</li>
+<li>Cambia el tipo de puntos del gráfico para representar cuadrados, en lugar de círculos.</li>
+<li>Modifica el comando para que cada cuadrado se represente de un tamaño diferente, en función del número de especies de mamíferos que viven en cada localidad. Cuadrados más pequeños en los sitios con menos especies y cuadrados más grandes en los sitios con más especies.</li>
+<li>Guarda el gráfico anterior como un fichero .pdf.</li>
+</ol>
+<p><strong>2. Calcula el valor medio, mínimo y máximo de la variable “bio_1”</strong></p>
+<p><strong>3. Usa la función <code>apply()</code> combinada con las funciones <code>min</code>, <code>max</code> y <code>mean</code> para calcular los valores mínimos, maximos y medios de las 19 variables bioclimáticas (bio_1 a bio_19).</strong></p>
+<p><strong>4. Ciertas funciones pueden operar sobre distintos tipos de objetos. Por ejemplo, <code>summary</code> si se usa sobre un vector te devuelve los valores correspondientes al mínimo, primer cuartil, mediana (segundo cuartil), media, tercer cuartil y valor máximo.</strong></p>
+<ol type="a">
+<li>Ejecuta la función <code>summary()</code> sobre la variable <code>bio_1</code> del <code>data.frame</code> de datos.</li>
+<li>Prueba a ejecutar la función <code>summary()</code> directamente sobre el <code>data.frame</code> de datos sin especificar la columna de datos <code>bio_1</code>.</li>
+</ol>
+<blockquote class="blockquote">
+<p>¿Concuerdan los datos calculados con los valores calculados en el ejercicio 2? ¿Tiene sentido el resultado del comando 4.b?</p>
+</blockquote>
+</section>
+<section id="parte-2-contraste-de-hipótesis" class="level1">
+<h1>Parte 2: Contraste de hipótesis</h1>
+<p><strong>1. Carga el fichero de datos <code>mouse_weight.xlsx</code>. Esta tabla de datos tiene los pesos de 50 ratones, antes y después de aplicarles un tratamiento farmacológico.</strong></p>
+<ol type="a">
+<li>Usa la función <code>shapiro.test()</code> para comprobar si las dos variables (v.gr. pesos antes y después) cumplen el requisito de normalidad.</li>
+<li>Usa la función <code>t.test()</code> para comparar los pesos (<code>before</code> e <code>after</code>). Guarda el resultados del test estadístico en un objeto llamada <code>myT</code>.</li>
+<li>Repite la tarea anterior, pero usando un test de una sola cola (“one-side” test) para comprobar la hipótesis de que <code>after</code> es mayor que <code>before</code>.</li>
+<li>Ahora asegúrate que el análisis que has realizado sea de tipo pareado.</li>
+</ol>
+<blockquote class="blockquote">
+<p>Proporciona un texto explicativo con tu interpretación de los resultados.</p>
+</blockquote>
+<p><strong>2. Repite el ejercicio 1 pero en esta ocasión utiliza el conjunto de datos <code>mouse_weight2.xlsx</code>. Esta tabla tiene resultados similares pero utilizando un segundo fármaco.</strong></p>
+<blockquote class="blockquote">
+<p>No olvides realizar todos los pasos y proporcionar el texto explicando las distintas decisiones que tomas, así como la interpretación de los resultados.</p>
+</blockquote>
+<p><strong>3. En R hay paquetes que proporcionan conjuntos de datos ya disponibles. Ejecuta el siguiente código para instalar el paquete <code>palmerpenguins</code> y cargar el conjunto de datos <code>penguins</code>.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"palmerpenguins"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>penguins <span class="ot">&lt;-</span> penguins</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="a">
+<li>Usa la función <code>aov()</code> para ajustar una anova para encontrar is la media de las cuatro variables (v.gr. <code>bill_length_mm</code>, <code>bill_depth_mm</code>, <code>flipper_length_mm</code> y <code>body_mass_g</code>) son significativamente diferentes en las tres especies de pinguinos (v.gr. <code>Adelie</code>, <code>Chinstrap</code> y <code>Gentoo</code>).</li>
+<li>Usa la función <code>summary()</code> para analizar los resultados del análisis de varianza y decidir si las medias son diferentes entre los tres grupos.</li>
+<li>A continuación, usa la función <code>TukeyHSD()</code> para realizar un análisis post-hoc de Tukey sobre las diferencias por parejas de especies.</li>
+</ol>
+<blockquote class="blockquote">
+<p>¿Qué especies presentan diferencias significativas en cada variable? ¿Qué especies no?</p>
+</blockquote>
+<p><strong>4. Usando el conjunto de datos de los pingüinos:</strong></p>
+<ol type="a">
+<li>Usa la función <code>cor()</code> para medir la correlación entre las cuatro variables (v.gr. <code>bill_length_mm</code>, <code>bill_depth_mm</code>, <code>flipper_length_mm</code> y <code>body_mass_g</code>).</li>
+<li>Dibuja un gráfico de dispersión (puntos) de cada pareja de variables.</li>
+<li>En cada gráfico, añade texto indicando el coeficiente de correlación entre las dos variables.</li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
