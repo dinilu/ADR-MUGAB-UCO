@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE,
                       eval = FALSE)
 ```
 
-::: callout-note
+::: {.callout-note collapse=false}
 Los ejercicios tendréis que entregarlos para la evaluación del curso. Para ello, crea un script de R con RStudio. Ponle el nombre `ejercicios_t2.R`. Dicho script deberá estar organizado con comentarios en castellano (poniendo una almohadilla `#` delante) y justo detrás el código necesario para realizar el ejercicio (ver ejemplo debajo). Además, si el ejercicio pide reflexionar sobre el resultado use los comentarios (con la `#`) para indicar sus reflexiones debajo del código. Una vez los tengáis completos deberéis subirlos en la actividad correspondiente de Moodle.
 
 ```{r}
