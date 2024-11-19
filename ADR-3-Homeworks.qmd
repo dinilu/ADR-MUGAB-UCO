@@ -43,7 +43,7 @@ seq(1, 40, by = -2)
    d. ¿Cuantos datos faltan para cada variable?.
    e. ¿Cuales son los valores mínimos, medios y máximos de cada variable predictora?
  
-:::{.callout-tip  appearance="simple"}
+:::{.callout-tip  appearance="simple" collapse=true}
 ## Pista
 
 La función `is.na()` os será de gran ayuda.
