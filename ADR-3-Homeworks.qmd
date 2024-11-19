@@ -32,3 +32,43 @@ seq(1, 40, by = -2)
 ```
 :::
 
+# Parte 1: Gráficos descriptivos
+
+**El resto de ejercicios de esta semana, están relacionados con los datos almacenados en el fichero `Maple data.csv`. Este conjunto de datos contiene información sobre la localización (Longitud -X-, Latitud -Y- y Elevación) de un conjunto de parcelas donde se han medido varias características abióticas (Temperaturas, Precipitación, pH del suelo, y relación C:N del suelo), así como la presencia/ausencia de la especie *Acer campestre*.**
+
+**1. Carga estos datos en la sesión de R y explora los datos.**
+   a. ¿Cuantas parcelas de muestreo hay?
+   b. ¿Que porcentaje de parcelas incluyen la especie *Acer campestre*? 
+   c. ¿Hay datos ausentes (NAs) en alguna de las variables?
+   d. ¿Cuantos datos faltan para cada variable?.
+   e. ¿Cuales son los valores mínimos, medios y máximos de cada variable predictora?
+ 
+:::{.callout-tip  appearance="simple"}
+## Pista
+
+La función `is.na()` os será de gran ayuda.
+:::
+
+
+**2. Dibuja la localización (Coordinadas X e Y) de cada parcela de muestreo. Las parcelas que tienen presente a la especie *Acer campestre* dibújalas de color rojo y el resto de parcelas de color gris.**
+
+
+**3. Utiliza la siguiente línea de código para dividir el área de gráficos en 6 partes `par(mfrow=c(2, 3))`. A continuación dibuja un histograma para cada una de las variables abióticas (temperaturas, precipitaciones, pH y C:N del suelo).**
+
+**4. Analizando los gráficos ¿Cuales de las variables presentarían una distribución normal?**
+
+**5. Ejecuta el código `par(mfrow=c(1,1))` para representar un sólo gráfico en el área de dibujo. A continuación, dibuja el histograma de los valores de la variable `Temp_jan` en los sitios donde no aparece la especie *Acer campestre* poniendo las barras de color gris. Después, dibuja un nuevo histograma para la misma variable pero en los sitios en los que si aparece *Acer campestre*, en esta ocasión pon las barras de color rojo y usa el argumento `add=T` para que dibuje el histograma encima del histograma anterior.**
+
+**6. Viendo el gráfico ¿Crees que hay diferencias significativas en las condiciones de temperatura de enero entre las parcelas donde vive *Acer campestre* de las que no?**
+
+**7. Repite los ejercicios 5 y 6, pero con la variable *pH*.**
+
+
+# Parte 2: Contraste de hipótesis
+
+**1. Utiliza la función `shapiro.test` para comprobar si las distintas variables abióticas realmente cumplen el supuesto de normalidad. Escribe un comentario en el script indicando para cada variable el valor de "p" y como interpretas dicho resultado (i.e. ¿consideras que tiene distribución normal la variable?).**
+
+**2. Utiliza una función de contraste de hipótesis (i.e. t.test o wilcox.test, dependiendo de la normalidad de las variables) para comprobar si alguna de las variables analizadas podría explicar la presencia/ausencia de *Acer campestre*. Para ello deberéis indicarle al test los valores de la variable en las parcelas con *Acer campestre* y sin *Acer campestre*. Escribe un comentario en el código indicando si aprecias diferencias significativas entre los valores de la variable en los sitios donde está la especie y los que no.**
+
+
+
