@@ -186,14 +186,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Nota
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>Los ejercicios tendréis que entregarlos para la evaluación del curso. Para ello, crea un script de R con RStudio. Ponle el nombre <code>homeworks_t2.R</code>. Dicho script deberá estar organizado con comentarios en castellano (poniendo una almohadilla <code>#</code> delante) y justo detrás el código necesario para realizar el ejercicio (ver ejemplo debajo). Además, si el ejercicio pide reflexionar sobre el resultado use los comentarios (con la <code>#</code>) para indicar sus reflexiones debajo del código. Una vez los tengáis completos deberéis subirlos en la actividad correspondiente de Moodle.</p>
 <div class="cell">
@@ -207,21 +209,25 @@ Nota
 </div>
 </div>
 </div>
+</div>
 <section id="parte-1-gráficos-descriptivos" class="level1">
 <h1>Parte 1: Gráficos descriptivos</h1>
 <p><strong>El resto de ejercicios de esta semana, están relacionados con los datos almacenados en el fichero <code>Maple data.csv</code>. Este conjunto de datos contiene información sobre la localización (Longitud -X-, Latitud -Y- y Elevación) de un conjunto de parcelas donde se han medido varias características abióticas (Temperaturas, Precipitación, pH del suelo, y relación C:N del suelo), así como la presencia/ausencia de la especie <em>Acer campestre</em>.</strong></p>
 <p><strong>1. Carga estos datos en la sesión de R y explora los datos.</strong> a. ¿Cuantas parcelas de muestreo hay? b. ¿Que porcentaje de parcelas incluyen la especie <em>Acer campestre</em>? c.&nbsp;¿Hay datos ausentes (NAs) en alguna de las variables? d.&nbsp;¿Cuantos datos faltan para cada variable?. e. ¿Cuales son los valores mínimos, medios y máximos de cada variable predictora?</p>
 <div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Pista
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>La función <code>is.na()</code> os será de gran ayuda.</p>
+</div>
 </div>
 </div>
 <p><strong>2. Dibuja la localización (Coordinadas X e Y) de cada parcela de muestreo. Las parcelas que tienen presente a la especie <em>Acer campestre</em> dibújalas de color rojo y el resto de parcelas de color gris.</strong></p>
