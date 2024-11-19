@@ -34,7 +34,7 @@ seq(1, 40, by = -2)
 
 # Parte 1: Gráficos descriptivos
 
-**El resto de ejercicios de esta semana, están relacionados con los datos almacenados en el fichero `Maple data.csv`. Este conjunto de datos contiene información sobre la localización (Longitud -X-, Latitud -Y- y Elevación) de un conjunto de parcelas donde se han medido varias características abióticas (Temperaturas, Precipitación, pH del suelo, y relación C:N del suelo), así como la presencia/ausencia de la especie *Acer campestre*.**
+**El conjunto de datos `Maple data.csv` contiene información sobre la localización (Longitud -X-, Latitud -Y- y Elevación) de un conjunto de parcelas donde se han medido varias características abióticas (Temperaturas, Precipitación, pH del suelo, y relación C:N del suelo), así como la presencia/ausencia de la especie *Acer campestre*.**
 
 **1. Carga estos datos en la sesión de R y explora los datos.**
    a. ¿Cuantas parcelas de muestreo hay?
@@ -49,9 +49,7 @@ seq(1, 40, by = -2)
 La función `is.na()` os será de gran ayuda.
 :::
 
-
 **2. Dibuja la localización (Coordinadas X e Y) de cada parcela de muestreo. Las parcelas que tienen presente a la especie *Acer campestre* dibújalas de color rojo y el resto de parcelas de color gris.**
-
 
 **3. Utiliza la siguiente línea de código para dividir el área de gráficos en 6 partes `par(mfrow=c(2, 3))`. A continuación dibuja un histograma para cada una de las variables abióticas (temperaturas, precipitaciones, pH y C:N del suelo).**
 
@@ -70,5 +68,16 @@ La función `is.na()` os será de gran ayuda.
 
 **2. Utiliza una función de contraste de hipótesis (i.e. t.test o wilcox.test, dependiendo de la normalidad de las variables) para comprobar si alguna de las variables analizadas podría explicar la presencia/ausencia de *Acer campestre*. Para ello deberéis indicarle al test los valores de la variable en las parcelas con *Acer campestre* y sin *Acer campestre*. Escribe un comentario en el código indicando si aprecias diferencias significativas entre los valores de la variable en los sitios donde está la especie y los que no.**
 
+**3. Carga el fichero `beetles.xslx`. Este conjunto de datos lo he extraído del paquete `KnowBR` y tiene información de observaciones de diferentes especies de escarabajos en la Península Ibérica y Baleares. Además, le he incorporado los valores de 19 variables bioclimáticas en cada una de las observaciones.** 
 
+a. Selecciona las 3 especies de escarabajos más frecuentes en la Península Ibérica y filtra el data.frame para quedarte sólo con las filas correspondientes a las observaciones de esas tres especies
 
+b. Utiliza una ANOVA para comparar los valores de la variables `bio_1` (temperatura média anual) en los sitios en los que se encuentran las tres especies. 
+
+> ¿Hay diferencias en los valores de temperatura media anual en los que viven las tres especies?
+> ¿Son signficativas esas diferencias?
+> ¿Qué especies viven sitios con temperaturas similares y cuales en sitios con temperaturas diferentes?
+
+c. Repite el ejercicio con las variables `bio_7` (rango de temperaturas anual) y `bio_12` (precipitación anual)
+
+> No olvides escribir el código y los comentarios con la explicación de tu interpretación de los resultados.
