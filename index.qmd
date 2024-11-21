@@ -12,4 +12,6 @@ Esta es la web con los materiales del curso:
 
 * **Clase 3:** Estadística descriptiva y contraste de hipótesis en R. [Presentación](ADR-3-Descriptive_hypothesis.qmd){target="_blank"} - [Ejercicios](ADR-3-Ejercicios.qmd){target="_blank"} - [Homeworks](ADR-3-Homeworks.qmd){target="_blank"} - [Datos](data/Tema 3.zip){target="_blank"}
 
+* **Clase 4:** Introducción a Tidyverse. [Presentación](ADR-4-Tidyverse.qmd){target="_blank"}
+
 Esta página web se construyó usando el sistema Quarto de RStudio. Para saber más sobre páginas web creadas con Quarto visita <https://quarto.org/docs/websites>.
