@@ -2596,7 +2596,9 @@ Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a>mpg </span>
 <span id="cb56-2"><a></a></span>
 <span id="cb56-3"><a></a><span class="fu">ggplot</span>(mpg, </span>
-<span id="cb56-4"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">colour =</span> class))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb56-4"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> displ,</span>
+<span id="cb56-5"><a></a>           <span class="at">y =</span> hwy,</span>
+<span id="cb56-6"><a></a>           <span class="at">colour =</span> class))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -2628,8 +2630,10 @@ Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></
 <div class="cell columns column-output-location">
 <div class="column">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a></a><span class="fu">ggplot</span>(mpg, </span>
-<span id="cb58-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">colour =</span> class)) <span class="sc">+</span> </span>
-<span id="cb58-3"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb58-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> displ, </span>
+<span id="cb58-3"><a></a>           <span class="at">y =</span> hwy,</span>
+<span id="cb58-4"><a></a>           <span class="at">colour =</span> class)) <span class="sc">+</span> </span>
+<span id="cb58-5"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -2645,8 +2649,10 @@ Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></
 <div class="cell columns column-output-location">
 <div class="column">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a></a><span class="fu">ggplot</span>(mpg, </span>
-<span id="cb59-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">colour =</span> class)) <span class="sc">+</span> </span>
-<span id="cb59-3"><a></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb59-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> displ, </span>
+<span id="cb59-3"><a></a>           <span class="at">y =</span> hwy, </span>
+<span id="cb59-4"><a></a>           <span class="at">colour =</span> class)) <span class="sc">+</span> </span>
+<span id="cb59-5"><a></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -2662,9 +2668,11 @@ Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></
 <div class="cell columns column-output-location">
 <div class="column">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a></a><span class="fu">ggplot</span>(mpg, </span>
-<span id="cb60-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">colour =</span> class)) <span class="sc">+</span> </span>
-<span id="cb60-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb60-4"><a></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb60-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> displ, </span>
+<span id="cb60-3"><a></a>           <span class="at">y =</span> hwy,</span>
+<span id="cb60-4"><a></a>           <span class="at">colour =</span> class)) <span class="sc">+</span> </span>
+<span id="cb60-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb60-6"><a></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>

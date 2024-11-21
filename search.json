@@ -935,28 +935,28 @@
     "href": "ADR-4-Tidyverse.html#el-paquete-ggplot",
     "title": "Tidyverse",
     "section": "El paquete ggplot",
-    "text": "El paquete ggplot\nNo os voy a dar más tralla, pero es bueno que sepáis que existe y que sepáis que la lógica de su funcionamiento es algo diferente.\nSe basa en la “gramática de gráficos” y los datos suelen estar en un formato específico.\nSólo como ejemplo…\n\n\nmpg \n\nggplot(mpg, \n       aes(x = displ, y = hwy, colour = class))\n\n\n\n\n\n\n\n\n\n# A tibble: 234 × 11\n   manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class\n   &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;\n 1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…\n 2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…\n 3 audi         a4           2    2008     4 manu… f        20    31 p     comp…\n 4 audi         a4           2    2008     4 auto… f        21    30 p     comp…\n 5 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…\n 6 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…\n 7 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…\n 8 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…\n 9 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…\n10 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…\n# ℹ 224 more rows"
+    "text": "El paquete ggplot\nNo os voy a dar más tralla, pero es bueno que sepáis que existe y que sepáis que la lógica de su funcionamiento es algo diferente.\nSe basa en la “gramática de gráficos” y los datos suelen estar en un formato específico.\nSólo como ejemplo…\n\n\nmpg \n\nggplot(mpg, \n       aes(x = displ,\n           y = hwy,\n           colour = class))\n\n\n\n\n\n\n\n\n\n# A tibble: 234 × 11\n   manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class\n   &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;\n 1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…\n 2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…\n 3 audi         a4           2    2008     4 manu… f        20    31 p     comp…\n 4 audi         a4           2    2008     4 auto… f        21    30 p     comp…\n 5 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…\n 6 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…\n 7 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…\n 8 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…\n 9 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…\n10 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…\n# ℹ 224 more rows"
   },
   {
     "objectID": "ADR-4-Tidyverse.html#ahora-con-datos-de-puntos",
     "href": "ADR-4-Tidyverse.html#ahora-con-datos-de-puntos",
     "title": "Tidyverse",
     "section": "Ahora con datos de puntos",
-    "text": "Ahora con datos de puntos\n\n\nggplot(mpg, \n       aes(x = displ, y = hwy, colour = class)) + \n  geom_point()"
+    "text": "Ahora con datos de puntos\n\n\nggplot(mpg, \n       aes(x = displ, \n           y = hwy,\n           colour = class)) + \n  geom_point()"
   },
   {
     "objectID": "ADR-4-Tidyverse.html#ahora-con-datos-de-líneas",
     "href": "ADR-4-Tidyverse.html#ahora-con-datos-de-líneas",
     "title": "Tidyverse",
     "section": "Ahora con datos de líneas",
-    "text": "Ahora con datos de líneas\n\n\nggplot(mpg, \n       aes(x = displ, y = hwy, colour = class)) + \n  geom_line()"
+    "text": "Ahora con datos de líneas\n\n\nggplot(mpg, \n       aes(x = displ, \n           y = hwy, \n           colour = class)) + \n  geom_line()"
   },
   {
     "objectID": "ADR-4-Tidyverse.html#ahora-con-datos-de-los-dos-tipos",
     "href": "ADR-4-Tidyverse.html#ahora-con-datos-de-los-dos-tipos",
     "title": "Tidyverse",
     "section": "Ahora con datos de los dos tipos",
-    "text": "Ahora con datos de los dos tipos\n\n\nggplot(mpg, \n       aes(x = displ, y = hwy, colour = class)) + \n  geom_point() +\n  geom_line()"
+    "text": "Ahora con datos de los dos tipos\n\n\nggplot(mpg, \n       aes(x = displ, \n           y = hwy,\n           colour = class)) + \n  geom_point() +\n  geom_line()"
   },
   {
     "objectID": "ADR-4-Tidyverse.html#cheatsheets",
