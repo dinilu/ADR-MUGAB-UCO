@@ -1,0 +1,416 @@
+---
+title: "Tidyverse"
+subtitle: "Análisis de datos con R"
+author: "Diego Nieto Lugilde"
+institute: "Máster Universitario en Gestión Ambiental y Biodiversidad. Universidad de Córdoba (España)"
+slide-number: true
+format:
+  revealjs:
+    logo: img/R-logo.png
+    footer: "[Análisis de datos con R](https://dnietolugilde.com/ADR-MUGAB-UCO)"
+    scrollable: true
+    chalkboard: true
+lightbox: auto
+editor: source
+---
+
+## {.smaller}
+
+* Tema 1: Introducción a R y programación
+  + La estructura de R
+  + Funciones, objetos y programación básica
+  + Entorno (sesión de R) y directorio de trabajo
+  + Trabajar con archivos (scripts y datos)
+* Tema 2: 
+  + Instalación de paquetes
+  + CRAN
+  + GitHub
+  + Graficado
+* Tema 3:
+  + Estadística descriptiva
+  + Contraste de hipótesis
+  + Paramétricos vs No paramétricos
+* Tema 4:
+  + Tidyverse
+
+# Tidyverse
+
+
+## ¿Qué es Tidyverse?
+
+Un conjunto de paquetes orientados a trabajar de forma más cómoda y eficiente en R.
+
+Se basa en el principio de *tidy data* (datos ordenados). Un conjunto de datos es *tidy* si:
+
+* Cada variable está en una columna
+* Cada observación está en su propia
+* Se accede a las variables como vectores
+
+
+## Los datos tidy se basan en *tibbles*
+
+Los `tibbles` son una modificación de los *data frames* implementada en el paquete `tibble`.
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+tibble(
+  x = 1:3, 
+  y = c("a", "b", "c")
+)
+```
+
+## De *data frames* a *tibbles*
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+x <- data.frame(
+  x = 1:3, 
+  y = c("a", "b", "c")
+)
+
+as.tibble(x)
+```
+
+## Los datos tidy son más fáciles de modificar
+
+Se usan las funciones del paquete `tidyr`.
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+table4a
+```
+
+
+## Las medidas del mismo tipo deben ir en la misma columna
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+pivot_longer(table4a, cols = 2:3, names_to = "year", values_to = "cases")
+```
+
+
+## Puede que necesitemos realizar la conversión contraria
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+table2
+```
+
+
+## Se puede realizar sin problema
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+pivot_wider(table2, names_from = type, values_from = count)
+```
+
+
+## También hay funciones para ayudar a "ordenar" datos "desordenados"
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+table3
+```
+
+
+## Las funciones `separate` nos ayudan con esto
+
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+separate(table3, rate, into = c("cases", "pop"), sep = "/")
+```
+
+
+## Paquete `stringr`
+
+Se usa para manipular las columnas con texto
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+fruit
+
+str_which(fruit, "banana")
+```
+
+
+## Permite cambiar unos caracteres por otros
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+str_replace(fruit, "p", "-")
+```
+
+:::{.callout-warning appearance="simple"}
+Fijaros que sólo cambia la primera letra `p` que se encuentra en cada palabra.
+:::
+
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+str_replace_all(fruit, "p", "-")
+```
+
+
+## Permite cambiar una secuencia de valores por otra
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+fruit <- paste0("fruit_", fruit)
+
+fruit <- str_replace(fruit, "fruit_", "")
+```
+
+
+## A veces queremos cambiar el texto a minúsculas.
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+head(sentences)
+
+str_to_lower(sentences)
+```
+
+
+## O a mayúsculas
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+str_to_upper(sentences)
+```
+
+
+## Paquete `dplyr`
+
+Implementa el sistema de tuberías (*pipes*) y espera datos en formato tidy
+
+> pipes `x |> f(y)` becomes `f(x,y)`
+
+Las tuberías permiten generar menos objetos temporales
+
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+mtcars |> summary()
+```
+
+
+## Otro tipo de tuberías
+
+También se puede usar el símbolo `%>%` para definir las tuberías. Aunque funciona 
+un poco diferente
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+mtcars %>% summary()
+```
+
+
+## La función `summarize` ayuda a resumir datos
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+mtcars |> summarize(avg = mean(mpg))
+```
+
+
+## Algunas funciones resumen datos sin usar `summarize()`
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+mtcars |> count(cyl)
+```
+
+
+## La función `group_by` permite definir los grupos para tenerlos en cuenta a la hora del análisis
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+mtcars |>
+  group_by(cyl) |>
+  summarize(avg = mean(mpg))
+```
+
+
+## Si necesito realizar el resumen en todas las columnas también es posible
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+mtcars |> summarize(across(everything(), mean))
+```
+
+
+## Seleccionar filas es ahora mucho más sencillo y cómodo
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+mtcars |> filter(mpg > 20)
+```
+
+
+## Ordenar los `tibbles` también es más fácil
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+mtcars |> arrange(mpg)
+mtcars |> arrange(desc(mpg))
+```
+
+
+## Seleccionar columnas también es múcho más cómodo
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+mtcars |> select(mpg, wt)
+
+```
+
+
+## Se pueden modificar o generar columnas muy fácilmente
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+mtcars |> mutate(gpm = 1 / mpg)
+```
+
+
+## ¿Te has equivocado nombrando una columna? No pasa nada...
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+mtcars |> rename(miles_per_gallon = mpg)
+```
+
+
+## Manipular los nombres de las filas también es mucho más sencillo
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+a <- rownames_to_column(mtcars, var = "C")
+```
+
+
+## O al revés...
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+column_to_rownames(a, var = "C")
+```
+
+
+## El paquete `ggplot`
+
+No os voy a dar más tralla, pero es bueno que sepáis que existe y que sepáis que la lógica de su funcionamiento es algo diferente.
+
+Se basa en la "gramática de gráficos" y los datos suelen estar en un formato específico.
+
+Sólo como ejemplo...
+
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+mpg 
+
+ggplot(mpg, 
+       aes(x = displ, y = hwy, colour = class))
+ggplot(mpg, 
+       aes(x = displ, y = hwy, colour = class)) + 
+  geom_point()
+```
+
+
+
+## Cheatsheets 
+
+Las "chuletas" son geniales para iniciarse en el manejo de ciertos paquetes
+
+[https://posit.co/resources/cheatsheets/](https://posit.co/resources/cheatsheets/)
+
+
+## Las Vignettes también...
+
+[https://dplyr.tidyverse.org/](https://dplyr.tidyverse.org/)
