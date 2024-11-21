@@ -428,7 +428,9 @@ Sólo como ejemplo...
 mpg 
 
 ggplot(mpg, 
-       aes(x = displ, y = hwy, colour = class))
+       aes(x = displ,
+           y = hwy,
+           colour = class))
 ```
 
 ## Ahora con datos de puntos
@@ -439,7 +441,9 @@ ggplot(mpg,
 #| results: hold
 
 ggplot(mpg, 
-       aes(x = displ, y = hwy, colour = class)) + 
+       aes(x = displ, 
+           y = hwy,
+           colour = class)) + 
   geom_point()
 ```
 
@@ -452,7 +456,9 @@ ggplot(mpg,
 #| results: hold
 
 ggplot(mpg, 
-       aes(x = displ, y = hwy, colour = class)) + 
+       aes(x = displ, 
+           y = hwy, 
+           colour = class)) + 
   geom_line()
 ```
 
@@ -465,7 +471,9 @@ ggplot(mpg,
 #| results: hold
 
 ggplot(mpg, 
-       aes(x = displ, y = hwy, colour = class)) + 
+       aes(x = displ, 
+           y = hwy,
+           colour = class)) + 
   geom_point() +
   geom_line()
 ```
