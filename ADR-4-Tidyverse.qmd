@@ -43,8 +43,7 @@ Un conjunto de paquetes orientados a trabajar de forma más cómoda y eficiente 
 Se basa en el principio de *tidy data* (datos ordenados). Un conjunto de datos es *tidy* si:
 
 * Cada variable está en una columna
-* Cada observación está en su propia
-* Se accede a las variables como vectores
+* Cada observación está en su propia fila
 
 ```{r}
 #| echo: true
@@ -56,7 +55,7 @@ library(tidyverse)
 ```
 
 
-## Los datos tidy se basan en *tibbles*
+## Los datos *tidy* se basan en *tibbles*
 
 Los `tibbles` son una modificación de los *data frames* implementada en el paquete `tibble`.
 
@@ -86,7 +85,7 @@ x <- data.frame(
 as.tibble(x)
 ```
 
-## Los datos tidy son más fáciles de modificar
+## Los datos *tidy* son más fáciles de modificar
 
 Se usan las funciones del paquete `tidyr`.
 
@@ -106,7 +105,10 @@ table4a
 #| output-location: column
 #| results: hold
 
-pivot_longer(table4a, cols = 2:3, names_to = "year", values_to = "cases")
+pivot_longer(table4a, 
+             cols = 2:3, 
+             names_to = "year", 
+             values_to = "cases")
 ```
 
 
@@ -128,7 +130,9 @@ table2
 #| output-location: column
 #| results: hold
 
-pivot_wider(table2, names_from = type, values_from = count)
+pivot_wider(table2, 
+            names_from = type, 
+            values_from = count)
 ```
 
 
@@ -151,7 +155,10 @@ table3
 #| output-location: column
 #| results: hold
 
-separate(table3, rate, into = c("cases", "pop"), sep = "/")
+separate(table3, 
+         rate, 
+         into = c("cases", "pop"), 
+         sep = "/")
 ```
 
 
@@ -166,7 +173,8 @@ Se usa para manipular las columnas con texto
 
 fruit
 
-str_which(fruit, "banana")
+str_which(fruit, 
+          "banana")
 ```
 
 
@@ -177,7 +185,9 @@ str_which(fruit, "banana")
 #| output-location: column
 #| results: hold
 
-str_replace(fruit, "p", "-")
+str_replace(fruit, 
+            "p", 
+            "-")
 ```
 
 :::{.callout-warning appearance="simple"}
@@ -185,12 +195,16 @@ Fijaros que sólo cambia la primera letra `p` que se encuentra en cada palabra.
 :::
 
 
+## Pero puedo decirle que los cambie todos
+
 ```{r}
 #| echo: true
 #| output-location: column
 #| results: hold
 
-str_replace_all(fruit, "p", "-")
+str_replace_all(fruit, 
+                "p", 
+                "-")
 ```
 
 
@@ -201,9 +215,12 @@ str_replace_all(fruit, "p", "-")
 #| output-location: column
 #| results: hold
 
-fruit <- paste0("fruit_", fruit)
+fruit <- paste0("fruit_", 
+                fruit)
 
-fruit <- str_replace(fruit, "fruit_", "")
+str_replace(fruit, 
+            "fruit_",
+            "")
 ```
 
 
@@ -233,7 +250,7 @@ str_to_upper(sentences)
 
 ## Paquete `dplyr`
 
-Implementa el sistema de tuberías (*pipes*) y espera datos en formato tidy
+Implementa el sistema de tuberías (*pipes*) y espera datos en formato *tidy*
 
 > pipes `x |> f(y)` becomes `f(x,y)`
 
@@ -305,7 +322,10 @@ mtcars |>
 #| output-location: column
 #| results: hold
 
-mtcars |> summarize(across(everything(), mean))
+mtcars |> summarize(
+            across(
+              everything(), 
+              mean))
 ```
 
 
@@ -340,7 +360,6 @@ mtcars |> arrange(desc(mpg))
 #| results: hold
 
 mtcars |> select(mpg, wt)
-
 ```
 
 
@@ -362,7 +381,8 @@ mtcars |> mutate(gpm = 1 / mpg)
 #| output-location: column
 #| results: hold
 
-mtcars |> rename(miles_per_gallon = mpg)
+mtcars |> rename(
+  miles_per_gallon = mpg)
 ```
 
 
@@ -373,7 +393,8 @@ mtcars |> rename(miles_per_gallon = mpg)
 #| output-location: column
 #| results: hold
 
-a <- rownames_to_column(mtcars, var = "C")
+rownames_to_column(mtcars, 
+                   var = "C")
 ```
 
 
@@ -384,7 +405,8 @@ a <- rownames_to_column(mtcars, var = "C")
 #| output-location: column
 #| results: hold
 
-column_to_rownames(a, var = "C")
+column_to_rownames(a, 
+                   var = "C")
 ```
 
 
@@ -406,11 +428,46 @@ mpg
 
 ggplot(mpg, 
        aes(x = displ, y = hwy, colour = class))
+```
+
+## Ahora con datos de puntos
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
 ggplot(mpg, 
        aes(x = displ, y = hwy, colour = class)) + 
   geom_point()
 ```
 
+
+## Ahora con datos de líneas
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+ggplot(mpg, 
+       aes(x = displ, y = hwy, colour = class)) + 
+  geom_line()
+```
+
+
+## Ahora con datos de los dos tipos
+
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+ggplot(mpg, 
+       aes(x = displ, y = hwy, colour = class)) + 
+  geom_point() +
+  geom_line()
+```
 
 
 ## Cheatsheets 
