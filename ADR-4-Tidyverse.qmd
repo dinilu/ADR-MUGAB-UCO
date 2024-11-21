@@ -393,8 +393,9 @@ mtcars |> rename(
 #| output-location: column
 #| results: hold
 
-rownames_to_column(mtcars, 
+a <- rownames_to_column(mtcars, 
                    var = "C")
+a
 ```
 
 
