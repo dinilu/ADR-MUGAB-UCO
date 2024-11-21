@@ -46,6 +46,15 @@ Se basa en el principio de *tidy data* (datos ordenados). Un conjunto de datos e
 * Cada observación está en su propia
 * Se accede a las variables como vectores
 
+```{r}
+#| echo: true
+#| output-location: column
+#| results: hold
+
+# install.packages("tidyverse")
+library(tidyverse)
+```
+
 
 ## Los datos tidy se basan en *tibbles*
 
