@@ -1,0 +1,3075 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-07ba0ad10f5680c660e360ac31d2f3b6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.33">
+
+  <meta name="author" content="Diego Nieto Lugilde">
+  <title>Tidyverse</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-27a844e7d43f0d31b27642e48490372a.css">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Tidyverse</h1>
+  <p class="subtitle">Análisis de datos con R</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Diego Nieto Lugilde 
+</div>
+        <p class="quarto-title-affiliation">
+            Máster Universitario en Gestión Ambiental y Biodiversidad. Universidad de Córdoba (España)
+          </p>
+    </div>
+</div>
+
+</section>
+<section id="section" class="slide level2 smaller">
+<h2></h2>
+<ul>
+<li>Tema 1: Introducción a R y programación
+<ul>
+<li>La estructura de R</li>
+<li>Funciones, objetos y programación básica</li>
+<li>Entorno (sesión de R) y directorio de trabajo</li>
+<li>Trabajar con archivos (scripts y datos)</li>
+</ul></li>
+<li>Tema 2:
+<ul>
+<li>Instalación de paquetes</li>
+<li>CRAN</li>
+<li>GitHub</li>
+<li>Graficado</li>
+</ul></li>
+<li>Tema 3:
+<ul>
+<li>Estadística descriptiva</li>
+<li>Contraste de hipótesis</li>
+<li>Paramétricos vs No paramétricos</li>
+</ul></li>
+<li>Tema 4:
+<ul>
+<li>Tidyverse</li>
+</ul></li>
+</ul>
+</section>
+<section>
+<section id="tidyverse" class="title-slide slide level1 center">
+<h1>Tidyverse</h1>
+
+</section>
+<section id="qué-es-tidyverse" class="slide level2">
+<h2>¿Qué es Tidyverse?</h2>
+<p>Un conjunto de paquetes orientados a trabajar de forma más cómoda y eficiente en R.</p>
+<p>Se basa en el principio de <em>tidy data</em> (datos ordenados). Un conjunto de datos es <em>tidy</em> si:</p>
+<ul>
+<li>Cada variable está en una columna</li>
+<li>Cada observación está en su propia</li>
+<li>Se accede a las variables como vectores</li>
+</ul>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># install.packages("tidyverse")</span></span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+
+</div></div>
+</section>
+<section id="los-datos-tidy-se-basan-en-tibbles" class="slide level2">
+<h2>Los datos tidy se basan en <em>tibbles</em></h2>
+<p>Los <code>tibbles</code> son una modificación de los <em>data frames</em> implementada en el paquete <code>tibble</code>.</p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">tibble</span>(</span>
+<span id="cb2-2"><a></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, </span>
+<span id="cb2-3"><a></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>)</span>
+<span id="cb2-4"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+      x y    
+  &lt;int&gt; &lt;chr&gt;
+1     1 a    
+2     2 b    
+3     3 c    </code></pre>
+</div>
+</div></div>
+</section>
+<section id="de-data-frames-a-tibbles" class="slide level2">
+<h2>De <em>data frames</em> a <em>tibbles</em></h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb4-2"><a></a>  <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, </span>
+<span id="cb4-3"><a></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>)</span>
+<span id="cb4-4"><a></a>)</span>
+<span id="cb4-5"><a></a></span>
+<span id="cb4-6"><a></a><span class="fu">as.tibble</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+      x y    
+  &lt;int&gt; &lt;chr&gt;
+1     1 a    
+2     2 b    
+3     3 c    </code></pre>
+</div>
+</div></div>
+</section>
+<section id="los-datos-tidy-son-más-fáciles-de-modificar" class="slide level2">
+<h2>Los datos tidy son más fáciles de modificar</h2>
+<p>Se usan las funciones del paquete <code>tidyr</code>.</p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>table4a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  country     `1999` `2000`
+  &lt;chr&gt;        &lt;dbl&gt;  &lt;dbl&gt;
+1 Afghanistan    745   2666
+2 Brazil       37737  80488
+3 China       212258 213766</code></pre>
+</div>
+</div></div>
+</section>
+<section id="las-medidas-del-mismo-tipo-deben-ir-en-la-misma-columna" class="slide level2">
+<h2>Las medidas del mismo tipo deben ir en la misma columna</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">pivot_longer</span>(table4a, <span class="at">cols =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">names_to =</span> <span class="st">"year"</span>, <span class="at">values_to =</span> <span class="st">"cases"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country     year   cases
+  &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt;
+1 Afghanistan 1999     745
+2 Afghanistan 2000    2666
+3 Brazil      1999   37737
+4 Brazil      2000   80488
+5 China       1999  212258
+6 China       2000  213766</code></pre>
+</div>
+</div></div>
+</section>
+<section id="puede-que-necesitemos-realizar-la-conversión-contraria" class="slide level2">
+<h2>Puede que necesitemos realizar la conversión contraria</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>table2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 4
+   country      year type            count
+   &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;
+ 1 Afghanistan  1999 cases             745
+ 2 Afghanistan  1999 population   19987071
+ 3 Afghanistan  2000 cases            2666
+ 4 Afghanistan  2000 population   20595360
+ 5 Brazil       1999 cases           37737
+ 6 Brazil       1999 population  172006362
+ 7 Brazil       2000 cases           80488
+ 8 Brazil       2000 population  174504898
+ 9 China        1999 cases          212258
+10 China        1999 population 1272915272
+11 China        2000 cases          213766
+12 China        2000 population 1280428583</code></pre>
+</div>
+</div></div>
+</section>
+<section id="se-puede-realizar-sin-problema" class="slide level2">
+<h2>Se puede realizar sin problema</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">pivot_wider</span>(table2, <span class="at">names_from =</span> type, <span class="at">values_from =</span> count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year  cases population
+  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;
+1 Afghanistan  1999    745   19987071
+2 Afghanistan  2000   2666   20595360
+3 Brazil       1999  37737  172006362
+4 Brazil       2000  80488  174504898
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div></div>
+</section>
+<section id="también-hay-funciones-para-ayudar-a-ordenar-datos-desordenados" class="slide level2">
+<h2>También hay funciones para ayudar a “ordenar” datos “desordenados”</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>table3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  country      year rate             
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;            
+1 Afghanistan  1999 745/19987071     
+2 Afghanistan  2000 2666/20595360    
+3 Brazil       1999 37737/172006362  
+4 Brazil       2000 80488/174504898  
+5 China        1999 212258/1272915272
+6 China        2000 213766/1280428583</code></pre>
+</div>
+</div></div>
+</section>
+<section id="las-funciones-separate-nos-ayudan-con-esto" class="slide level2">
+<h2>Las funciones <code>separate</code> nos ayudan con esto</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">separate</span>(table3, rate, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"cases"</span>, <span class="st">"pop"</span>), <span class="at">sep =</span> <span class="st">"/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 4
+  country      year cases  pop       
+  &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     
+1 Afghanistan  1999 745    19987071  
+2 Afghanistan  2000 2666   20595360  
+3 Brazil       1999 37737  172006362 
+4 Brazil       2000 80488  174504898 
+5 China        1999 212258 1272915272
+6 China        2000 213766 1280428583</code></pre>
+</div>
+</div></div>
+</section>
+<section id="paquete-stringr" class="slide level2">
+<h2>Paquete <code>stringr</code></h2>
+<p>Se usa para manipular las columnas con texto</p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>fruit</span>
+<span id="cb18-2"><a></a></span>
+<span id="cb18-3"><a></a><span class="fu">str_which</span>(fruit, <span class="st">"banana"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "apple"             "apricot"           "avocado"          
+ [4] "banana"            "bell pepper"       "bilberry"         
+ [7] "blackberry"        "blackcurrant"      "blood orange"     
+[10] "blueberry"         "boysenberry"       "breadfruit"       
+[13] "canary melon"      "cantaloupe"        "cherimoya"        
+[16] "cherry"            "chili pepper"      "clementine"       
+[19] "cloudberry"        "coconut"           "cranberry"        
+[22] "cucumber"          "currant"           "damson"           
+[25] "date"              "dragonfruit"       "durian"           
+[28] "eggplant"          "elderberry"        "feijoa"           
+[31] "fig"               "goji berry"        "gooseberry"       
+[34] "grape"             "grapefruit"        "guava"            
+[37] "honeydew"          "huckleberry"       "jackfruit"        
+[40] "jambul"            "jujube"            "kiwi fruit"       
+[43] "kumquat"           "lemon"             "lime"             
+[46] "loquat"            "lychee"            "mandarine"        
+[49] "mango"             "mulberry"          "nectarine"        
+[52] "nut"               "olive"             "orange"           
+[55] "pamelo"            "papaya"            "passionfruit"     
+[58] "peach"             "pear"              "persimmon"        
+[61] "physalis"          "pineapple"         "plum"             
+[64] "pomegranate"       "pomelo"            "purple mangosteen"
+[67] "quince"            "raisin"            "rambutan"         
+[70] "raspberry"         "redcurrant"        "rock melon"       
+[73] "salal berry"       "satsuma"           "star fruit"       
+[76] "strawberry"        "tamarillo"         "tangerine"        
+[79] "ugli fruit"        "watermelon"       
+[1] 4</code></pre>
+</div>
+</div></div>
+</section>
+<section id="permite-cambiar-unos-caracteres-por-otros" class="slide level2">
+<h2>Permite cambiar unos caracteres por otros</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">str_replace</span>(fruit, <span class="st">"p"</span>, <span class="st">"-"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "a-ple"             "a-ricot"           "avocado"          
+ [4] "banana"            "bell -epper"       "bilberry"         
+ [7] "blackberry"        "blackcurrant"      "blood orange"     
+[10] "blueberry"         "boysenberry"       "breadfruit"       
+[13] "canary melon"      "cantalou-e"        "cherimoya"        
+[16] "cherry"            "chili -epper"      "clementine"       
+[19] "cloudberry"        "coconut"           "cranberry"        
+[22] "cucumber"          "currant"           "damson"           
+[25] "date"              "dragonfruit"       "durian"           
+[28] "egg-lant"          "elderberry"        "feijoa"           
+[31] "fig"               "goji berry"        "gooseberry"       
+[34] "gra-e"             "gra-efruit"        "guava"            
+[37] "honeydew"          "huckleberry"       "jackfruit"        
+[40] "jambul"            "jujube"            "kiwi fruit"       
+[43] "kumquat"           "lemon"             "lime"             
+[46] "loquat"            "lychee"            "mandarine"        
+[49] "mango"             "mulberry"          "nectarine"        
+[52] "nut"               "olive"             "orange"           
+[55] "-amelo"            "-apaya"            "-assionfruit"     
+[58] "-each"             "-ear"              "-ersimmon"        
+[61] "-hysalis"          "-ineapple"         "-lum"             
+[64] "-omegranate"       "-omelo"            "-urple mangosteen"
+[67] "quince"            "raisin"            "rambutan"         
+[70] "ras-berry"         "redcurrant"        "rock melon"       
+[73] "salal berry"       "satsuma"           "star fruit"       
+[76] "strawberry"        "tamarillo"         "tangerine"        
+[79] "ugli fruit"        "watermelon"       </code></pre>
+</div>
+</div></div>
+<div class="callout callout-warning callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>Fijaros que sólo cambia la primera letra <code>p</code> que se encuentra en cada palabra.</p>
+</div>
+</div>
+</div>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">str_replace_all</span>(fruit, <span class="st">"p"</span>, <span class="st">"-"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "a--le"             "a-ricot"           "avocado"          
+ [4] "banana"            "bell -e--er"       "bilberry"         
+ [7] "blackberry"        "blackcurrant"      "blood orange"     
+[10] "blueberry"         "boysenberry"       "breadfruit"       
+[13] "canary melon"      "cantalou-e"        "cherimoya"        
+[16] "cherry"            "chili -e--er"      "clementine"       
+[19] "cloudberry"        "coconut"           "cranberry"        
+[22] "cucumber"          "currant"           "damson"           
+[25] "date"              "dragonfruit"       "durian"           
+[28] "egg-lant"          "elderberry"        "feijoa"           
+[31] "fig"               "goji berry"        "gooseberry"       
+[34] "gra-e"             "gra-efruit"        "guava"            
+[37] "honeydew"          "huckleberry"       "jackfruit"        
+[40] "jambul"            "jujube"            "kiwi fruit"       
+[43] "kumquat"           "lemon"             "lime"             
+[46] "loquat"            "lychee"            "mandarine"        
+[49] "mango"             "mulberry"          "nectarine"        
+[52] "nut"               "olive"             "orange"           
+[55] "-amelo"            "-a-aya"            "-assionfruit"     
+[58] "-each"             "-ear"              "-ersimmon"        
+[61] "-hysalis"          "-inea--le"         "-lum"             
+[64] "-omegranate"       "-omelo"            "-ur-le mangosteen"
+[67] "quince"            "raisin"            "rambutan"         
+[70] "ras-berry"         "redcurrant"        "rock melon"       
+[73] "salal berry"       "satsuma"           "star fruit"       
+[76] "strawberry"        "tamarillo"         "tangerine"        
+[79] "ugli fruit"        "watermelon"       </code></pre>
+</div>
+</div></div>
+</section>
+<section id="permite-cambiar-una-secuencia-de-valores-por-otra" class="slide level2">
+<h2>Permite cambiar una secuencia de valores por otra</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>fruit <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"fruit_"</span>, fruit)</span>
+<span id="cb24-2"><a></a></span>
+<span id="cb24-3"><a></a>fruit <span class="ot">&lt;-</span> <span class="fu">str_replace</span>(fruit, <span class="st">"fruit_"</span>, <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+
+</div></div>
+</section>
+<section id="a-veces-queremos-cambiar-el-texto-a-minúsculas." class="slide level2">
+<h2>A veces queremos cambiar el texto a minúsculas.</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">head</span>(sentences)</span>
+<span id="cb25-2"><a></a></span>
+<span id="cb25-3"><a></a><span class="fu">str_to_lower</span>(sentences)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "The birch canoe slid on the smooth planks." 
+[2] "Glue the sheet to the dark blue background."
+[3] "It's easy to tell the depth of a well."     
+[4] "These days a chicken leg is a rare dish."   
+[5] "Rice is often served in round bowls."       
+[6] "The juice of lemons makes fine punch."      
+  [1] "the birch canoe slid on the smooth planks."               
+  [2] "glue the sheet to the dark blue background."              
+  [3] "it's easy to tell the depth of a well."                   
+  [4] "these days a chicken leg is a rare dish."                 
+  [5] "rice is often served in round bowls."                     
+  [6] "the juice of lemons makes fine punch."                    
+  [7] "the box was thrown beside the parked truck."              
+  [8] "the hogs were fed chopped corn and garbage."              
+  [9] "four hours of steady work faced us."                      
+ [10] "a large size in stockings is hard to sell."               
+ [11] "the boy was there when the sun rose."                     
+ [12] "a rod is used to catch pink salmon."                      
+ [13] "the source of the huge river is the clear spring."        
+ [14] "kick the ball straight and follow through."               
+ [15] "help the woman get back to her feet."                     
+ [16] "a pot of tea helps to pass the evening."                  
+ [17] "smoky fires lack flame and heat."                         
+ [18] "the soft cushion broke the man's fall."                   
+ [19] "the salt breeze came across from the sea."                
+ [20] "the girl at the booth sold fifty bonds."                  
+ [21] "the small pup gnawed a hole in the sock."                 
+ [22] "the fish twisted and turned on the bent hook."            
+ [23] "press the pants and sew a button on the vest."            
+ [24] "the swan dive was far short of perfect."                  
+ [25] "the beauty of the view stunned the young boy."            
+ [26] "two blue fish swam in the tank."                          
+ [27] "her purse was full of useless trash."                     
+ [28] "the colt reared and threw the tall rider."                
+ [29] "it snowed, rained, and hailed the same morning."          
+ [30] "read verse out loud for pleasure."                        
+ [31] "hoist the load to your left shoulder."                    
+ [32] "take the winding path to reach the lake."                 
+ [33] "note closely the size of the gas tank."                   
+ [34] "wipe the grease off his dirty face."                      
+ [35] "mend the coat before you go out."                         
+ [36] "the wrist was badly strained and hung limp."              
+ [37] "the stray cat gave birth to kittens."                     
+ [38] "the young girl gave no clear response."                   
+ [39] "the meal was cooked before the bell rang."                
+ [40] "what joy there is in living."                             
+ [41] "a king ruled the state in the early days."                
+ [42] "the ship was torn apart on the sharp reef."               
+ [43] "sickness kept him home the third week."                   
+ [44] "the wide road shimmered in the hot sun."                  
+ [45] "the lazy cow lay in the cool grass."                      
+ [46] "lift the square stone over the fence."                    
+ [47] "the rope will bind the seven books at once."              
+ [48] "hop over the fence and plunge in."                        
+ [49] "the friendly gang left the drug store."                   
+ [50] "mesh wire keeps chicks inside."                           
+ [51] "the frosty air passed through the coat."                  
+ [52] "the crooked maze failed to fool the mouse."               
+ [53] "adding fast leads to wrong sums."                         
+ [54] "the show was a flop from the very start."                 
+ [55] "a saw is a tool used for making boards."                  
+ [56] "the wagon moved on well oiled wheels."                    
+ [57] "march the soldiers past the next hill."                   
+ [58] "a cup of sugar makes sweet fudge."                        
+ [59] "place a rosebush near the porch steps."                   
+ [60] "both lost their lives in the raging storm."               
+ [61] "we talked of the side show in the circus."                
+ [62] "use a pencil to write the first draft."                   
+ [63] "he ran half way to the hardware store."                   
+ [64] "the clock struck to mark the third period."               
+ [65] "a small creek cut across the field."                      
+ [66] "cars and busses stalled in snow drifts."                  
+ [67] "the set of china hit the floor with a crash."             
+ [68] "this is a grand season for hikes on the road."            
+ [69] "the dune rose from the edge of the water."                
+ [70] "those words were the cue for the actor to leave."         
+ [71] "a yacht slid around the point into the bay."              
+ [72] "the two met while playing on the sand."                   
+ [73] "the ink stain dried on the finished page."                
+ [74] "the walled town was seized without a fight."              
+ [75] "the lease ran out in sixteen weeks."                      
+ [76] "a tame squirrel makes a nice pet."                        
+ [77] "the horn of the car woke the sleeping cop."               
+ [78] "the heart beat strongly and with firm strokes."           
+ [79] "the pearl was worn in a thin silver ring."                
+ [80] "the fruit peel was cut in thick slices."                  
+ [81] "the navy attacked the big task force."                    
+ [82] "see the cat glaring at the scared mouse."                 
+ [83] "there are more than two factors here."                    
+ [84] "the hat brim was wide and too droopy."                    
+ [85] "the lawyer tried to lose his case."                       
+ [86] "the grass curled around the fence post."                  
+ [87] "cut the pie into large parts."                            
+ [88] "men strive but seldom get rich."                          
+ [89] "always close the barn door tight."                        
+ [90] "he lay prone and hardly moved a limb."                    
+ [91] "the slush lay deep along the street."                     
+ [92] "a wisp of cloud hung in the blue air."                    
+ [93] "a pound of sugar costs more than eggs."                   
+ [94] "the fin was sharp and cut the clear water."               
+ [95] "the play seems dull and quite stupid."                    
+ [96] "bail the boat to stop it from sinking."                   
+ [97] "the term ended in late june that year."                   
+ [98] "a tusk is used to make costly gifts."                     
+ [99] "ten pins were set in order."                              
+[100] "the bill was paid every third week."                      
+[101] "oak is strong and also gives shade."                      
+[102] "cats and dogs each hate the other."                       
+[103] "the pipe began to rust while new."                        
+[104] "open the crate but don't break the glass."                
+[105] "add the sum to the product of these three."               
+[106] "thieves who rob friends deserve jail."                    
+[107] "the ripe taste of cheese improves with age."              
+[108] "act on these orders with great speed."                    
+[109] "the hog crawled under the high fence."                    
+[110] "move the vat over the hot fire."                          
+[111] "the bark of the pine tree was shiny and dark."            
+[112] "leaves turn brown and yellow in the fall."                
+[113] "the pennant waved when the wind blew."                    
+[114] "split the log with a quick, sharp blow."                  
+[115] "burn peat after the logs give out."                       
+[116] "he ordered peach pie with ice cream."                     
+[117] "weave the carpet on the right hand side."                 
+[118] "hemp is a weed found in parts of the tropics."            
+[119] "a lame back kept his score low."                          
+[120] "we find joy in the simplest things."                      
+[121] "type out three lists of orders."                          
+[122] "the harder he tried the less he got done."                
+[123] "the boss ran the show with a watchful eye."               
+[124] "the cup cracked and spilled its contents."                
+[125] "paste can cleanse the most dirty brass."                  
+[126] "the slang word for raw whiskey is booze."                 
+[127] "it caught its hind paw in a rusty trap."                  
+[128] "the wharf could be seen at the farther shore."            
+[129] "feel the heat of the weak dying flame."                   
+[130] "the tiny girl took off her hat."                          
+[131] "a cramp is no small danger on a swim."                    
+[132] "he said the same phrase thirty times."                    
+[133] "pluck the bright rose without leaves."                    
+[134] "two plus seven is less than ten."                         
+[135] "the glow deepened in the eyes of the sweet girl."         
+[136] "bring your problems to the wise chief."                   
+[137] "write a fond note to the friend you cherish."             
+[138] "clothes and lodging are free to new men."                 
+[139] "we frown when events take a bad turn."                    
+[140] "port is a strong wine with a smoky taste."                
+[141] "the young kid jumped the rusty gate."                     
+[142] "guess the result from the first scores."                  
+[143] "a salt pickle tastes fine with ham."                      
+[144] "the just claim got the right verdict."                    
+[145] "those thistles bend in a high wind."                      
+[146] "pure bred poodles have curls."                            
+[147] "the tree top waved in a graceful way."                    
+[148] "the spot on the blotter was made by green ink."           
+[149] "mud was spattered on the front of his white shirt."       
+[150] "the cigar burned a hole in the desk top."                 
+[151] "the empty flask stood on the tin tray."                   
+[152] "a speedy man can beat this track mark."                   
+[153] "he broke a new shoelace that day."                        
+[154] "the coffee stand is too high for the couch."              
+[155] "the urge to write short stories is rare."                 
+[156] "the pencils have all been used."                          
+[157] "the pirates seized the crew of the lost ship."            
+[158] "we tried to replace the coin but failed."                 
+[159] "she sewed the torn coat quite neatly."                    
+[160] "the sofa cushion is red and of light weight."             
+[161] "the jacket hung on the back of the wide chair."           
+[162] "at that high level the air is pure."                      
+[163] "drop the two when you add the figures."                   
+[164] "a filing case is now hard to buy."                        
+[165] "an abrupt start does not win the prize."                  
+[166] "wood is best for making toys and blocks."                 
+[167] "the office paint was a dull, sad tan."                    
+[168] "he knew the skill of the great young actress."            
+[169] "a rag will soak up spilled water."                        
+[170] "a shower of dirt fell from the hot pipes."                
+[171] "steam hissed from the broken valve."                      
+[172] "the child almost hurt the small dog."                     
+[173] "there was a sound of dry leaves outside."                 
+[174] "the sky that morning was clear and bright blue."          
+[175] "torn scraps littered the stone floor."                    
+[176] "sunday is the best part of the week."                     
+[177] "the doctor cured him with these pills."                   
+[178] "the new girl was fired today at noon."                    
+[179] "they felt gay when the ship arrived in port."             
+[180] "add the store's account to the last cent."                
+[181] "acid burns holes in wool cloth."                          
+[182] "fairy tales should be fun to write."                      
+[183] "eight miles of woodland burned to waste."                 
+[184] "the third act was dull and tired the players."            
+[185] "a young child should not suffer fright."                  
+[186] "add the column and put the sum here."                     
+[187] "we admire and love a good cook."                          
+[188] "there the flood mark is ten inches."                      
+[189] "he carved a head from the round block of marble."         
+[190] "she has a smart way of wearing clothes."                  
+[191] "the fruit of a fig tree is apple shaped."                 
+[192] "corn cobs can be used to kindle a fire."                  
+[193] "where were they when the noise started."                  
+[194] "the paper box is full of thumb tacks."                    
+[195] "sell your gift to a buyer at a good gain."                
+[196] "the tongs lay beside the ice pail."                       
+[197] "the petals fall with the next puff of wind."              
+[198] "bring your best compass to the third class."              
+[199] "they could laugh although they were sad."                 
+[200] "farmers came in to thresh the oat crop."                  
+[201] "the brown house was on fire to the attic."                
+[202] "the lure is used to catch trout and flounder."            
+[203] "float the soap on top of the bath water."                 
+[204] "a blue crane is a tall wading bird."                      
+[205] "a fresh start will work such wonders."                    
+[206] "the club rented the rink for the fifth night."            
+[207] "after the dance, they went straight home."                
+[208] "the hostess taught the new maid to serve."                
+[209] "he wrote his last novel there at the inn."                
+[210] "even the worst will beat his low score."                  
+[211] "the cement had dried when he moved it."                   
+[212] "the loss of the second ship was hard to take."            
+[213] "the fly made its way along the wall."                     
+[214] "do that with a wooden stick."                             
+[215] "live wires should be kept covered."                       
+[216] "the large house had hot water taps."                      
+[217] "it is hard to erase blue or red ink."                     
+[218] "write at once or you may forget it."                      
+[219] "the doorknob was made of bright clean brass."             
+[220] "the wreck occurred by the bank on main street."           
+[221] "a pencil with black lead writes best."                    
+[222] "coax a young calf to drink from a bucket."                
+[223] "schools for ladies teach charm and grace."                
+[224] "the lamp shone with a steady green flame."                
+[225] "they took the axe and the saw to the forest."             
+[226] "the ancient coin was quite dull and worn."                
+[227] "the shaky barn fell with a loud crash."                   
+[228] "jazz and swing fans like fast music."                     
+[229] "rake the rubbish up and then burn it."                    
+[230] "slash the gold cloth into fine ribbons."                  
+[231] "try to have the court decide the case."                   
+[232] "they are pushed back each time they attack."              
+[233] "he broke his ties with groups of former friends."         
+[234] "they floated on the raft to sun their white backs."       
+[235] "the map had an x that meant nothing."                     
+[236] "whitings are small fish caught in nets."                  
+[237] "some ads serve to cheat buyers."                          
+[238] "jerk the rope and the bell rings weakly."                 
+[239] "a waxed floor makes us lose balance."                     
+[240] "madam, this is the best brand of corn."                   
+[241] "on the islands the sea breeze is soft and mild."          
+[242] "the play began as soon as we sat down."                   
+[243] "this will lead the world to more sound and fury."         
+[244] "add salt before you fry the egg."                         
+[245] "the rush for funds reached its peak tuesday."             
+[246] "the birch looked stark white and lonesome."               
+[247] "the box is held by a bright red snapper."                 
+[248] "to make pure ice, you freeze water."                      
+[249] "the first worm gets snapped early."                       
+[250] "jump the fence and hurry up the bank."                    
+[251] "yell and clap as the curtain slides back."                
+[252] "they are men who walk the middle of the road."            
+[253] "both brothers wear the same size."                        
+[254] "in some form or other we need fun."                       
+[255] "the prince ordered his head chopped off."                 
+[256] "the houses are built of red clay bricks."                 
+[257] "ducks fly north but lack a compass."                      
+[258] "fruit flavors are used in fizz drinks."                   
+[259] "these pills do less good than others."                    
+[260] "canned pears lack full flavor."                           
+[261] "the dark pot hung in the front closet."                   
+[262] "carry the pail to the wall and spill it there."           
+[263] "the train brought our hero to the big town."              
+[264] "we are sure that one war is enough."                      
+[265] "gray paint stretched for miles around."                   
+[266] "the rude laugh filled the empty room."                    
+[267] "high seats are best for football fans."                   
+[268] "tea served from the brown jug is tasty."                  
+[269] "a dash of pepper spoils beef stew."                       
+[270] "a zestful food is the hot-cross bun."                     
+[271] "the horse trotted around the field at a brisk pace."      
+[272] "find the twin who stole the pearl necklace."              
+[273] "cut the cord that binds the box tightly."                 
+[274] "the red tape bound the smuggled food."                    
+[275] "look in the corner to find the tan shirt."                
+[276] "the cold drizzle will halt the bond drive."               
+[277] "nine men were hired to dig the ruins."                    
+[278] "the junk yard had a mouldy smell."                        
+[279] "the flint sputtered and lit a pine torch."                
+[280] "soak the cloth and drown the sharp odor."                 
+[281] "the shelves were bare of both jam or crackers."           
+[282] "a joy to every child is the swan boat."                   
+[283] "all sat frozen and watched the screen."                   
+[284] "a cloud of dust stung his tender eyes."                   
+[285] "to reach the end he needs much courage."                  
+[286] "shape the clay gently into block form."                   
+[287] "a ridge on a smooth surface is a bump or flaw."           
+[288] "hedge apples may stain your hands green."                 
+[289] "quench your thirst, then eat the crackers."               
+[290] "tight curls get limp on rainy days."                      
+[291] "the mute muffled the high tones of the horn."             
+[292] "the gold ring fits only a pierced ear."                   
+[293] "the old pan was covered with hard fudge."                 
+[294] "watch the log float in the wide river."                   
+[295] "the node on the stalk of wheat grew daily."               
+[296] "the heap of fallen leaves was set on fire."               
+[297] "write fast if you want to finish early."                  
+[298] "his shirt was clean but one button was gone."             
+[299] "the barrel of beer was a brew of malt and hops."          
+[300] "tin cans are absent from store shelves."                  
+[301] "slide the box into that empty space."                     
+[302] "the plant grew large and green in the window."            
+[303] "the beam dropped down on the workman's head."             
+[304] "pink clouds floated with the breeze."                     
+[305] "she danced like a swan, tall and graceful."               
+[306] "the tube was blown and the tire flat and useless."        
+[307] "it is late morning on the old wall clock."                
+[308] "let's all join as we sing the last chorus."               
+[309] "the last switch cannot be turned off."                    
+[310] "the fight will end in just six minutes."                  
+[311] "the store walls were lined with colored frocks."          
+[312] "the peace league met to discuss their plans."             
+[313] "the rise to fame of a person takes luck."                 
+[314] "paper is scarce, so write with much care."                
+[315] "the quick fox jumped on the sleeping cat."                
+[316] "the nozzle of the fire hose was bright brass."            
+[317] "screw the round cap on as tight as needed."               
+[318] "time brings us many changes."                             
+[319] "the purple tie was ten years old."                        
+[320] "men think and plan and sometimes act."                    
+[321] "fill the ink jar with sticky glue."                       
+[322] "he smoke a big pipe with strong contents."                
+[323] "we need grain to keep our mules healthy."                 
+[324] "pack the records in a neat thin case."                    
+[325] "the crunch of feet in the snow was the only sound."       
+[326] "the copper bowl shone in the sun's rays."                 
+[327] "boards will warp unless kept dry."                        
+[328] "the plush chair leaned against the wall."                 
+[329] "glass will clink when struck by metal."                   
+[330] "bathe and relax in the cool green grass."                 
+[331] "nine rows of soldiers stood in a line."                   
+[332] "the beach is dry and shallow at low tide."                
+[333] "the idea is to sew both edges straight."                  
+[334] "the kitten chased the dog down the street."               
+[335] "pages bound in cloth make a book."                        
+[336] "try to trace the fine lines of the painting."             
+[337] "women form less than half of the group."                  
+[338] "the zones merge in the central part of town."             
+[339] "a gem in the rough needs work to polish."                 
+[340] "code is used when secrets are sent."                      
+[341] "most of the news is easy for us to hear."                 
+[342] "he used the lathe to make brass objects."                 
+[343] "the vane on top of the pole revolved in the wind."        
+[344] "mince pie is a dish served to children."                  
+[345] "the clan gathered on each dull night."                    
+[346] "let it burn, it gives us warmth and comfort."             
+[347] "a castle built from sand fails to endure."                
+[348] "a child's wit saved the day for us."                      
+[349] "tack the strip of carpet to the worn floor."              
+[350] "next tuesday we must vote."                               
+[351] "pour the stew from the pot into the plate."               
+[352] "each penny shone like new."                               
+[353] "the man went to the woods to gather sticks."              
+[354] "the dirt piles were lines along the road."                
+[355] "the logs fell and tumbled into the clear stream."         
+[356] "just hoist it up and take it away."                       
+[357] "a ripe plum is fit for a king's palate."                  
+[358] "our plans right now are hazy."                            
+[359] "brass rings are sold by these natives."                   
+[360] "it takes a good trap to capture a bear."                  
+[361] "feed the white mouse some flower seeds."                  
+[362] "the thaw came early and freed the stream."                
+[363] "he took the lead and kept it the whole distance."         
+[364] "the key you designed will fit the lock."                  
+[365] "plead to the council to free the poor thief."             
+[366] "better hash is made of rare beef."                        
+[367] "this plank was made for walking on ."                     
+[368] "the lake sparkled in the red hot sun."                    
+[369] "he crawled with care along the ledge."                    
+[370] "tend the sheep while the dog wanders."                    
+[371] "it takes a lot of help to finish these."                  
+[372] "mark the spot with a sign painted red."                   
+[373] "take two shares as a fair profit."                        
+[374] "the fur of cats goes by many names."                      
+[375] "north winds bring colds and fevers."                      
+[376] "he asks no person to vouch for him."                      
+[377] "go now and come here later."                              
+[378] "a sash of gold silk will trim her dress."                 
+[379] "soap can wash most dirt away."                            
+[380] "that move means the game is over."                        
+[381] "he wrote down a long list of items."                      
+[382] "a siege will crack the strong defense."                   
+[383] "grape juice and water mix well."                          
+[384] "roads are paved with sticky tar."                         
+[385] "fake stones shine but cost little."                       
+[386] "the drip of the rain made a pleasant sound."              
+[387] "smoke poured out of every crack."                         
+[388] "serve the hot rum to the tired heroes."                   
+[389] "much of the story makes good sense."                      
+[390] "the sun came up to light the eastern sky."                
+[391] "heave the line over the port side."                       
+[392] "a lathe cuts and trims any wood."                         
+[393] "it's a dense crowd in two distinct ways."                 
+[394] "his hip struck the knee of the next player."              
+[395] "the stale smell of old beer lingers."                     
+[396] "the desk was firm on the shaky floor."                    
+[397] "it takes heat to bring out the odor."                     
+[398] "beef is scarcer than some lamb."                          
+[399] "raise the sail and steer the ship northward."             
+[400] "a cone costs five cents on mondays."                      
+[401] "a pod is what peas always grow in."                       
+[402] "jerk that dart from the cork target."                     
+[403] "no cement will hold hard wood."                           
+[404] "we now have a new base for shipping."                     
+[405] "a list of names is carved around the base."               
+[406] "the sheep were led home by a dog."                        
+[407] "three for a dime, the young peddler cried."               
+[408] "the sense of smell is better than that of touch."         
+[409] "no hardship seemed to make him sad."                      
+[410] "grace makes up for lack of beauty."                       
+[411] "nudge gently but wake her now."                           
+[412] "the news struck doubt into restless minds."               
+[413] "once we stood beside the shore."                          
+[414] "a chink in the wall allowed a draft to blow."             
+[415] "fasten two pins on each side."                            
+[416] "a cold dip restores health and zest."                     
+[417] "he takes the oath of office each march."                  
+[418] "the sand drifts over the sills of the old house."         
+[419] "the point of the steel pen was bent and twisted."         
+[420] "there is a lag between thought and act."                  
+[421] "seed is needed to plant the spring corn."                 
+[422] "draw the chart with heavy black lines."                   
+[423] "the boy owed his pal thirty cents."                       
+[424] "the chap slipped into the crowd and was lost."            
+[425] "hats are worn to tea and not to dinner."                  
+[426] "the ramp led up to the wide highway."                     
+[427] "beat the dust from the rug onto the lawn."                
+[428] "say it slowly but make it ring clear."                    
+[429] "the straw nest housed five robins."                       
+[430] "screen the porch with woven straw mats."                  
+[431] "this horse will nose his way to the finish."              
+[432] "the dry wax protects the deep scratch."                   
+[433] "he picked up the dice for a second roll."                 
+[434] "these coins will be needed to pay his debt."              
+[435] "the nag pulled the frail cart along."                     
+[436] "twist the valve and release hot steam."                   
+[437] "the vamp of the shoe had a gold buckle."                  
+[438] "the smell of burned rags itches my nose."                 
+[439] "new pants lack cuffs and pockets."                        
+[440] "the marsh will freeze when cold enough."                  
+[441] "they slice the sausage thin with a knife."                
+[442] "the bloom of the rose lasts a few days."                  
+[443] "a gray mare walked before the colt."                      
+[444] "breakfast buns are fine with a hot drink."                
+[445] "bottles hold four kinds of rum."                          
+[446] "the man wore a feather in his felt hat."                  
+[447] "he wheeled the bike past the winding road."               
+[448] "drop the ashes on the worn old rug."                      
+[449] "the desk and both chairs were painted tan."               
+[450] "throw out the used paper cup and plate."                  
+[451] "a clean neck means a neat collar."                        
+[452] "the couch cover and hall drapes were blue."               
+[453] "the stems of the tall glasses cracked and broke."         
+[454] "the wall phone rang loud and often."                      
+[455] "the clothes dried on a thin wooden rack."                 
+[456] "turn out the lantern which gives us light."               
+[457] "the cleat sank deeply into the soft turf."                
+[458] "the bills were mailed promptly on the tenth of the month."
+[459] "to have is better than to wait and hope."                 
+[460] "the price is fair for a good antique clock."              
+[461] "the music played on while they talked."                   
+[462] "dispense with a vest on a day like this."                 
+[463] "the bunch of grapes was pressed into wine."               
+[464] "he sent the figs, but kept the ripe cherries."            
+[465] "the hinge on the door creaked with old age."              
+[466] "the screen before the fire kept in the sparks."           
+[467] "fly by night and you waste little time."                  
+[468] "thick glasses helped him read the print."                 
+[469] "birth and death marks the limits of life."                
+[470] "the chair looked strong but had no bottom."               
+[471] "the kite flew wildly in the high wind."                   
+[472] "a fur muff is stylish once more."                         
+[473] "the tin box held priceless stones."                       
+[474] "we need an end of all such matter."                       
+[475] "the case was puzzling to the old and wise."               
+[476] "the bright lanterns were gay on the dark lawn."           
+[477] "we don't get much money but we have fun."                 
+[478] "the youth drove with zest, but little skill."             
+[479] "five years he lived with a shaggy dog."                   
+[480] "a fence cuts through the corner lot."                     
+[481] "the way to save money is not to spend much."              
+[482] "shut the hatch before the waves push it in."              
+[483] "the odor of spring makes young hearts jump."              
+[484] "crack the walnut with your sharp side teeth."             
+[485] "he offered proof in the form of a large chart."           
+[486] "send the stuff in a thick paper bag."                     
+[487] "a quart of milk is water for the most part."              
+[488] "they told wild tales to frighten him."                    
+[489] "the three story house was built of stone."                
+[490] "in the rear of the ground floor was a large passage."     
+[491] "a man in a blue sweater sat at the desk."                 
+[492] "oats are a food eaten by horse and man."                  
+[493] "their eyelids droop for want of sleep."                   
+[494] "a sip of tea revives his tired friend."                   
+[495] "there are many ways to do these things."                  
+[496] "tuck the sheet under the edge of the mat."                
+[497] "a force equal to that would move the earth."              
+[498] "we like to see clear weather."                            
+[499] "the work of the tailor is seen on each side."             
+[500] "take a chance and win a china doll."                      
+[501] "shake the dust from your shoes, stranger."                
+[502] "she was kind to sick old people."                         
+[503] "the square wooden crate was packed to be shipped."        
+[504] "the dusty bench stood by the stone wall."                 
+[505] "we dress to suit the weather of most days."               
+[506] "smile when you say nasty words."                          
+[507] "a bowl of rice is free with chicken stew."                
+[508] "the water in this well is a source of good health."       
+[509] "take shelter in this tent, but keep still."               
+[510] "that guy is the writer of a few banned books."            
+[511] "the little tales they tell are false."                    
+[512] "the door was barred, locked, and bolted as well."         
+[513] "ripe pears are fit for a queen's table."                  
+[514] "a big wet stain was on the round carpet."                 
+[515] "the kite dipped and swayed, but stayed aloft."            
+[516] "the pleasant hours fly by much too soon."                 
+[517] "the room was crowded with a wild mob."                    
+[518] "this strong arm shall shield your honor."                 
+[519] "she blushed when he gave her a white orchid."             
+[520] "the beetle droned in the hot june sun."                   
+[521] "press the pedal with your left foot."                     
+[522] "neat plans fail without luck."                            
+[523] "the black trunk fell from the landing."                   
+[524] "the bank pressed for payment of the debt."                
+[525] "the theft of the pearl pin was kept secret."              
+[526] "shake hands with this friendly child."                    
+[527] "the vast space stretched into the far distance."          
+[528] "a rich farm is rare in this sandy waste."                 
+[529] "his wide grin earned many friends."                       
+[530] "flax makes a fine brand of paper."                        
+[531] "hurdle the pit with the aid of a long pole."              
+[532] "a strong bid may scare your partner stiff."               
+[533] "even a just cause needs power to win."                    
+[534] "peep under the tent and see the clowns."                  
+[535] "the leaf drifts along with a slow spin."                  
+[536] "cheap clothes are flashy but don't last."                 
+[537] "a thing of small note can cause despair."                 
+[538] "flood the mails with requests for this book."             
+[539] "a thick coat of black paint covered all."                 
+[540] "the pencil was cut to be sharp at both ends."             
+[541] "those last words were a strong statement."                
+[542] "he wrote his name boldly at the top of the sheet."        
+[543] "dill pickles are sour but taste fine."                    
+[544] "down that road is the way to the grain farmer."           
+[545] "either mud or dust are found at all times."               
+[546] "the best method is to fix it in place with clips."        
+[547] "if you mumble your speech will be lost."                  
+[548] "at night the alarm roused him from a deep sleep."         
+[549] "read just what the meter says."                           
+[550] "fill your pack with bright trinkets for the poor."        
+[551] "the small red neon lamp went out."                        
+[552] "clams are small, round, soft, and tasty."                 
+[553] "the fan whirled its round blades softly."                 
+[554] "the line where the edges join was clean."                 
+[555] "breathe deep and smell the piny air."                     
+[556] "it matters not if he reads these words or those."         
+[557] "a brown leather bag hung from its strap."                 
+[558] "a toad and a frog are hard to tell apart."                
+[559] "a white silk jacket goes with any shoes."                 
+[560] "a break in the dam almost caused a flood."                
+[561] "paint the sockets in the wall dull green."                
+[562] "the child crawled into the dense grass."                  
+[563] "bribes fail where honest men work."                       
+[564] "trample the spark, else the flames will spread."          
+[565] "the hilt of the sword was carved with fine designs."      
+[566] "a round hole was drilled through the thin board."         
+[567] "footprints showed the path he took up the beach."         
+[568] "she was waiting at my front lawn."                        
+[569] "a vent near the edge brought in fresh air."               
+[570] "prod the old mule with a crooked stick."                  
+[571] "it is a band of steel three inches wide."                 
+[572] "the pipe ran almost the length of the ditch."             
+[573] "it was hidden from sight by a mass of leaves and shrubs." 
+[574] "the weight of the package was seen on the high scale."    
+[575] "wake and rise, and step into the green outdoors."         
+[576] "the green light in the brown box flickered."              
+[577] "the brass tube circled the high wall."                    
+[578] "the lobes of her ears were pierced to hold rings."        
+[579] "hold the hammer near the end to drive the nail."          
+[580] "next sunday is the twelfth of the month."                 
+[581] "every word and phrase he speaks is true."                 
+[582] "he put his last cartridge into the gun and fired."        
+[583] "they took their kids from the public school."             
+[584] "drive the screw straight into the wood."                  
+[585] "keep the hatch tight and the watch constant."             
+[586] "sever the twine with a quick snip of the knife."          
+[587] "paper will dry out when wet."                             
+[588] "slide the catch back and open the desk."                  
+[589] "help the weak to preserve their strength."                
+[590] "a sullen smile gets few friends."                         
+[591] "stop whistling and watch the boys march."                 
+[592] "jerk the cord, and out tumbles the gold."                 
+[593] "slide the tray across the glass top."                     
+[594] "the cloud moved in a stately way and was gone."           
+[595] "light maple makes for a swell room."                      
+[596] "set the piece here and say nothing."                      
+[597] "dull stories make her laugh."                             
+[598] "a stiff cord will do to fasten your shoe."                
+[599] "get the trust fund to the bank early."                    
+[600] "choose between the high road and the low."                
+[601] "a plea for funds seems to come again."                    
+[602] "he lent his coat to the tall gaunt stranger."             
+[603] "there is a strong chance it will happen once more."       
+[604] "the duke left the park in a silver coach."                
+[605] "greet the new guests and leave quickly."                  
+[606] "when the frost has come it is time for turkey."           
+[607] "sweet words work better than fierce."                     
+[608] "a thin stripe runs down the middle."                      
+[609] "a six comes up more often than a ten."                    
+[610] "lush ferns grow on the lofty rocks."                      
+[611] "the ram scared the school children off."                  
+[612] "the team with the best timing looks good."                
+[613] "the farmer swapped his horse for a brown ox."             
+[614] "sit on the perch and tell the others what to do."         
+[615] "a steep trail is painful for our feet."                   
+[616] "the early phase of life moves fast."                      
+[617] "green moss grows on the northern side."                   
+[618] "tea in thin china has a sweet taste."                     
+[619] "pitch the straw through the door of the stable."          
+[620] "the latch on the back gate needed a nail."                
+[621] "the goose was brought straight from the old market."      
+[622] "the sink is the thing in which we pile dishes."           
+[623] "a whiff of it will cure the most stubborn cold."          
+[624] "the facts don't always show who is right."                
+[625] "she flaps her cape as she parades the street."            
+[626] "the loss of the cruiser was a blow to the fleet."         
+[627] "loop the braid to the left and then over."                
+[628] "plead with the lawyer to drop the lost cause."            
+[629] "calves thrive on tender spring grass."                    
+[630] "post no bills on this office wall."                       
+[631] "tear a thin sheet from the yellow pad."                   
+[632] "a cruise in warm waters in a sleek yacht is fun."         
+[633] "a streak of color ran down the left edge."                
+[634] "it was done before the boy could see it."                 
+[635] "crouch before you jump or miss the mark."                 
+[636] "pack the kits and don't forget the salt."                 
+[637] "the square peg will settle in the round hole."            
+[638] "fine soap saves tender skin."                             
+[639] "poached eggs and tea must suffice."                       
+[640] "bad nerves are jangled by a door slam."                   
+[641] "ship maps are different from those for planes."           
+[642] "dimes showered down from all sides."                      
+[643] "they sang the same tunes at each party."                  
+[644] "the sky in the west is tinged with orange red."           
+[645] "the pods of peas ferment in bare fields."                 
+[646] "the horse balked and threw the tall rider."               
+[647] "the hitch between the horse and cart broke."              
+[648] "pile the coal high in the shed corner."                   
+[649] "a gold vase is both rare and costly."                     
+[650] "the knife was hung inside its bright sheath."             
+[651] "the rarest spice comes from the far east."                
+[652] "the roof should be tilted at a sharp slant."              
+[653] "a smatter of french is worse than none."                  
+[654] "the mule trod the treadmill day and night."               
+[655] "the aim of the contest is to raise a great fund."         
+[656] "to send it now in large amounts is bad."                  
+[657] "there is a fine hard tang in salty air."                  
+[658] "cod is the main business of the north shore."             
+[659] "the slab was hewn from heavy blocks of slate."            
+[660] "dunk the stale biscuits into strong drink."               
+[661] "hang tinsel from both branches."                          
+[662] "cap the jar with a tight brass cover."                    
+[663] "the poor boy missed the boat again."                      
+[664] "be sure to set that lamp firmly in the hole."             
+[665] "pick a card and slip it under the pack."                  
+[666] "a round mat will cover the dull spot."                    
+[667] "the first part of the plan needs changing."               
+[668] "a good book informs of what we ought to know."            
+[669] "the mail comes in three batches per day."                 
+[670] "you cannot brew tea in a cold pot."                       
+[671] "dots of light betrayed the black cat."                    
+[672] "put the chart on the mantel and tack it down."            
+[673] "the night shift men rate extra pay."                      
+[674] "the red paper brightened the dim stage."                  
+[675] "see the player scoot to third base."                      
+[676] "slide the bill between the two leaves."                   
+[677] "many hands help get the job done."                        
+[678] "we don't like to admit our small faults."                 
+[679] "no doubt about the way the wind blows."                   
+[680] "dig deep in the earth for pirate's gold."                 
+[681] "the steady drip is worse than a drenching rain."          
+[682] "a flat pack takes less luggage space."                    
+[683] "green ice frosted the punch bowl."                        
+[684] "a stuffed chair slipped from the moving van."             
+[685] "the stitch will serve but needs to be shortened."         
+[686] "a thin book fits in the side pocket."                     
+[687] "the gloss on top made it unfit to read."                  
+[688] "the hail pattered on the burnt brown grass."              
+[689] "seven seals were stamped on great sheets."                
+[690] "our troops are set to strike heavy blows."                
+[691] "the store was jammed before the sale could start."        
+[692] "it was a bad error on the part of the new judge."         
+[693] "one step more and the board will collapse."               
+[694] "take the match and strike it against your shoe."          
+[695] "the pot boiled but the contents failed to jell."          
+[696] "the baby puts his right foot in his mouth."               
+[697] "the bombs left most of the town in ruins."                
+[698] "stop and stare at the hard working man."                  
+[699] "the streets are narrow and full of sharp turns."          
+[700] "the pup jerked the leash as he saw a feline shape."       
+[701] "open your book to the first page."                        
+[702] "fish evade the net and swim off."                         
+[703] "dip the pail once and let it settle."                     
+[704] "will you please answer that phone."                       
+[705] "the big red apple fell to the ground."                    
+[706] "the curtain rose and the show was on."                    
+[707] "the young prince became heir to the throne."              
+[708] "he sent the boy on a short errand."                       
+[709] "leave now and you will arrive on time."                   
+[710] "the corner store was robbed last night."                  
+[711] "a gold ring will please most any girl."                   
+[712] "the long journey home took a year."                       
+[713] "she saw a cat in the neighbor's house."                   
+[714] "a pink shell was found on the sandy beach."               
+[715] "small children came to see him."                          
+[716] "the grass and bushes were wet with dew."                  
+[717] "the blind man counted his old coins."                     
+[718] "a severe storm tore down the barn."                       
+[719] "she called his name many times."                          
+[720] "when you hear the bell, come quickly."                    </code></pre>
+</div>
+</div></div>
+</section>
+<section id="o-a-mayúsculas" class="slide level2">
+<h2>O a mayúsculas</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">str_to_upper</span>(sentences)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "THE BIRCH CANOE SLID ON THE SMOOTH PLANKS."               
+  [2] "GLUE THE SHEET TO THE DARK BLUE BACKGROUND."              
+  [3] "IT'S EASY TO TELL THE DEPTH OF A WELL."                   
+  [4] "THESE DAYS A CHICKEN LEG IS A RARE DISH."                 
+  [5] "RICE IS OFTEN SERVED IN ROUND BOWLS."                     
+  [6] "THE JUICE OF LEMONS MAKES FINE PUNCH."                    
+  [7] "THE BOX WAS THROWN BESIDE THE PARKED TRUCK."              
+  [8] "THE HOGS WERE FED CHOPPED CORN AND GARBAGE."              
+  [9] "FOUR HOURS OF STEADY WORK FACED US."                      
+ [10] "A LARGE SIZE IN STOCKINGS IS HARD TO SELL."               
+ [11] "THE BOY WAS THERE WHEN THE SUN ROSE."                     
+ [12] "A ROD IS USED TO CATCH PINK SALMON."                      
+ [13] "THE SOURCE OF THE HUGE RIVER IS THE CLEAR SPRING."        
+ [14] "KICK THE BALL STRAIGHT AND FOLLOW THROUGH."               
+ [15] "HELP THE WOMAN GET BACK TO HER FEET."                     
+ [16] "A POT OF TEA HELPS TO PASS THE EVENING."                  
+ [17] "SMOKY FIRES LACK FLAME AND HEAT."                         
+ [18] "THE SOFT CUSHION BROKE THE MAN'S FALL."                   
+ [19] "THE SALT BREEZE CAME ACROSS FROM THE SEA."                
+ [20] "THE GIRL AT THE BOOTH SOLD FIFTY BONDS."                  
+ [21] "THE SMALL PUP GNAWED A HOLE IN THE SOCK."                 
+ [22] "THE FISH TWISTED AND TURNED ON THE BENT HOOK."            
+ [23] "PRESS THE PANTS AND SEW A BUTTON ON THE VEST."            
+ [24] "THE SWAN DIVE WAS FAR SHORT OF PERFECT."                  
+ [25] "THE BEAUTY OF THE VIEW STUNNED THE YOUNG BOY."            
+ [26] "TWO BLUE FISH SWAM IN THE TANK."                          
+ [27] "HER PURSE WAS FULL OF USELESS TRASH."                     
+ [28] "THE COLT REARED AND THREW THE TALL RIDER."                
+ [29] "IT SNOWED, RAINED, AND HAILED THE SAME MORNING."          
+ [30] "READ VERSE OUT LOUD FOR PLEASURE."                        
+ [31] "HOIST THE LOAD TO YOUR LEFT SHOULDER."                    
+ [32] "TAKE THE WINDING PATH TO REACH THE LAKE."                 
+ [33] "NOTE CLOSELY THE SIZE OF THE GAS TANK."                   
+ [34] "WIPE THE GREASE OFF HIS DIRTY FACE."                      
+ [35] "MEND THE COAT BEFORE YOU GO OUT."                         
+ [36] "THE WRIST WAS BADLY STRAINED AND HUNG LIMP."              
+ [37] "THE STRAY CAT GAVE BIRTH TO KITTENS."                     
+ [38] "THE YOUNG GIRL GAVE NO CLEAR RESPONSE."                   
+ [39] "THE MEAL WAS COOKED BEFORE THE BELL RANG."                
+ [40] "WHAT JOY THERE IS IN LIVING."                             
+ [41] "A KING RULED THE STATE IN THE EARLY DAYS."                
+ [42] "THE SHIP WAS TORN APART ON THE SHARP REEF."               
+ [43] "SICKNESS KEPT HIM HOME THE THIRD WEEK."                   
+ [44] "THE WIDE ROAD SHIMMERED IN THE HOT SUN."                  
+ [45] "THE LAZY COW LAY IN THE COOL GRASS."                      
+ [46] "LIFT THE SQUARE STONE OVER THE FENCE."                    
+ [47] "THE ROPE WILL BIND THE SEVEN BOOKS AT ONCE."              
+ [48] "HOP OVER THE FENCE AND PLUNGE IN."                        
+ [49] "THE FRIENDLY GANG LEFT THE DRUG STORE."                   
+ [50] "MESH WIRE KEEPS CHICKS INSIDE."                           
+ [51] "THE FROSTY AIR PASSED THROUGH THE COAT."                  
+ [52] "THE CROOKED MAZE FAILED TO FOOL THE MOUSE."               
+ [53] "ADDING FAST LEADS TO WRONG SUMS."                         
+ [54] "THE SHOW WAS A FLOP FROM THE VERY START."                 
+ [55] "A SAW IS A TOOL USED FOR MAKING BOARDS."                  
+ [56] "THE WAGON MOVED ON WELL OILED WHEELS."                    
+ [57] "MARCH THE SOLDIERS PAST THE NEXT HILL."                   
+ [58] "A CUP OF SUGAR MAKES SWEET FUDGE."                        
+ [59] "PLACE A ROSEBUSH NEAR THE PORCH STEPS."                   
+ [60] "BOTH LOST THEIR LIVES IN THE RAGING STORM."               
+ [61] "WE TALKED OF THE SIDE SHOW IN THE CIRCUS."                
+ [62] "USE A PENCIL TO WRITE THE FIRST DRAFT."                   
+ [63] "HE RAN HALF WAY TO THE HARDWARE STORE."                   
+ [64] "THE CLOCK STRUCK TO MARK THE THIRD PERIOD."               
+ [65] "A SMALL CREEK CUT ACROSS THE FIELD."                      
+ [66] "CARS AND BUSSES STALLED IN SNOW DRIFTS."                  
+ [67] "THE SET OF CHINA HIT THE FLOOR WITH A CRASH."             
+ [68] "THIS IS A GRAND SEASON FOR HIKES ON THE ROAD."            
+ [69] "THE DUNE ROSE FROM THE EDGE OF THE WATER."                
+ [70] "THOSE WORDS WERE THE CUE FOR THE ACTOR TO LEAVE."         
+ [71] "A YACHT SLID AROUND THE POINT INTO THE BAY."              
+ [72] "THE TWO MET WHILE PLAYING ON THE SAND."                   
+ [73] "THE INK STAIN DRIED ON THE FINISHED PAGE."                
+ [74] "THE WALLED TOWN WAS SEIZED WITHOUT A FIGHT."              
+ [75] "THE LEASE RAN OUT IN SIXTEEN WEEKS."                      
+ [76] "A TAME SQUIRREL MAKES A NICE PET."                        
+ [77] "THE HORN OF THE CAR WOKE THE SLEEPING COP."               
+ [78] "THE HEART BEAT STRONGLY AND WITH FIRM STROKES."           
+ [79] "THE PEARL WAS WORN IN A THIN SILVER RING."                
+ [80] "THE FRUIT PEEL WAS CUT IN THICK SLICES."                  
+ [81] "THE NAVY ATTACKED THE BIG TASK FORCE."                    
+ [82] "SEE THE CAT GLARING AT THE SCARED MOUSE."                 
+ [83] "THERE ARE MORE THAN TWO FACTORS HERE."                    
+ [84] "THE HAT BRIM WAS WIDE AND TOO DROOPY."                    
+ [85] "THE LAWYER TRIED TO LOSE HIS CASE."                       
+ [86] "THE GRASS CURLED AROUND THE FENCE POST."                  
+ [87] "CUT THE PIE INTO LARGE PARTS."                            
+ [88] "MEN STRIVE BUT SELDOM GET RICH."                          
+ [89] "ALWAYS CLOSE THE BARN DOOR TIGHT."                        
+ [90] "HE LAY PRONE AND HARDLY MOVED A LIMB."                    
+ [91] "THE SLUSH LAY DEEP ALONG THE STREET."                     
+ [92] "A WISP OF CLOUD HUNG IN THE BLUE AIR."                    
+ [93] "A POUND OF SUGAR COSTS MORE THAN EGGS."                   
+ [94] "THE FIN WAS SHARP AND CUT THE CLEAR WATER."               
+ [95] "THE PLAY SEEMS DULL AND QUITE STUPID."                    
+ [96] "BAIL THE BOAT TO STOP IT FROM SINKING."                   
+ [97] "THE TERM ENDED IN LATE JUNE THAT YEAR."                   
+ [98] "A TUSK IS USED TO MAKE COSTLY GIFTS."                     
+ [99] "TEN PINS WERE SET IN ORDER."                              
+[100] "THE BILL WAS PAID EVERY THIRD WEEK."                      
+[101] "OAK IS STRONG AND ALSO GIVES SHADE."                      
+[102] "CATS AND DOGS EACH HATE THE OTHER."                       
+[103] "THE PIPE BEGAN TO RUST WHILE NEW."                        
+[104] "OPEN THE CRATE BUT DON'T BREAK THE GLASS."                
+[105] "ADD THE SUM TO THE PRODUCT OF THESE THREE."               
+[106] "THIEVES WHO ROB FRIENDS DESERVE JAIL."                    
+[107] "THE RIPE TASTE OF CHEESE IMPROVES WITH AGE."              
+[108] "ACT ON THESE ORDERS WITH GREAT SPEED."                    
+[109] "THE HOG CRAWLED UNDER THE HIGH FENCE."                    
+[110] "MOVE THE VAT OVER THE HOT FIRE."                          
+[111] "THE BARK OF THE PINE TREE WAS SHINY AND DARK."            
+[112] "LEAVES TURN BROWN AND YELLOW IN THE FALL."                
+[113] "THE PENNANT WAVED WHEN THE WIND BLEW."                    
+[114] "SPLIT THE LOG WITH A QUICK, SHARP BLOW."                  
+[115] "BURN PEAT AFTER THE LOGS GIVE OUT."                       
+[116] "HE ORDERED PEACH PIE WITH ICE CREAM."                     
+[117] "WEAVE THE CARPET ON THE RIGHT HAND SIDE."                 
+[118] "HEMP IS A WEED FOUND IN PARTS OF THE TROPICS."            
+[119] "A LAME BACK KEPT HIS SCORE LOW."                          
+[120] "WE FIND JOY IN THE SIMPLEST THINGS."                      
+[121] "TYPE OUT THREE LISTS OF ORDERS."                          
+[122] "THE HARDER HE TRIED THE LESS HE GOT DONE."                
+[123] "THE BOSS RAN THE SHOW WITH A WATCHFUL EYE."               
+[124] "THE CUP CRACKED AND SPILLED ITS CONTENTS."                
+[125] "PASTE CAN CLEANSE THE MOST DIRTY BRASS."                  
+[126] "THE SLANG WORD FOR RAW WHISKEY IS BOOZE."                 
+[127] "IT CAUGHT ITS HIND PAW IN A RUSTY TRAP."                  
+[128] "THE WHARF COULD BE SEEN AT THE FARTHER SHORE."            
+[129] "FEEL THE HEAT OF THE WEAK DYING FLAME."                   
+[130] "THE TINY GIRL TOOK OFF HER HAT."                          
+[131] "A CRAMP IS NO SMALL DANGER ON A SWIM."                    
+[132] "HE SAID THE SAME PHRASE THIRTY TIMES."                    
+[133] "PLUCK THE BRIGHT ROSE WITHOUT LEAVES."                    
+[134] "TWO PLUS SEVEN IS LESS THAN TEN."                         
+[135] "THE GLOW DEEPENED IN THE EYES OF THE SWEET GIRL."         
+[136] "BRING YOUR PROBLEMS TO THE WISE CHIEF."                   
+[137] "WRITE A FOND NOTE TO THE FRIEND YOU CHERISH."             
+[138] "CLOTHES AND LODGING ARE FREE TO NEW MEN."                 
+[139] "WE FROWN WHEN EVENTS TAKE A BAD TURN."                    
+[140] "PORT IS A STRONG WINE WITH A SMOKY TASTE."                
+[141] "THE YOUNG KID JUMPED THE RUSTY GATE."                     
+[142] "GUESS THE RESULT FROM THE FIRST SCORES."                  
+[143] "A SALT PICKLE TASTES FINE WITH HAM."                      
+[144] "THE JUST CLAIM GOT THE RIGHT VERDICT."                    
+[145] "THOSE THISTLES BEND IN A HIGH WIND."                      
+[146] "PURE BRED POODLES HAVE CURLS."                            
+[147] "THE TREE TOP WAVED IN A GRACEFUL WAY."                    
+[148] "THE SPOT ON THE BLOTTER WAS MADE BY GREEN INK."           
+[149] "MUD WAS SPATTERED ON THE FRONT OF HIS WHITE SHIRT."       
+[150] "THE CIGAR BURNED A HOLE IN THE DESK TOP."                 
+[151] "THE EMPTY FLASK STOOD ON THE TIN TRAY."                   
+[152] "A SPEEDY MAN CAN BEAT THIS TRACK MARK."                   
+[153] "HE BROKE A NEW SHOELACE THAT DAY."                        
+[154] "THE COFFEE STAND IS TOO HIGH FOR THE COUCH."              
+[155] "THE URGE TO WRITE SHORT STORIES IS RARE."                 
+[156] "THE PENCILS HAVE ALL BEEN USED."                          
+[157] "THE PIRATES SEIZED THE CREW OF THE LOST SHIP."            
+[158] "WE TRIED TO REPLACE THE COIN BUT FAILED."                 
+[159] "SHE SEWED THE TORN COAT QUITE NEATLY."                    
+[160] "THE SOFA CUSHION IS RED AND OF LIGHT WEIGHT."             
+[161] "THE JACKET HUNG ON THE BACK OF THE WIDE CHAIR."           
+[162] "AT THAT HIGH LEVEL THE AIR IS PURE."                      
+[163] "DROP THE TWO WHEN YOU ADD THE FIGURES."                   
+[164] "A FILING CASE IS NOW HARD TO BUY."                        
+[165] "AN ABRUPT START DOES NOT WIN THE PRIZE."                  
+[166] "WOOD IS BEST FOR MAKING TOYS AND BLOCKS."                 
+[167] "THE OFFICE PAINT WAS A DULL, SAD TAN."                    
+[168] "HE KNEW THE SKILL OF THE GREAT YOUNG ACTRESS."            
+[169] "A RAG WILL SOAK UP SPILLED WATER."                        
+[170] "A SHOWER OF DIRT FELL FROM THE HOT PIPES."                
+[171] "STEAM HISSED FROM THE BROKEN VALVE."                      
+[172] "THE CHILD ALMOST HURT THE SMALL DOG."                     
+[173] "THERE WAS A SOUND OF DRY LEAVES OUTSIDE."                 
+[174] "THE SKY THAT MORNING WAS CLEAR AND BRIGHT BLUE."          
+[175] "TORN SCRAPS LITTERED THE STONE FLOOR."                    
+[176] "SUNDAY IS THE BEST PART OF THE WEEK."                     
+[177] "THE DOCTOR CURED HIM WITH THESE PILLS."                   
+[178] "THE NEW GIRL WAS FIRED TODAY AT NOON."                    
+[179] "THEY FELT GAY WHEN THE SHIP ARRIVED IN PORT."             
+[180] "ADD THE STORE'S ACCOUNT TO THE LAST CENT."                
+[181] "ACID BURNS HOLES IN WOOL CLOTH."                          
+[182] "FAIRY TALES SHOULD BE FUN TO WRITE."                      
+[183] "EIGHT MILES OF WOODLAND BURNED TO WASTE."                 
+[184] "THE THIRD ACT WAS DULL AND TIRED THE PLAYERS."            
+[185] "A YOUNG CHILD SHOULD NOT SUFFER FRIGHT."                  
+[186] "ADD THE COLUMN AND PUT THE SUM HERE."                     
+[187] "WE ADMIRE AND LOVE A GOOD COOK."                          
+[188] "THERE THE FLOOD MARK IS TEN INCHES."                      
+[189] "HE CARVED A HEAD FROM THE ROUND BLOCK OF MARBLE."         
+[190] "SHE HAS A SMART WAY OF WEARING CLOTHES."                  
+[191] "THE FRUIT OF A FIG TREE IS APPLE SHAPED."                 
+[192] "CORN COBS CAN BE USED TO KINDLE A FIRE."                  
+[193] "WHERE WERE THEY WHEN THE NOISE STARTED."                  
+[194] "THE PAPER BOX IS FULL OF THUMB TACKS."                    
+[195] "SELL YOUR GIFT TO A BUYER AT A GOOD GAIN."                
+[196] "THE TONGS LAY BESIDE THE ICE PAIL."                       
+[197] "THE PETALS FALL WITH THE NEXT PUFF OF WIND."              
+[198] "BRING YOUR BEST COMPASS TO THE THIRD CLASS."              
+[199] "THEY COULD LAUGH ALTHOUGH THEY WERE SAD."                 
+[200] "FARMERS CAME IN TO THRESH THE OAT CROP."                  
+[201] "THE BROWN HOUSE WAS ON FIRE TO THE ATTIC."                
+[202] "THE LURE IS USED TO CATCH TROUT AND FLOUNDER."            
+[203] "FLOAT THE SOAP ON TOP OF THE BATH WATER."                 
+[204] "A BLUE CRANE IS A TALL WADING BIRD."                      
+[205] "A FRESH START WILL WORK SUCH WONDERS."                    
+[206] "THE CLUB RENTED THE RINK FOR THE FIFTH NIGHT."            
+[207] "AFTER THE DANCE, THEY WENT STRAIGHT HOME."                
+[208] "THE HOSTESS TAUGHT THE NEW MAID TO SERVE."                
+[209] "HE WROTE HIS LAST NOVEL THERE AT THE INN."                
+[210] "EVEN THE WORST WILL BEAT HIS LOW SCORE."                  
+[211] "THE CEMENT HAD DRIED WHEN HE MOVED IT."                   
+[212] "THE LOSS OF THE SECOND SHIP WAS HARD TO TAKE."            
+[213] "THE FLY MADE ITS WAY ALONG THE WALL."                     
+[214] "DO THAT WITH A WOODEN STICK."                             
+[215] "LIVE WIRES SHOULD BE KEPT COVERED."                       
+[216] "THE LARGE HOUSE HAD HOT WATER TAPS."                      
+[217] "IT IS HARD TO ERASE BLUE OR RED INK."                     
+[218] "WRITE AT ONCE OR YOU MAY FORGET IT."                      
+[219] "THE DOORKNOB WAS MADE OF BRIGHT CLEAN BRASS."             
+[220] "THE WRECK OCCURRED BY THE BANK ON MAIN STREET."           
+[221] "A PENCIL WITH BLACK LEAD WRITES BEST."                    
+[222] "COAX A YOUNG CALF TO DRINK FROM A BUCKET."                
+[223] "SCHOOLS FOR LADIES TEACH CHARM AND GRACE."                
+[224] "THE LAMP SHONE WITH A STEADY GREEN FLAME."                
+[225] "THEY TOOK THE AXE AND THE SAW TO THE FOREST."             
+[226] "THE ANCIENT COIN WAS QUITE DULL AND WORN."                
+[227] "THE SHAKY BARN FELL WITH A LOUD CRASH."                   
+[228] "JAZZ AND SWING FANS LIKE FAST MUSIC."                     
+[229] "RAKE THE RUBBISH UP AND THEN BURN IT."                    
+[230] "SLASH THE GOLD CLOTH INTO FINE RIBBONS."                  
+[231] "TRY TO HAVE THE COURT DECIDE THE CASE."                   
+[232] "THEY ARE PUSHED BACK EACH TIME THEY ATTACK."              
+[233] "HE BROKE HIS TIES WITH GROUPS OF FORMER FRIENDS."         
+[234] "THEY FLOATED ON THE RAFT TO SUN THEIR WHITE BACKS."       
+[235] "THE MAP HAD AN X THAT MEANT NOTHING."                     
+[236] "WHITINGS ARE SMALL FISH CAUGHT IN NETS."                  
+[237] "SOME ADS SERVE TO CHEAT BUYERS."                          
+[238] "JERK THE ROPE AND THE BELL RINGS WEAKLY."                 
+[239] "A WAXED FLOOR MAKES US LOSE BALANCE."                     
+[240] "MADAM, THIS IS THE BEST BRAND OF CORN."                   
+[241] "ON THE ISLANDS THE SEA BREEZE IS SOFT AND MILD."          
+[242] "THE PLAY BEGAN AS SOON AS WE SAT DOWN."                   
+[243] "THIS WILL LEAD THE WORLD TO MORE SOUND AND FURY."         
+[244] "ADD SALT BEFORE YOU FRY THE EGG."                         
+[245] "THE RUSH FOR FUNDS REACHED ITS PEAK TUESDAY."             
+[246] "THE BIRCH LOOKED STARK WHITE AND LONESOME."               
+[247] "THE BOX IS HELD BY A BRIGHT RED SNAPPER."                 
+[248] "TO MAKE PURE ICE, YOU FREEZE WATER."                      
+[249] "THE FIRST WORM GETS SNAPPED EARLY."                       
+[250] "JUMP THE FENCE AND HURRY UP THE BANK."                    
+[251] "YELL AND CLAP AS THE CURTAIN SLIDES BACK."                
+[252] "THEY ARE MEN WHO WALK THE MIDDLE OF THE ROAD."            
+[253] "BOTH BROTHERS WEAR THE SAME SIZE."                        
+[254] "IN SOME FORM OR OTHER WE NEED FUN."                       
+[255] "THE PRINCE ORDERED HIS HEAD CHOPPED OFF."                 
+[256] "THE HOUSES ARE BUILT OF RED CLAY BRICKS."                 
+[257] "DUCKS FLY NORTH BUT LACK A COMPASS."                      
+[258] "FRUIT FLAVORS ARE USED IN FIZZ DRINKS."                   
+[259] "THESE PILLS DO LESS GOOD THAN OTHERS."                    
+[260] "CANNED PEARS LACK FULL FLAVOR."                           
+[261] "THE DARK POT HUNG IN THE FRONT CLOSET."                   
+[262] "CARRY THE PAIL TO THE WALL AND SPILL IT THERE."           
+[263] "THE TRAIN BROUGHT OUR HERO TO THE BIG TOWN."              
+[264] "WE ARE SURE THAT ONE WAR IS ENOUGH."                      
+[265] "GRAY PAINT STRETCHED FOR MILES AROUND."                   
+[266] "THE RUDE LAUGH FILLED THE EMPTY ROOM."                    
+[267] "HIGH SEATS ARE BEST FOR FOOTBALL FANS."                   
+[268] "TEA SERVED FROM THE BROWN JUG IS TASTY."                  
+[269] "A DASH OF PEPPER SPOILS BEEF STEW."                       
+[270] "A ZESTFUL FOOD IS THE HOT-CROSS BUN."                     
+[271] "THE HORSE TROTTED AROUND THE FIELD AT A BRISK PACE."      
+[272] "FIND THE TWIN WHO STOLE THE PEARL NECKLACE."              
+[273] "CUT THE CORD THAT BINDS THE BOX TIGHTLY."                 
+[274] "THE RED TAPE BOUND THE SMUGGLED FOOD."                    
+[275] "LOOK IN THE CORNER TO FIND THE TAN SHIRT."                
+[276] "THE COLD DRIZZLE WILL HALT THE BOND DRIVE."               
+[277] "NINE MEN WERE HIRED TO DIG THE RUINS."                    
+[278] "THE JUNK YARD HAD A MOULDY SMELL."                        
+[279] "THE FLINT SPUTTERED AND LIT A PINE TORCH."                
+[280] "SOAK THE CLOTH AND DROWN THE SHARP ODOR."                 
+[281] "THE SHELVES WERE BARE OF BOTH JAM OR CRACKERS."           
+[282] "A JOY TO EVERY CHILD IS THE SWAN BOAT."                   
+[283] "ALL SAT FROZEN AND WATCHED THE SCREEN."                   
+[284] "A CLOUD OF DUST STUNG HIS TENDER EYES."                   
+[285] "TO REACH THE END HE NEEDS MUCH COURAGE."                  
+[286] "SHAPE THE CLAY GENTLY INTO BLOCK FORM."                   
+[287] "A RIDGE ON A SMOOTH SURFACE IS A BUMP OR FLAW."           
+[288] "HEDGE APPLES MAY STAIN YOUR HANDS GREEN."                 
+[289] "QUENCH YOUR THIRST, THEN EAT THE CRACKERS."               
+[290] "TIGHT CURLS GET LIMP ON RAINY DAYS."                      
+[291] "THE MUTE MUFFLED THE HIGH TONES OF THE HORN."             
+[292] "THE GOLD RING FITS ONLY A PIERCED EAR."                   
+[293] "THE OLD PAN WAS COVERED WITH HARD FUDGE."                 
+[294] "WATCH THE LOG FLOAT IN THE WIDE RIVER."                   
+[295] "THE NODE ON THE STALK OF WHEAT GREW DAILY."               
+[296] "THE HEAP OF FALLEN LEAVES WAS SET ON FIRE."               
+[297] "WRITE FAST IF YOU WANT TO FINISH EARLY."                  
+[298] "HIS SHIRT WAS CLEAN BUT ONE BUTTON WAS GONE."             
+[299] "THE BARREL OF BEER WAS A BREW OF MALT AND HOPS."          
+[300] "TIN CANS ARE ABSENT FROM STORE SHELVES."                  
+[301] "SLIDE THE BOX INTO THAT EMPTY SPACE."                     
+[302] "THE PLANT GREW LARGE AND GREEN IN THE WINDOW."            
+[303] "THE BEAM DROPPED DOWN ON THE WORKMAN'S HEAD."             
+[304] "PINK CLOUDS FLOATED WITH THE BREEZE."                     
+[305] "SHE DANCED LIKE A SWAN, TALL AND GRACEFUL."               
+[306] "THE TUBE WAS BLOWN AND THE TIRE FLAT AND USELESS."        
+[307] "IT IS LATE MORNING ON THE OLD WALL CLOCK."                
+[308] "LET'S ALL JOIN AS WE SING THE LAST CHORUS."               
+[309] "THE LAST SWITCH CANNOT BE TURNED OFF."                    
+[310] "THE FIGHT WILL END IN JUST SIX MINUTES."                  
+[311] "THE STORE WALLS WERE LINED WITH COLORED FROCKS."          
+[312] "THE PEACE LEAGUE MET TO DISCUSS THEIR PLANS."             
+[313] "THE RISE TO FAME OF A PERSON TAKES LUCK."                 
+[314] "PAPER IS SCARCE, SO WRITE WITH MUCH CARE."                
+[315] "THE QUICK FOX JUMPED ON THE SLEEPING CAT."                
+[316] "THE NOZZLE OF THE FIRE HOSE WAS BRIGHT BRASS."            
+[317] "SCREW THE ROUND CAP ON AS TIGHT AS NEEDED."               
+[318] "TIME BRINGS US MANY CHANGES."                             
+[319] "THE PURPLE TIE WAS TEN YEARS OLD."                        
+[320] "MEN THINK AND PLAN AND SOMETIMES ACT."                    
+[321] "FILL THE INK JAR WITH STICKY GLUE."                       
+[322] "HE SMOKE A BIG PIPE WITH STRONG CONTENTS."                
+[323] "WE NEED GRAIN TO KEEP OUR MULES HEALTHY."                 
+[324] "PACK THE RECORDS IN A NEAT THIN CASE."                    
+[325] "THE CRUNCH OF FEET IN THE SNOW WAS THE ONLY SOUND."       
+[326] "THE COPPER BOWL SHONE IN THE SUN'S RAYS."                 
+[327] "BOARDS WILL WARP UNLESS KEPT DRY."                        
+[328] "THE PLUSH CHAIR LEANED AGAINST THE WALL."                 
+[329] "GLASS WILL CLINK WHEN STRUCK BY METAL."                   
+[330] "BATHE AND RELAX IN THE COOL GREEN GRASS."                 
+[331] "NINE ROWS OF SOLDIERS STOOD IN A LINE."                   
+[332] "THE BEACH IS DRY AND SHALLOW AT LOW TIDE."                
+[333] "THE IDEA IS TO SEW BOTH EDGES STRAIGHT."                  
+[334] "THE KITTEN CHASED THE DOG DOWN THE STREET."               
+[335] "PAGES BOUND IN CLOTH MAKE A BOOK."                        
+[336] "TRY TO TRACE THE FINE LINES OF THE PAINTING."             
+[337] "WOMEN FORM LESS THAN HALF OF THE GROUP."                  
+[338] "THE ZONES MERGE IN THE CENTRAL PART OF TOWN."             
+[339] "A GEM IN THE ROUGH NEEDS WORK TO POLISH."                 
+[340] "CODE IS USED WHEN SECRETS ARE SENT."                      
+[341] "MOST OF THE NEWS IS EASY FOR US TO HEAR."                 
+[342] "HE USED THE LATHE TO MAKE BRASS OBJECTS."                 
+[343] "THE VANE ON TOP OF THE POLE REVOLVED IN THE WIND."        
+[344] "MINCE PIE IS A DISH SERVED TO CHILDREN."                  
+[345] "THE CLAN GATHERED ON EACH DULL NIGHT."                    
+[346] "LET IT BURN, IT GIVES US WARMTH AND COMFORT."             
+[347] "A CASTLE BUILT FROM SAND FAILS TO ENDURE."                
+[348] "A CHILD'S WIT SAVED THE DAY FOR US."                      
+[349] "TACK THE STRIP OF CARPET TO THE WORN FLOOR."              
+[350] "NEXT TUESDAY WE MUST VOTE."                               
+[351] "POUR THE STEW FROM THE POT INTO THE PLATE."               
+[352] "EACH PENNY SHONE LIKE NEW."                               
+[353] "THE MAN WENT TO THE WOODS TO GATHER STICKS."              
+[354] "THE DIRT PILES WERE LINES ALONG THE ROAD."                
+[355] "THE LOGS FELL AND TUMBLED INTO THE CLEAR STREAM."         
+[356] "JUST HOIST IT UP AND TAKE IT AWAY."                       
+[357] "A RIPE PLUM IS FIT FOR A KING'S PALATE."                  
+[358] "OUR PLANS RIGHT NOW ARE HAZY."                            
+[359] "BRASS RINGS ARE SOLD BY THESE NATIVES."                   
+[360] "IT TAKES A GOOD TRAP TO CAPTURE A BEAR."                  
+[361] "FEED THE WHITE MOUSE SOME FLOWER SEEDS."                  
+[362] "THE THAW CAME EARLY AND FREED THE STREAM."                
+[363] "HE TOOK THE LEAD AND KEPT IT THE WHOLE DISTANCE."         
+[364] "THE KEY YOU DESIGNED WILL FIT THE LOCK."                  
+[365] "PLEAD TO THE COUNCIL TO FREE THE POOR THIEF."             
+[366] "BETTER HASH IS MADE OF RARE BEEF."                        
+[367] "THIS PLANK WAS MADE FOR WALKING ON ."                     
+[368] "THE LAKE SPARKLED IN THE RED HOT SUN."                    
+[369] "HE CRAWLED WITH CARE ALONG THE LEDGE."                    
+[370] "TEND THE SHEEP WHILE THE DOG WANDERS."                    
+[371] "IT TAKES A LOT OF HELP TO FINISH THESE."                  
+[372] "MARK THE SPOT WITH A SIGN PAINTED RED."                   
+[373] "TAKE TWO SHARES AS A FAIR PROFIT."                        
+[374] "THE FUR OF CATS GOES BY MANY NAMES."                      
+[375] "NORTH WINDS BRING COLDS AND FEVERS."                      
+[376] "HE ASKS NO PERSON TO VOUCH FOR HIM."                      
+[377] "GO NOW AND COME HERE LATER."                              
+[378] "A SASH OF GOLD SILK WILL TRIM HER DRESS."                 
+[379] "SOAP CAN WASH MOST DIRT AWAY."                            
+[380] "THAT MOVE MEANS THE GAME IS OVER."                        
+[381] "HE WROTE DOWN A LONG LIST OF ITEMS."                      
+[382] "A SIEGE WILL CRACK THE STRONG DEFENSE."                   
+[383] "GRAPE JUICE AND WATER MIX WELL."                          
+[384] "ROADS ARE PAVED WITH STICKY TAR."                         
+[385] "FAKE STONES SHINE BUT COST LITTLE."                       
+[386] "THE DRIP OF THE RAIN MADE A PLEASANT SOUND."              
+[387] "SMOKE POURED OUT OF EVERY CRACK."                         
+[388] "SERVE THE HOT RUM TO THE TIRED HEROES."                   
+[389] "MUCH OF THE STORY MAKES GOOD SENSE."                      
+[390] "THE SUN CAME UP TO LIGHT THE EASTERN SKY."                
+[391] "HEAVE THE LINE OVER THE PORT SIDE."                       
+[392] "A LATHE CUTS AND TRIMS ANY WOOD."                         
+[393] "IT'S A DENSE CROWD IN TWO DISTINCT WAYS."                 
+[394] "HIS HIP STRUCK THE KNEE OF THE NEXT PLAYER."              
+[395] "THE STALE SMELL OF OLD BEER LINGERS."                     
+[396] "THE DESK WAS FIRM ON THE SHAKY FLOOR."                    
+[397] "IT TAKES HEAT TO BRING OUT THE ODOR."                     
+[398] "BEEF IS SCARCER THAN SOME LAMB."                          
+[399] "RAISE THE SAIL AND STEER THE SHIP NORTHWARD."             
+[400] "A CONE COSTS FIVE CENTS ON MONDAYS."                      
+[401] "A POD IS WHAT PEAS ALWAYS GROW IN."                       
+[402] "JERK THAT DART FROM THE CORK TARGET."                     
+[403] "NO CEMENT WILL HOLD HARD WOOD."                           
+[404] "WE NOW HAVE A NEW BASE FOR SHIPPING."                     
+[405] "A LIST OF NAMES IS CARVED AROUND THE BASE."               
+[406] "THE SHEEP WERE LED HOME BY A DOG."                        
+[407] "THREE FOR A DIME, THE YOUNG PEDDLER CRIED."               
+[408] "THE SENSE OF SMELL IS BETTER THAN THAT OF TOUCH."         
+[409] "NO HARDSHIP SEEMED TO MAKE HIM SAD."                      
+[410] "GRACE MAKES UP FOR LACK OF BEAUTY."                       
+[411] "NUDGE GENTLY BUT WAKE HER NOW."                           
+[412] "THE NEWS STRUCK DOUBT INTO RESTLESS MINDS."               
+[413] "ONCE WE STOOD BESIDE THE SHORE."                          
+[414] "A CHINK IN THE WALL ALLOWED A DRAFT TO BLOW."             
+[415] "FASTEN TWO PINS ON EACH SIDE."                            
+[416] "A COLD DIP RESTORES HEALTH AND ZEST."                     
+[417] "HE TAKES THE OATH OF OFFICE EACH MARCH."                  
+[418] "THE SAND DRIFTS OVER THE SILLS OF THE OLD HOUSE."         
+[419] "THE POINT OF THE STEEL PEN WAS BENT AND TWISTED."         
+[420] "THERE IS A LAG BETWEEN THOUGHT AND ACT."                  
+[421] "SEED IS NEEDED TO PLANT THE SPRING CORN."                 
+[422] "DRAW THE CHART WITH HEAVY BLACK LINES."                   
+[423] "THE BOY OWED HIS PAL THIRTY CENTS."                       
+[424] "THE CHAP SLIPPED INTO THE CROWD AND WAS LOST."            
+[425] "HATS ARE WORN TO TEA AND NOT TO DINNER."                  
+[426] "THE RAMP LED UP TO THE WIDE HIGHWAY."                     
+[427] "BEAT THE DUST FROM THE RUG ONTO THE LAWN."                
+[428] "SAY IT SLOWLY BUT MAKE IT RING CLEAR."                    
+[429] "THE STRAW NEST HOUSED FIVE ROBINS."                       
+[430] "SCREEN THE PORCH WITH WOVEN STRAW MATS."                  
+[431] "THIS HORSE WILL NOSE HIS WAY TO THE FINISH."              
+[432] "THE DRY WAX PROTECTS THE DEEP SCRATCH."                   
+[433] "HE PICKED UP THE DICE FOR A SECOND ROLL."                 
+[434] "THESE COINS WILL BE NEEDED TO PAY HIS DEBT."              
+[435] "THE NAG PULLED THE FRAIL CART ALONG."                     
+[436] "TWIST THE VALVE AND RELEASE HOT STEAM."                   
+[437] "THE VAMP OF THE SHOE HAD A GOLD BUCKLE."                  
+[438] "THE SMELL OF BURNED RAGS ITCHES MY NOSE."                 
+[439] "NEW PANTS LACK CUFFS AND POCKETS."                        
+[440] "THE MARSH WILL FREEZE WHEN COLD ENOUGH."                  
+[441] "THEY SLICE THE SAUSAGE THIN WITH A KNIFE."                
+[442] "THE BLOOM OF THE ROSE LASTS A FEW DAYS."                  
+[443] "A GRAY MARE WALKED BEFORE THE COLT."                      
+[444] "BREAKFAST BUNS ARE FINE WITH A HOT DRINK."                
+[445] "BOTTLES HOLD FOUR KINDS OF RUM."                          
+[446] "THE MAN WORE A FEATHER IN HIS FELT HAT."                  
+[447] "HE WHEELED THE BIKE PAST THE WINDING ROAD."               
+[448] "DROP THE ASHES ON THE WORN OLD RUG."                      
+[449] "THE DESK AND BOTH CHAIRS WERE PAINTED TAN."               
+[450] "THROW OUT THE USED PAPER CUP AND PLATE."                  
+[451] "A CLEAN NECK MEANS A NEAT COLLAR."                        
+[452] "THE COUCH COVER AND HALL DRAPES WERE BLUE."               
+[453] "THE STEMS OF THE TALL GLASSES CRACKED AND BROKE."         
+[454] "THE WALL PHONE RANG LOUD AND OFTEN."                      
+[455] "THE CLOTHES DRIED ON A THIN WOODEN RACK."                 
+[456] "TURN OUT THE LANTERN WHICH GIVES US LIGHT."               
+[457] "THE CLEAT SANK DEEPLY INTO THE SOFT TURF."                
+[458] "THE BILLS WERE MAILED PROMPTLY ON THE TENTH OF THE MONTH."
+[459] "TO HAVE IS BETTER THAN TO WAIT AND HOPE."                 
+[460] "THE PRICE IS FAIR FOR A GOOD ANTIQUE CLOCK."              
+[461] "THE MUSIC PLAYED ON WHILE THEY TALKED."                   
+[462] "DISPENSE WITH A VEST ON A DAY LIKE THIS."                 
+[463] "THE BUNCH OF GRAPES WAS PRESSED INTO WINE."               
+[464] "HE SENT THE FIGS, BUT KEPT THE RIPE CHERRIES."            
+[465] "THE HINGE ON THE DOOR CREAKED WITH OLD AGE."              
+[466] "THE SCREEN BEFORE THE FIRE KEPT IN THE SPARKS."           
+[467] "FLY BY NIGHT AND YOU WASTE LITTLE TIME."                  
+[468] "THICK GLASSES HELPED HIM READ THE PRINT."                 
+[469] "BIRTH AND DEATH MARKS THE LIMITS OF LIFE."                
+[470] "THE CHAIR LOOKED STRONG BUT HAD NO BOTTOM."               
+[471] "THE KITE FLEW WILDLY IN THE HIGH WIND."                   
+[472] "A FUR MUFF IS STYLISH ONCE MORE."                         
+[473] "THE TIN BOX HELD PRICELESS STONES."                       
+[474] "WE NEED AN END OF ALL SUCH MATTER."                       
+[475] "THE CASE WAS PUZZLING TO THE OLD AND WISE."               
+[476] "THE BRIGHT LANTERNS WERE GAY ON THE DARK LAWN."           
+[477] "WE DON'T GET MUCH MONEY BUT WE HAVE FUN."                 
+[478] "THE YOUTH DROVE WITH ZEST, BUT LITTLE SKILL."             
+[479] "FIVE YEARS HE LIVED WITH A SHAGGY DOG."                   
+[480] "A FENCE CUTS THROUGH THE CORNER LOT."                     
+[481] "THE WAY TO SAVE MONEY IS NOT TO SPEND MUCH."              
+[482] "SHUT THE HATCH BEFORE THE WAVES PUSH IT IN."              
+[483] "THE ODOR OF SPRING MAKES YOUNG HEARTS JUMP."              
+[484] "CRACK THE WALNUT WITH YOUR SHARP SIDE TEETH."             
+[485] "HE OFFERED PROOF IN THE FORM OF A LARGE CHART."           
+[486] "SEND THE STUFF IN A THICK PAPER BAG."                     
+[487] "A QUART OF MILK IS WATER FOR THE MOST PART."              
+[488] "THEY TOLD WILD TALES TO FRIGHTEN HIM."                    
+[489] "THE THREE STORY HOUSE WAS BUILT OF STONE."                
+[490] "IN THE REAR OF THE GROUND FLOOR WAS A LARGE PASSAGE."     
+[491] "A MAN IN A BLUE SWEATER SAT AT THE DESK."                 
+[492] "OATS ARE A FOOD EATEN BY HORSE AND MAN."                  
+[493] "THEIR EYELIDS DROOP FOR WANT OF SLEEP."                   
+[494] "A SIP OF TEA REVIVES HIS TIRED FRIEND."                   
+[495] "THERE ARE MANY WAYS TO DO THESE THINGS."                  
+[496] "TUCK THE SHEET UNDER THE EDGE OF THE MAT."                
+[497] "A FORCE EQUAL TO THAT WOULD MOVE THE EARTH."              
+[498] "WE LIKE TO SEE CLEAR WEATHER."                            
+[499] "THE WORK OF THE TAILOR IS SEEN ON EACH SIDE."             
+[500] "TAKE A CHANCE AND WIN A CHINA DOLL."                      
+[501] "SHAKE THE DUST FROM YOUR SHOES, STRANGER."                
+[502] "SHE WAS KIND TO SICK OLD PEOPLE."                         
+[503] "THE SQUARE WOODEN CRATE WAS PACKED TO BE SHIPPED."        
+[504] "THE DUSTY BENCH STOOD BY THE STONE WALL."                 
+[505] "WE DRESS TO SUIT THE WEATHER OF MOST DAYS."               
+[506] "SMILE WHEN YOU SAY NASTY WORDS."                          
+[507] "A BOWL OF RICE IS FREE WITH CHICKEN STEW."                
+[508] "THE WATER IN THIS WELL IS A SOURCE OF GOOD HEALTH."       
+[509] "TAKE SHELTER IN THIS TENT, BUT KEEP STILL."               
+[510] "THAT GUY IS THE WRITER OF A FEW BANNED BOOKS."            
+[511] "THE LITTLE TALES THEY TELL ARE FALSE."                    
+[512] "THE DOOR WAS BARRED, LOCKED, AND BOLTED AS WELL."         
+[513] "RIPE PEARS ARE FIT FOR A QUEEN'S TABLE."                  
+[514] "A BIG WET STAIN WAS ON THE ROUND CARPET."                 
+[515] "THE KITE DIPPED AND SWAYED, BUT STAYED ALOFT."            
+[516] "THE PLEASANT HOURS FLY BY MUCH TOO SOON."                 
+[517] "THE ROOM WAS CROWDED WITH A WILD MOB."                    
+[518] "THIS STRONG ARM SHALL SHIELD YOUR HONOR."                 
+[519] "SHE BLUSHED WHEN HE GAVE HER A WHITE ORCHID."             
+[520] "THE BEETLE DRONED IN THE HOT JUNE SUN."                   
+[521] "PRESS THE PEDAL WITH YOUR LEFT FOOT."                     
+[522] "NEAT PLANS FAIL WITHOUT LUCK."                            
+[523] "THE BLACK TRUNK FELL FROM THE LANDING."                   
+[524] "THE BANK PRESSED FOR PAYMENT OF THE DEBT."                
+[525] "THE THEFT OF THE PEARL PIN WAS KEPT SECRET."              
+[526] "SHAKE HANDS WITH THIS FRIENDLY CHILD."                    
+[527] "THE VAST SPACE STRETCHED INTO THE FAR DISTANCE."          
+[528] "A RICH FARM IS RARE IN THIS SANDY WASTE."                 
+[529] "HIS WIDE GRIN EARNED MANY FRIENDS."                       
+[530] "FLAX MAKES A FINE BRAND OF PAPER."                        
+[531] "HURDLE THE PIT WITH THE AID OF A LONG POLE."              
+[532] "A STRONG BID MAY SCARE YOUR PARTNER STIFF."               
+[533] "EVEN A JUST CAUSE NEEDS POWER TO WIN."                    
+[534] "PEEP UNDER THE TENT AND SEE THE CLOWNS."                  
+[535] "THE LEAF DRIFTS ALONG WITH A SLOW SPIN."                  
+[536] "CHEAP CLOTHES ARE FLASHY BUT DON'T LAST."                 
+[537] "A THING OF SMALL NOTE CAN CAUSE DESPAIR."                 
+[538] "FLOOD THE MAILS WITH REQUESTS FOR THIS BOOK."             
+[539] "A THICK COAT OF BLACK PAINT COVERED ALL."                 
+[540] "THE PENCIL WAS CUT TO BE SHARP AT BOTH ENDS."             
+[541] "THOSE LAST WORDS WERE A STRONG STATEMENT."                
+[542] "HE WROTE HIS NAME BOLDLY AT THE TOP OF THE SHEET."        
+[543] "DILL PICKLES ARE SOUR BUT TASTE FINE."                    
+[544] "DOWN THAT ROAD IS THE WAY TO THE GRAIN FARMER."           
+[545] "EITHER MUD OR DUST ARE FOUND AT ALL TIMES."               
+[546] "THE BEST METHOD IS TO FIX IT IN PLACE WITH CLIPS."        
+[547] "IF YOU MUMBLE YOUR SPEECH WILL BE LOST."                  
+[548] "AT NIGHT THE ALARM ROUSED HIM FROM A DEEP SLEEP."         
+[549] "READ JUST WHAT THE METER SAYS."                           
+[550] "FILL YOUR PACK WITH BRIGHT TRINKETS FOR THE POOR."        
+[551] "THE SMALL RED NEON LAMP WENT OUT."                        
+[552] "CLAMS ARE SMALL, ROUND, SOFT, AND TASTY."                 
+[553] "THE FAN WHIRLED ITS ROUND BLADES SOFTLY."                 
+[554] "THE LINE WHERE THE EDGES JOIN WAS CLEAN."                 
+[555] "BREATHE DEEP AND SMELL THE PINY AIR."                     
+[556] "IT MATTERS NOT IF HE READS THESE WORDS OR THOSE."         
+[557] "A BROWN LEATHER BAG HUNG FROM ITS STRAP."                 
+[558] "A TOAD AND A FROG ARE HARD TO TELL APART."                
+[559] "A WHITE SILK JACKET GOES WITH ANY SHOES."                 
+[560] "A BREAK IN THE DAM ALMOST CAUSED A FLOOD."                
+[561] "PAINT THE SOCKETS IN THE WALL DULL GREEN."                
+[562] "THE CHILD CRAWLED INTO THE DENSE GRASS."                  
+[563] "BRIBES FAIL WHERE HONEST MEN WORK."                       
+[564] "TRAMPLE THE SPARK, ELSE THE FLAMES WILL SPREAD."          
+[565] "THE HILT OF THE SWORD WAS CARVED WITH FINE DESIGNS."      
+[566] "A ROUND HOLE WAS DRILLED THROUGH THE THIN BOARD."         
+[567] "FOOTPRINTS SHOWED THE PATH HE TOOK UP THE BEACH."         
+[568] "SHE WAS WAITING AT MY FRONT LAWN."                        
+[569] "A VENT NEAR THE EDGE BROUGHT IN FRESH AIR."               
+[570] "PROD THE OLD MULE WITH A CROOKED STICK."                  
+[571] "IT IS A BAND OF STEEL THREE INCHES WIDE."                 
+[572] "THE PIPE RAN ALMOST THE LENGTH OF THE DITCH."             
+[573] "IT WAS HIDDEN FROM SIGHT BY A MASS OF LEAVES AND SHRUBS." 
+[574] "THE WEIGHT OF THE PACKAGE WAS SEEN ON THE HIGH SCALE."    
+[575] "WAKE AND RISE, AND STEP INTO THE GREEN OUTDOORS."         
+[576] "THE GREEN LIGHT IN THE BROWN BOX FLICKERED."              
+[577] "THE BRASS TUBE CIRCLED THE HIGH WALL."                    
+[578] "THE LOBES OF HER EARS WERE PIERCED TO HOLD RINGS."        
+[579] "HOLD THE HAMMER NEAR THE END TO DRIVE THE NAIL."          
+[580] "NEXT SUNDAY IS THE TWELFTH OF THE MONTH."                 
+[581] "EVERY WORD AND PHRASE HE SPEAKS IS TRUE."                 
+[582] "HE PUT HIS LAST CARTRIDGE INTO THE GUN AND FIRED."        
+[583] "THEY TOOK THEIR KIDS FROM THE PUBLIC SCHOOL."             
+[584] "DRIVE THE SCREW STRAIGHT INTO THE WOOD."                  
+[585] "KEEP THE HATCH TIGHT AND THE WATCH CONSTANT."             
+[586] "SEVER THE TWINE WITH A QUICK SNIP OF THE KNIFE."          
+[587] "PAPER WILL DRY OUT WHEN WET."                             
+[588] "SLIDE THE CATCH BACK AND OPEN THE DESK."                  
+[589] "HELP THE WEAK TO PRESERVE THEIR STRENGTH."                
+[590] "A SULLEN SMILE GETS FEW FRIENDS."                         
+[591] "STOP WHISTLING AND WATCH THE BOYS MARCH."                 
+[592] "JERK THE CORD, AND OUT TUMBLES THE GOLD."                 
+[593] "SLIDE THE TRAY ACROSS THE GLASS TOP."                     
+[594] "THE CLOUD MOVED IN A STATELY WAY AND WAS GONE."           
+[595] "LIGHT MAPLE MAKES FOR A SWELL ROOM."                      
+[596] "SET THE PIECE HERE AND SAY NOTHING."                      
+[597] "DULL STORIES MAKE HER LAUGH."                             
+[598] "A STIFF CORD WILL DO TO FASTEN YOUR SHOE."                
+[599] "GET THE TRUST FUND TO THE BANK EARLY."                    
+[600] "CHOOSE BETWEEN THE HIGH ROAD AND THE LOW."                
+[601] "A PLEA FOR FUNDS SEEMS TO COME AGAIN."                    
+[602] "HE LENT HIS COAT TO THE TALL GAUNT STRANGER."             
+[603] "THERE IS A STRONG CHANCE IT WILL HAPPEN ONCE MORE."       
+[604] "THE DUKE LEFT THE PARK IN A SILVER COACH."                
+[605] "GREET THE NEW GUESTS AND LEAVE QUICKLY."                  
+[606] "WHEN THE FROST HAS COME IT IS TIME FOR TURKEY."           
+[607] "SWEET WORDS WORK BETTER THAN FIERCE."                     
+[608] "A THIN STRIPE RUNS DOWN THE MIDDLE."                      
+[609] "A SIX COMES UP MORE OFTEN THAN A TEN."                    
+[610] "LUSH FERNS GROW ON THE LOFTY ROCKS."                      
+[611] "THE RAM SCARED THE SCHOOL CHILDREN OFF."                  
+[612] "THE TEAM WITH THE BEST TIMING LOOKS GOOD."                
+[613] "THE FARMER SWAPPED HIS HORSE FOR A BROWN OX."             
+[614] "SIT ON THE PERCH AND TELL THE OTHERS WHAT TO DO."         
+[615] "A STEEP TRAIL IS PAINFUL FOR OUR FEET."                   
+[616] "THE EARLY PHASE OF LIFE MOVES FAST."                      
+[617] "GREEN MOSS GROWS ON THE NORTHERN SIDE."                   
+[618] "TEA IN THIN CHINA HAS A SWEET TASTE."                     
+[619] "PITCH THE STRAW THROUGH THE DOOR OF THE STABLE."          
+[620] "THE LATCH ON THE BACK GATE NEEDED A NAIL."                
+[621] "THE GOOSE WAS BROUGHT STRAIGHT FROM THE OLD MARKET."      
+[622] "THE SINK IS THE THING IN WHICH WE PILE DISHES."           
+[623] "A WHIFF OF IT WILL CURE THE MOST STUBBORN COLD."          
+[624] "THE FACTS DON'T ALWAYS SHOW WHO IS RIGHT."                
+[625] "SHE FLAPS HER CAPE AS SHE PARADES THE STREET."            
+[626] "THE LOSS OF THE CRUISER WAS A BLOW TO THE FLEET."         
+[627] "LOOP THE BRAID TO THE LEFT AND THEN OVER."                
+[628] "PLEAD WITH THE LAWYER TO DROP THE LOST CAUSE."            
+[629] "CALVES THRIVE ON TENDER SPRING GRASS."                    
+[630] "POST NO BILLS ON THIS OFFICE WALL."                       
+[631] "TEAR A THIN SHEET FROM THE YELLOW PAD."                   
+[632] "A CRUISE IN WARM WATERS IN A SLEEK YACHT IS FUN."         
+[633] "A STREAK OF COLOR RAN DOWN THE LEFT EDGE."                
+[634] "IT WAS DONE BEFORE THE BOY COULD SEE IT."                 
+[635] "CROUCH BEFORE YOU JUMP OR MISS THE MARK."                 
+[636] "PACK THE KITS AND DON'T FORGET THE SALT."                 
+[637] "THE SQUARE PEG WILL SETTLE IN THE ROUND HOLE."            
+[638] "FINE SOAP SAVES TENDER SKIN."                             
+[639] "POACHED EGGS AND TEA MUST SUFFICE."                       
+[640] "BAD NERVES ARE JANGLED BY A DOOR SLAM."                   
+[641] "SHIP MAPS ARE DIFFERENT FROM THOSE FOR PLANES."           
+[642] "DIMES SHOWERED DOWN FROM ALL SIDES."                      
+[643] "THEY SANG THE SAME TUNES AT EACH PARTY."                  
+[644] "THE SKY IN THE WEST IS TINGED WITH ORANGE RED."           
+[645] "THE PODS OF PEAS FERMENT IN BARE FIELDS."                 
+[646] "THE HORSE BALKED AND THREW THE TALL RIDER."               
+[647] "THE HITCH BETWEEN THE HORSE AND CART BROKE."              
+[648] "PILE THE COAL HIGH IN THE SHED CORNER."                   
+[649] "A GOLD VASE IS BOTH RARE AND COSTLY."                     
+[650] "THE KNIFE WAS HUNG INSIDE ITS BRIGHT SHEATH."             
+[651] "THE RAREST SPICE COMES FROM THE FAR EAST."                
+[652] "THE ROOF SHOULD BE TILTED AT A SHARP SLANT."              
+[653] "A SMATTER OF FRENCH IS WORSE THAN NONE."                  
+[654] "THE MULE TROD THE TREADMILL DAY AND NIGHT."               
+[655] "THE AIM OF THE CONTEST IS TO RAISE A GREAT FUND."         
+[656] "TO SEND IT NOW IN LARGE AMOUNTS IS BAD."                  
+[657] "THERE IS A FINE HARD TANG IN SALTY AIR."                  
+[658] "COD IS THE MAIN BUSINESS OF THE NORTH SHORE."             
+[659] "THE SLAB WAS HEWN FROM HEAVY BLOCKS OF SLATE."            
+[660] "DUNK THE STALE BISCUITS INTO STRONG DRINK."               
+[661] "HANG TINSEL FROM BOTH BRANCHES."                          
+[662] "CAP THE JAR WITH A TIGHT BRASS COVER."                    
+[663] "THE POOR BOY MISSED THE BOAT AGAIN."                      
+[664] "BE SURE TO SET THAT LAMP FIRMLY IN THE HOLE."             
+[665] "PICK A CARD AND SLIP IT UNDER THE PACK."                  
+[666] "A ROUND MAT WILL COVER THE DULL SPOT."                    
+[667] "THE FIRST PART OF THE PLAN NEEDS CHANGING."               
+[668] "A GOOD BOOK INFORMS OF WHAT WE OUGHT TO KNOW."            
+[669] "THE MAIL COMES IN THREE BATCHES PER DAY."                 
+[670] "YOU CANNOT BREW TEA IN A COLD POT."                       
+[671] "DOTS OF LIGHT BETRAYED THE BLACK CAT."                    
+[672] "PUT THE CHART ON THE MANTEL AND TACK IT DOWN."            
+[673] "THE NIGHT SHIFT MEN RATE EXTRA PAY."                      
+[674] "THE RED PAPER BRIGHTENED THE DIM STAGE."                  
+[675] "SEE THE PLAYER SCOOT TO THIRD BASE."                      
+[676] "SLIDE THE BILL BETWEEN THE TWO LEAVES."                   
+[677] "MANY HANDS HELP GET THE JOB DONE."                        
+[678] "WE DON'T LIKE TO ADMIT OUR SMALL FAULTS."                 
+[679] "NO DOUBT ABOUT THE WAY THE WIND BLOWS."                   
+[680] "DIG DEEP IN THE EARTH FOR PIRATE'S GOLD."                 
+[681] "THE STEADY DRIP IS WORSE THAN A DRENCHING RAIN."          
+[682] "A FLAT PACK TAKES LESS LUGGAGE SPACE."                    
+[683] "GREEN ICE FROSTED THE PUNCH BOWL."                        
+[684] "A STUFFED CHAIR SLIPPED FROM THE MOVING VAN."             
+[685] "THE STITCH WILL SERVE BUT NEEDS TO BE SHORTENED."         
+[686] "A THIN BOOK FITS IN THE SIDE POCKET."                     
+[687] "THE GLOSS ON TOP MADE IT UNFIT TO READ."                  
+[688] "THE HAIL PATTERED ON THE BURNT BROWN GRASS."              
+[689] "SEVEN SEALS WERE STAMPED ON GREAT SHEETS."                
+[690] "OUR TROOPS ARE SET TO STRIKE HEAVY BLOWS."                
+[691] "THE STORE WAS JAMMED BEFORE THE SALE COULD START."        
+[692] "IT WAS A BAD ERROR ON THE PART OF THE NEW JUDGE."         
+[693] "ONE STEP MORE AND THE BOARD WILL COLLAPSE."               
+[694] "TAKE THE MATCH AND STRIKE IT AGAINST YOUR SHOE."          
+[695] "THE POT BOILED BUT THE CONTENTS FAILED TO JELL."          
+[696] "THE BABY PUTS HIS RIGHT FOOT IN HIS MOUTH."               
+[697] "THE BOMBS LEFT MOST OF THE TOWN IN RUINS."                
+[698] "STOP AND STARE AT THE HARD WORKING MAN."                  
+[699] "THE STREETS ARE NARROW AND FULL OF SHARP TURNS."          
+[700] "THE PUP JERKED THE LEASH AS HE SAW A FELINE SHAPE."       
+[701] "OPEN YOUR BOOK TO THE FIRST PAGE."                        
+[702] "FISH EVADE THE NET AND SWIM OFF."                         
+[703] "DIP THE PAIL ONCE AND LET IT SETTLE."                     
+[704] "WILL YOU PLEASE ANSWER THAT PHONE."                       
+[705] "THE BIG RED APPLE FELL TO THE GROUND."                    
+[706] "THE CURTAIN ROSE AND THE SHOW WAS ON."                    
+[707] "THE YOUNG PRINCE BECAME HEIR TO THE THRONE."              
+[708] "HE SENT THE BOY ON A SHORT ERRAND."                       
+[709] "LEAVE NOW AND YOU WILL ARRIVE ON TIME."                   
+[710] "THE CORNER STORE WAS ROBBED LAST NIGHT."                  
+[711] "A GOLD RING WILL PLEASE MOST ANY GIRL."                   
+[712] "THE LONG JOURNEY HOME TOOK A YEAR."                       
+[713] "SHE SAW A CAT IN THE NEIGHBOR'S HOUSE."                   
+[714] "A PINK SHELL WAS FOUND ON THE SANDY BEACH."               
+[715] "SMALL CHILDREN CAME TO SEE HIM."                          
+[716] "THE GRASS AND BUSHES WERE WET WITH DEW."                  
+[717] "THE BLIND MAN COUNTED HIS OLD COINS."                     
+[718] "A SEVERE STORM TORE DOWN THE BARN."                       
+[719] "SHE CALLED HIS NAME MANY TIMES."                          
+[720] "WHEN YOU HEAR THE BELL, COME QUICKLY."                    </code></pre>
+</div>
+</div></div>
+</section>
+<section id="paquete-dplyr" class="slide level2">
+<h2>Paquete <code>dplyr</code></h2>
+<p>Implementa el sistema de tuberías (<em>pipes</em>) y espera datos en formato tidy</p>
+<blockquote>
+<p>pipes <code>x |&gt; f(y)</code> becomes <code>f(x,y)</code></p>
+</blockquote>
+<p>Las tuberías permiten generar menos objetos temporales</p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>mtcars <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>      mpg             cyl             disp             hp       
+ Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  
+ 1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  
+ Median :19.20   Median :6.000   Median :196.3   Median :123.0  
+ Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  
+ 3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  
+ Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  
+      drat             wt             qsec             vs        
+ Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  
+ 1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  
+ Median :3.695   Median :3.325   Median :17.71   Median :0.0000  
+ Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  
+ 3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  
+ Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  
+       am              gear            carb      
+ Min.   :0.0000   Min.   :3.000   Min.   :1.000  
+ 1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  
+ Median :0.0000   Median :4.000   Median :2.000  
+ Mean   :0.4062   Mean   :3.688   Mean   :2.812  
+ 3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  
+ Max.   :1.0000   Max.   :5.000   Max.   :8.000  </code></pre>
+</div>
+</div></div>
+</section>
+<section id="otro-tipo-de-tuberías" class="slide level2">
+<h2>Otro tipo de tuberías</h2>
+<p>También se puede usar el símbolo <code>%&gt;%</code> para definir las tuberías. Aunque funciona un poco diferente</p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>      mpg             cyl             disp             hp       
+ Min.   :10.40   Min.   :4.000   Min.   : 71.1   Min.   : 52.0  
+ 1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8   1st Qu.: 96.5  
+ Median :19.20   Median :6.000   Median :196.3   Median :123.0  
+ Mean   :20.09   Mean   :6.188   Mean   :230.7   Mean   :146.7  
+ 3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0   3rd Qu.:180.0  
+ Max.   :33.90   Max.   :8.000   Max.   :472.0   Max.   :335.0  
+      drat             wt             qsec             vs        
+ Min.   :2.760   Min.   :1.513   Min.   :14.50   Min.   :0.0000  
+ 1st Qu.:3.080   1st Qu.:2.581   1st Qu.:16.89   1st Qu.:0.0000  
+ Median :3.695   Median :3.325   Median :17.71   Median :0.0000  
+ Mean   :3.597   Mean   :3.217   Mean   :17.85   Mean   :0.4375  
+ 3rd Qu.:3.920   3rd Qu.:3.610   3rd Qu.:18.90   3rd Qu.:1.0000  
+ Max.   :4.930   Max.   :5.424   Max.   :22.90   Max.   :1.0000  
+       am              gear            carb      
+ Min.   :0.0000   Min.   :3.000   Min.   :1.000  
+ 1st Qu.:0.0000   1st Qu.:3.000   1st Qu.:2.000  
+ Median :0.0000   Median :4.000   Median :2.000  
+ Mean   :0.4062   Mean   :3.688   Mean   :2.812  
+ 3rd Qu.:1.0000   3rd Qu.:4.000   3rd Qu.:4.000  
+ Max.   :1.0000   Max.   :5.000   Max.   :8.000  </code></pre>
+</div>
+</div></div>
+</section>
+<section id="la-función-summarize-ayuda-a-resumir-datos" class="slide level2">
+<h2>La función <code>summarize</code> ayuda a resumir datos</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>mtcars <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(mpg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>       avg
+1 20.09062</code></pre>
+</div>
+</div></div>
+</section>
+<section id="algunas-funciones-resumen-datos-sin-usar-summarize" class="slide level2">
+<h2>Algunas funciones resumen datos sin usar <code>summarize()</code></h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>mtcars <span class="sc">|&gt;</span> <span class="fu">count</span>(cyl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>  cyl  n
+1   4 11
+2   6  7
+3   8 14</code></pre>
+</div>
+</div></div>
+</section>
+<section id="la-función-group_by-permite-definir-los-grupos-para-tenerlos-en-cuenta-a-la-hora-del-análisis" class="slide level2">
+<h2>La función <code>group_by</code> permite definir los grupos para tenerlos en cuenta a la hora del análisis</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>mtcars <span class="sc">|&gt;</span></span>
+<span id="cb37-2"><a></a>  <span class="fu">group_by</span>(cyl) <span class="sc">|&gt;</span></span>
+<span id="cb37-3"><a></a>  <span class="fu">summarize</span>(<span class="at">avg =</span> <span class="fu">mean</span>(mpg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+    cyl   avg
+  &lt;dbl&gt; &lt;dbl&gt;
+1     4  26.7
+2     6  19.7
+3     8  15.1</code></pre>
+</div>
+</div></div>
+</section>
+<section id="si-necesito-realizar-el-resumen-en-todas-las-columnas-también-es-posible" class="slide level2">
+<h2>Si necesito realizar el resumen en todas las columnas también es posible</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>mtcars <span class="sc">|&gt;</span> <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>       mpg    cyl     disp       hp     drat      wt     qsec     vs      am
+1 20.09062 6.1875 230.7219 146.6875 3.596563 3.21725 17.84875 0.4375 0.40625
+    gear   carb
+1 3.6875 2.8125</code></pre>
+</div>
+</div></div>
+</section>
+<section id="seleccionar-filas-es-ahora-mucho-más-sencillo-y-cómodo" class="slide level2">
+<h2>Seleccionar filas es ahora mucho más sencillo y cómodo</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>mtcars <span class="sc">|&gt;</span> <span class="fu">filter</span>(mpg <span class="sc">&gt;</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>                mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4      21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag  21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710     22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive 21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+Merc 240D      24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+Merc 230       22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+Fiat 128       32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic    30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Toyota Corolla 33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Toyota Corona  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+Fiat X1-9      27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+Volvo 142E     21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+</div>
+</div></div>
+</section>
+<section id="ordenar-los-tibbles-también-es-más-fácil" class="slide level2">
+<h2>Ordenar los <code>tibbles</code> también es más fácil</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>mtcars <span class="sc">|&gt;</span> <span class="fu">arrange</span>(mpg)</span>
+<span id="cb43-2"><a></a>mtcars <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(mpg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4</code></pre>
+</div>
+</div></div>
+</section>
+<section id="seleccionar-columnas-también-es-múcho-más-cómodo" class="slide level2">
+<h2>Seleccionar columnas también es múcho más cómodo</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>mtcars <span class="sc">|&gt;</span> <span class="fu">select</span>(mpg, wt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>                     mpg    wt
+Mazda RX4           21.0 2.620
+Mazda RX4 Wag       21.0 2.875
+Datsun 710          22.8 2.320
+Hornet 4 Drive      21.4 3.215
+Hornet Sportabout   18.7 3.440
+Valiant             18.1 3.460
+Duster 360          14.3 3.570
+Merc 240D           24.4 3.190
+Merc 230            22.8 3.150
+Merc 280            19.2 3.440
+Merc 280C           17.8 3.440
+Merc 450SE          16.4 4.070
+Merc 450SL          17.3 3.730
+Merc 450SLC         15.2 3.780
+Cadillac Fleetwood  10.4 5.250
+Lincoln Continental 10.4 5.424
+Chrysler Imperial   14.7 5.345
+Fiat 128            32.4 2.200
+Honda Civic         30.4 1.615
+Toyota Corolla      33.9 1.835
+Toyota Corona       21.5 2.465
+Dodge Challenger    15.5 3.520
+AMC Javelin         15.2 3.435
+Camaro Z28          13.3 3.840
+Pontiac Firebird    19.2 3.845
+Fiat X1-9           27.3 1.935
+Porsche 914-2       26.0 2.140
+Lotus Europa        30.4 1.513
+Ford Pantera L      15.8 3.170
+Ferrari Dino        19.7 2.770
+Maserati Bora       15.0 3.570
+Volvo 142E          21.4 2.780</code></pre>
+</div>
+</div></div>
+</section>
+<section id="se-pueden-modificar-o-generar-columnas-muy-fácilmente" class="slide level2">
+<h2>Se pueden modificar o generar columnas muy fácilmente</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>mtcars <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">gpm =</span> <span class="dv">1</span> <span class="sc">/</span> mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
+                           gpm
+Mazda RX4           0.04761905
+Mazda RX4 Wag       0.04761905
+Datsun 710          0.04385965
+Hornet 4 Drive      0.04672897
+Hornet Sportabout   0.05347594
+Valiant             0.05524862
+Duster 360          0.06993007
+Merc 240D           0.04098361
+Merc 230            0.04385965
+Merc 280            0.05208333
+Merc 280C           0.05617978
+Merc 450SE          0.06097561
+Merc 450SL          0.05780347
+Merc 450SLC         0.06578947
+Cadillac Fleetwood  0.09615385
+Lincoln Continental 0.09615385
+Chrysler Imperial   0.06802721
+Fiat 128            0.03086420
+Honda Civic         0.03289474
+Toyota Corolla      0.02949853
+Toyota Corona       0.04651163
+Dodge Challenger    0.06451613
+AMC Javelin         0.06578947
+Camaro Z28          0.07518797
+Pontiac Firebird    0.05208333
+Fiat X1-9           0.03663004
+Porsche 914-2       0.03846154
+Lotus Europa        0.03289474
+Ford Pantera L      0.06329114
+Ferrari Dino        0.05076142
+Maserati Bora       0.06666667
+Volvo 142E          0.04672897</code></pre>
+</div>
+</div></div>
+</section>
+<section id="te-has-equivocado-nombrando-una-columna-no-pasa-nada" class="slide level2">
+<h2>¿Te has equivocado nombrando una columna? No pasa nada…</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>mtcars <span class="sc">|&gt;</span> <span class="fu">rename</span>(<span class="at">miles_per_gallon =</span> mpg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>                    miles_per_gallon cyl  disp  hp drat    wt  qsec vs am gear
+Mazda RX4                       21.0   6 160.0 110 3.90 2.620 16.46  0  1    4
+Mazda RX4 Wag                   21.0   6 160.0 110 3.90 2.875 17.02  0  1    4
+Datsun 710                      22.8   4 108.0  93 3.85 2.320 18.61  1  1    4
+Hornet 4 Drive                  21.4   6 258.0 110 3.08 3.215 19.44  1  0    3
+Hornet Sportabout               18.7   8 360.0 175 3.15 3.440 17.02  0  0    3
+Valiant                         18.1   6 225.0 105 2.76 3.460 20.22  1  0    3
+Duster 360                      14.3   8 360.0 245 3.21 3.570 15.84  0  0    3
+Merc 240D                       24.4   4 146.7  62 3.69 3.190 20.00  1  0    4
+Merc 230                        22.8   4 140.8  95 3.92 3.150 22.90  1  0    4
+Merc 280                        19.2   6 167.6 123 3.92 3.440 18.30  1  0    4
+Merc 280C                       17.8   6 167.6 123 3.92 3.440 18.90  1  0    4
+Merc 450SE                      16.4   8 275.8 180 3.07 4.070 17.40  0  0    3
+Merc 450SL                      17.3   8 275.8 180 3.07 3.730 17.60  0  0    3
+Merc 450SLC                     15.2   8 275.8 180 3.07 3.780 18.00  0  0    3
+Cadillac Fleetwood              10.4   8 472.0 205 2.93 5.250 17.98  0  0    3
+Lincoln Continental             10.4   8 460.0 215 3.00 5.424 17.82  0  0    3
+Chrysler Imperial               14.7   8 440.0 230 3.23 5.345 17.42  0  0    3
+Fiat 128                        32.4   4  78.7  66 4.08 2.200 19.47  1  1    4
+Honda Civic                     30.4   4  75.7  52 4.93 1.615 18.52  1  1    4
+Toyota Corolla                  33.9   4  71.1  65 4.22 1.835 19.90  1  1    4
+Toyota Corona                   21.5   4 120.1  97 3.70 2.465 20.01  1  0    3
+Dodge Challenger                15.5   8 318.0 150 2.76 3.520 16.87  0  0    3
+AMC Javelin                     15.2   8 304.0 150 3.15 3.435 17.30  0  0    3
+Camaro Z28                      13.3   8 350.0 245 3.73 3.840 15.41  0  0    3
+Pontiac Firebird                19.2   8 400.0 175 3.08 3.845 17.05  0  0    3
+Fiat X1-9                       27.3   4  79.0  66 4.08 1.935 18.90  1  1    4
+Porsche 914-2                   26.0   4 120.3  91 4.43 2.140 16.70  0  1    5
+Lotus Europa                    30.4   4  95.1 113 3.77 1.513 16.90  1  1    5
+Ford Pantera L                  15.8   8 351.0 264 4.22 3.170 14.50  0  1    5
+Ferrari Dino                    19.7   6 145.0 175 3.62 2.770 15.50  0  1    5
+Maserati Bora                   15.0   8 301.0 335 3.54 3.570 14.60  0  1    5
+Volvo 142E                      21.4   4 121.0 109 4.11 2.780 18.60  1  1    4
+                    carb
+Mazda RX4              4
+Mazda RX4 Wag          4
+Datsun 710             1
+Hornet 4 Drive         1
+Hornet Sportabout      2
+Valiant                1
+Duster 360             4
+Merc 240D              2
+Merc 230               2
+Merc 280               4
+Merc 280C              4
+Merc 450SE             3
+Merc 450SL             3
+Merc 450SLC            3
+Cadillac Fleetwood     4
+Lincoln Continental    4
+Chrysler Imperial      4
+Fiat 128               1
+Honda Civic            2
+Toyota Corolla         1
+Toyota Corona          1
+Dodge Challenger       2
+AMC Javelin            2
+Camaro Z28             4
+Pontiac Firebird       2
+Fiat X1-9              1
+Porsche 914-2          2
+Lotus Europa           2
+Ford Pantera L         4
+Ferrari Dino           6
+Maserati Bora          8
+Volvo 142E             2</code></pre>
+</div>
+</div></div>
+</section>
+<section id="manipular-los-nombres-de-las-filas-también-es-mucho-más-sencillo" class="slide level2">
+<h2>Manipular los nombres de las filas también es mucho más sencillo</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>a <span class="ot">&lt;-</span> <span class="fu">rownames_to_column</span>(mtcars, <span class="at">var =</span> <span class="st">"C"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+
+</div></div>
+</section>
+<section id="o-al-revés" class="slide level2">
+<h2>O al revés…</h2>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a><span class="fu">column_to_rownames</span>(a, <span class="at">var =</span> <span class="st">"C"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+</div>
+</div></div>
+</section>
+<section id="el-paquete-ggplot" class="slide level2">
+<h2>El paquete <code>ggplot</code></h2>
+<p>No os voy a dar más tralla, pero es bueno que sepáis que existe y que sepáis que la lógica de su funcionamiento es algo diferente.</p>
+<p>Se basa en la “gramática de gráficos” y los datos suelen estar en un formato específico.</p>
+<p>Sólo como ejemplo…</p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a>mpg </span>
+<span id="cb54-2"><a></a></span>
+<span id="cb54-3"><a></a><span class="fu">ggplot</span>(mpg, </span>
+<span id="cb54-4"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">colour =</span> class))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><a href="ADR-4-Tidyverse_files/figure-revealjs/unnamed-chunk-29-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="ADR-4-Tidyverse_files/figure-revealjs/unnamed-chunk-29-1.png" width="960"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a><span class="fu">ggplot</span>(mpg, </span>
+<span id="cb55-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> displ, <span class="at">y =</span> hwy, <span class="at">colour =</span> class)) <span class="sc">+</span> </span>
+<span id="cb55-3"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><a href="ADR-4-Tidyverse_files/figure-revealjs/unnamed-chunk-29-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="ADR-4-Tidyverse_files/figure-revealjs/unnamed-chunk-29-2.png" width="960"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 234 × 11
+   manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
+   &lt;chr&gt;        &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+ 1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…
+ 2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…
+ 3 audi         a4           2    2008     4 manu… f        20    31 p     comp…
+ 4 audi         a4           2    2008     4 auto… f        21    30 p     comp…
+ 5 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…
+ 6 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…
+ 7 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…
+ 8 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…
+ 9 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…
+10 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…
+# ℹ 224 more rows</code></pre>
+</div>
+</div></div>
+</section>
+<section id="cheatsheets" class="slide level2">
+<h2>Cheatsheets</h2>
+<p>Las “chuletas” son geniales para iniciarse en el manejo de ciertos paquetes</p>
+<p><a href="https://posit.co/resources/cheatsheets/">https://posit.co/resources/cheatsheets/</a></p>
+</section>
+<section id="las-vignettes-también" class="slide level2">
+<h2>Las Vignettes también…</h2>
+<p><a href="https://dplyr.tidyverse.org/">https://dplyr.tidyverse.org/</a></p>
+
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="img/R-logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://dnietolugilde.com/ADR-MUGAB-UCO">Análisis de datos con R</a></p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/dinilu\.github\.io\/ADR-MUGAB-UCO\/");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+    (function() {
+      let previousOnload = window.onload;
+      window.onload = () => {
+        if (previousOnload) {
+          previousOnload();
+        }
+        lightboxQuarto.on('slide_before_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          const href = trigger.getAttribute('href');
+          if (href !== null) {
+            const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+            if (imgEl !== null) {
+              const srcAttr = imgEl.getAttribute("src");
+              if (srcAttr && srcAttr.startsWith("data:")) {
+                slideConfig.href = srcAttr;
+              }
+            }
+          } 
+        });
+      
+        lightboxQuarto.on('slide_after_load', (data) => {
+          const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(slideNode);
+          }
+        });
+      
+      };
+      
+    })();
+              </script>
+    
+
+</body></html>
