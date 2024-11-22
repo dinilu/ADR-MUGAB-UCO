@@ -1,5 +1,5 @@
 ---
-title: 'Análisis espaciales y multivariantes con R (AEMeR) aplicados a estudios de biodiversidad'
+title: 'Análisis de datos con R'
 subtitle: 'Homeworks de graficado en R'
 author: 'Diego Nieto Lugilde'
 format: html

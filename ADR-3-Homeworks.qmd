@@ -1,5 +1,5 @@
 ---
-title: 'Análisis espaciales y multivariantes con R (AEMeR) aplicados a estudios de biodiversidad'
+title: 'Análisis de datos con R'
 subtitle: 'Homeworks de estadística descriptiva y contraste de hipótesis en R'
 author: 'Diego Nieto Lugilde'
 format: html
@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE,
 ```
 
 ::: {.callout-note collapse=false}
-Los ejercicios tendréis que entregarlos para la evaluación del curso. Para ello, crea un script de R con RStudio. Ponle el nombre `homeworks_t2.R`. Dicho script deberá estar organizado con comentarios en castellano (poniendo una almohadilla `#` delante) y justo detrás el código necesario para realizar el ejercicio (ver ejemplo debajo). Además, si el ejercicio pide reflexionar sobre el resultado use los comentarios (con la `#`) para indicar sus reflexiones debajo del código. Una vez los tengáis completos deberéis subirlos en la actividad correspondiente de Moodle.
+Los ejercicios tendréis que entregarlos para la evaluación del curso. Para ello, crea un script de R con RStudio. Ponle el nombre `homeworks_t3.R`. Dicho script deberá estar organizado con comentarios en castellano (poniendo una almohadilla `#` delante) y justo detrás el código necesario para realizar el ejercicio (ver ejemplo debajo). Además, si el ejercicio pide reflexionar sobre el resultado use los comentarios (con la `#`) para indicar sus reflexiones debajo del código. Una vez los tengáis completos deberéis subirlos en la actividad correspondiente de Moodle.
 
 ```{r}
 #| echo: true
