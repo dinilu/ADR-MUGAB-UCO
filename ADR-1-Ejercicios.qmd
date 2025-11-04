@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE,
 ```
 
 ::: {.callout-note collapse=false}
-Los ejercicios tendréis que entregarlos para la evaluación del curso. Para ello, crea un script de R con RStudio. Ponle el nombre `ejercicios_t1.R`. Dicho script deberá estar organizado con comentarios en castellano (poniendo una almohadilla `#` delante) y justo detrás el código necesario para realizar el ejercicio (ver ejemplo debajo). Además, si el ejercicio pide reflexionar sobre el resultado use los comentarios (con la `#`) para indicar sus reflexiones debajo del código. Una vez los tengáis completos deberéis subirlos en la actividad correspondiente de Moodle.
+Estos ejercicios NO tendréis que entregarlos para la evaluación del curso. No obstante, es bueno que los guardes para tu registro personal. Para ello, crea un script de R con RStudio. Ponle el nombre `ejercicios_t1.R`. Dicho script deberá estar organizado con comentarios en castellano (poniendo una almohadilla `#` delante) y justo detrás el código necesario para realizar el ejercicio (ver ejemplo debajo). Además, si el ejercicio pide reflexionar sobre el resultado usa los comentarios (con la `#`) para indicar tus reflexiones/conclusiones debajo del código.
 
 ```{r}
 #| echo: true
@@ -67,14 +67,13 @@ seq(to = 8, by = 1, from = 4)
 > Otros operadores comunes son `+`, `-`, `*`, `/`, `^`, entre otros. Prueba todos ellos y explica debajo de cada línea que hace dicho operador.
 
 
-**4. Usa `seq()` y `c()` para crear un vector llamado `a` que contenga los enteros del 1 al 10, seguido de los enteros pares del 20 al 30, seguidos de los múltiplos de 5 del 150 al 100 (cuenta regresiva). Contesta las siguientes preguntas: ¿Cuál es la longitud del vector `a`? ¿Cuál es el decimocuarto elemento del vector "a"?**
+**4. Usa `seq()` y `c()` para crear un vector llamado `a` que contenga los números enteros del 1 al 10, seguido de los números enteros pares del 20 al 30, seguidos de los múltiplos de 5 del 150 al 100 (cuenta regresiva). Contesta las siguientes preguntas: ¿Cuál es la longitud del vector `a`? ¿Cuál es el decimocuarto elemento del vector "a"?**
 
 ::: {.callout-tip collapse="true"}
 ## Pista
 
 Aquí deberás usar primero la función `seq()` para generar las secuencias que necesitas y luego encadenarlas con la función `c()`. Además, necesitarás hacer uso de los corchetes para extraer la información del vector en las posiciones que te interese. Recuerda que el valor que se especifica dentro del corchete es la posición, o posiciones, que se desea obtener.
 :::
-
 
 **5. Ahora genera en una sola línea de código un vector con los valores de `a` en las posiciones 2º, 23º y 10º, en ese mismo orden.**
 
