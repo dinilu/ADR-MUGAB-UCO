@@ -69,7 +69,7 @@ La función `plot (x, y,...)` dibuja los datos de `x` contra los datos de `y`. E
 Recuerda, además, que la función `abline (a, b)` dibuja una línea en la gráfica ya existente con la pendiente especificada `b` e intercepto `a`. Para calcular los valores de la pendiente, puedes usar la función `lm(x ~ y)`, que genera un modelo lineal entre las dos variables.
 :::
 
-**6. Genera un nuevo conjunto de datos `w` correlacionado con `x`, usando `w <- 0.5 * x * rnorm(200)`. Añade este nuevo conjunto de datos al gráfico anterior pero cambiando el color para que se distingan bien los datos de `y` y `w`. Además, añade otra recta de regresión entre `w` y `x`.**
+**6. Genera un nuevo conjunto de datos `w` correlacionado con `x`, usando `w <- 0.5 * x + rnorm(200)`. Añade este nuevo conjunto de datos al gráfico anterior pero cambiando el color para que se distingan bien los datos de `y` y `w`. Además, añade otra recta de regresión entre `w` y `x`.**
 
 ::: {.callout-tip collapse="true"}
 ## Pista
